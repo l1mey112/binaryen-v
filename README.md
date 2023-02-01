@@ -1,35 +1,35 @@
 # binaryen-v
 
-A V wrapper for binaryen, an optimizer and compiler/toolchain library for WebAssembly. [Read more about the library here.](https://github.com/WebAssembly/binaryen)
+A 1 to 1 V wrapper for binaryen, an optimizer and compiler/toolchain library for WebAssembly. [Read more about the library here.](https://github.com/WebAssembly/binaryen)
 
-Translated with [`c2v`](https://github.com/vlang/c2v), then modified by me.
+Translated with [`c2v`](https://github.com/vlang/c2v), then heavily modified. Used in the upcoming WebAssembly backend for V, developed by me!
 
 # example
 
 A V example mirroring the provided C example, [`c-api-hello-world.c`.](https://github.com/WebAssembly/binaryen/blob/main/test/example/c-api-hello-world.c)
 
 ```sh
-v -translated run main.v # requires `-translated`
+v run main.v
 ```
 
 ```v
-import binaryen
+import binaryen as wa
 
 fn main() {
-    mod := binaryen.modulecreate()
+	mod := wa.modulecreate()
 
-    ii := [binaryen.typeint32(), binaryen.typeint32()]!
-    params := binaryen.typecreate(ii, 2)
-    results := binaryen.typeint32()
+	ii := [wa.typeint32(), wa.typeint32()]
+	params := wa.typecreate(ii.data, ii.len)
+	results := wa.typeint32()
 
-    x := binaryen.localget(mod, 0, binaryen.typeint32())
-    y := binaryen.localget(mod, 1, binaryen.typeint32())
+	x := wa.localget(mod, 0, wa.typeint32())
+	y := wa.localget(mod, 1, wa.typeint32())
 
-    add := binaryen.binary(mod, binaryen.addint32(), x, y)
+	add := wa.binary(mod, wa.addint32(), x, y)
 
-    adder := binaryen.addfunction(mod, c"adder", params, results, unsafe { nil }, 0, add)
+	/* adder := */ wa.addfunction(mod, c'adder', params, results, unsafe { nil }, 0, add)
 
-    binaryen.moduleprint(mod)
-    binaryen.moduledispose(mod)
+	wa.moduleprint(mod)
+	wa.moduledispose(mod)
 }
 ```

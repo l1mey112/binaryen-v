@@ -3,3479 +3,3490 @@ module binaryen
 
 #flag -lbinaryen
 
-type BinaryenIndex = u32
-type BinaryenType = &u32
+type Index = u32
+type Type = u64
 [c:'BinaryenTypeNone']
-pub fn typenone() BinaryenType
+pub fn typenone() Type
 
 [c:'BinaryenTypeInt32']
-pub fn typeint32() BinaryenType
+pub fn typeint32() Type
 
 [c:'BinaryenTypeInt64']
-pub fn typeint64() BinaryenType
+pub fn typeint64() Type
 
 [c:'BinaryenTypeFloat32']
-pub fn typefloat32() BinaryenType
+pub fn typefloat32() Type
 
 [c:'BinaryenTypeFloat64']
-pub fn typefloat64() BinaryenType
+pub fn typefloat64() Type
 
 [c:'BinaryenTypeVec128']
-pub fn typevec128() BinaryenType
+pub fn typevec128() Type
 
 [c:'BinaryenTypeFuncref']
-pub fn typefuncref() BinaryenType
+pub fn typefuncref() Type
 
 [c:'BinaryenTypeExternref']
-pub fn typeexternref() BinaryenType
+pub fn typeexternref() Type
 
 [c:'BinaryenTypeAnyref']
-pub fn typeanyref() BinaryenType
+pub fn typeanyref() Type
 
 [c:'BinaryenTypeEqref']
-pub fn typeeqref() BinaryenType
+pub fn typeeqref() Type
 
 [c:'BinaryenTypeI31ref']
-pub fn typei31ref() BinaryenType
+pub fn typei31ref() Type
 
 [c:'BinaryenTypeDataref']
-pub fn typedataref() BinaryenType
+pub fn typedataref() Type
 
 [c:'BinaryenTypeArrayref']
-pub fn typearrayref() BinaryenType
+pub fn typearrayref() Type
 
 [c:'BinaryenTypeStringref']
-pub fn typestringref() BinaryenType
+pub fn typestringref() Type
 
 [c:'BinaryenTypeStringviewWTF8']
-pub fn typestringviewwtf8() BinaryenType
+pub fn typestringviewwtf8() Type
 
 [c:'BinaryenTypeStringviewWTF16']
-pub fn typestringviewwtf16() BinaryenType
+pub fn typestringviewwtf16() Type
 
 [c:'BinaryenTypeStringviewIter']
-pub fn typestringviewiter() BinaryenType
+pub fn typestringviewiter() Type
 
 [c:'BinaryenTypeNullref']
-pub fn typenullref() BinaryenType
+pub fn typenullref() Type
 
 [c:'BinaryenTypeNullExternref']
-pub fn typenullexternref() BinaryenType
+pub fn typenullexternref() Type
 
 [c:'BinaryenTypeNullFuncref']
-pub fn typenullfuncref() BinaryenType
+pub fn typenullfuncref() Type
 
 [c:'BinaryenTypeUnreachable']
-pub fn typeunreachable() BinaryenType
+pub fn typeunreachable() Type
 
 [c:'BinaryenTypeAuto']
-pub fn typeauto() BinaryenType
+pub fn typeauto() Type
 
 [c:'BinaryenTypeCreate']
-pub fn typecreate(valuetypes &BinaryenType, numtypes BinaryenIndex) BinaryenType
+pub fn typecreate(valuetypes &Type, numtypes Index) Type
 
 [c:'BinaryenTypeArity']
-pub fn typearity(t BinaryenType) u32
+pub fn typearity(t Type) u32
 
 [c:'BinaryenTypeExpand']
-pub fn typeexpand(t BinaryenType, buf &BinaryenType) 
+pub fn typeexpand(t Type, buf &Type) 
 
+// 
+// DEPRECATED
+// 
 /* [c:'BinaryenNone']
-pub fn none() BinaryenType
+pub fn none() Type
 
 [c:'BinaryenInt32']
-pub fn int32() BinaryenType
+pub fn int32() Type
 
 [c:'BinaryenInt64']
-pub fn int64() BinaryenType
+pub fn int64() Type
 
 [c:'BinaryenFloat32']
-pub fn float32() BinaryenType
+pub fn float32() Type
 
 [c:'BinaryenFloat64']
-pub fn float64() BinaryenType
+pub fn float64() Type
 
 [c:'BinaryenUndefined']
-pub fn undefined() BinaryenType */
+pub fn undefined() Type */
 
-type BinaryenPackedType = u32
+type PackedType = u32
 [c:'BinaryenPackedTypeNotPacked']
-pub fn packedtypenotpacked() BinaryenPackedType
+pub fn packedtypenotpacked() PackedType
 
 [c:'BinaryenPackedTypeInt8']
-pub fn packedtypeint8() BinaryenPackedType
+pub fn packedtypeint8() PackedType
 
 [c:'BinaryenPackedTypeInt16']
-pub fn packedtypeint16() BinaryenPackedType
+pub fn packedtypeint16() PackedType
 
-type BinaryenHeapType = &u32
+type HeapType = &u32
 [c:'BinaryenHeapTypeExt']
-pub fn heaptypeext() BinaryenHeapType
+pub fn heaptypeext() HeapType
 
 [c:'BinaryenHeapTypeFunc']
-pub fn heaptypefunc() BinaryenHeapType
+pub fn heaptypefunc() HeapType
 
 [c:'BinaryenHeapTypeAny']
-pub fn heaptypeany() BinaryenHeapType
+pub fn heaptypeany() HeapType
 
 [c:'BinaryenHeapTypeEq']
-pub fn heaptypeeq() BinaryenHeapType
+pub fn heaptypeeq() HeapType
 
 [c:'BinaryenHeapTypeI31']
-pub fn heaptypei31() BinaryenHeapType
+pub fn heaptypei31() HeapType
 
 [c:'BinaryenHeapTypeData']
-pub fn heaptypedata() BinaryenHeapType
+pub fn heaptypedata() HeapType
 
 [c:'BinaryenHeapTypeArray']
-pub fn heaptypearray() BinaryenHeapType
+pub fn heaptypearray() HeapType
 
 [c:'BinaryenHeapTypeString']
-pub fn heaptypestring() BinaryenHeapType
+pub fn heaptypestring() HeapType
 
 [c:'BinaryenHeapTypeStringviewWTF8']
-pub fn heaptypestringviewwtf8() BinaryenHeapType
+pub fn heaptypestringviewwtf8() HeapType
 
 [c:'BinaryenHeapTypeStringviewWTF16']
-pub fn heaptypestringviewwtf16() BinaryenHeapType
+pub fn heaptypestringviewwtf16() HeapType
 
 [c:'BinaryenHeapTypeStringviewIter']
-pub fn heaptypestringviewiter() BinaryenHeapType
+pub fn heaptypestringviewiter() HeapType
 
 [c:'BinaryenHeapTypeNone']
-pub fn heaptypenone() BinaryenHeapType
+pub fn heaptypenone() HeapType
 
 [c:'BinaryenHeapTypeNoext']
-pub fn heaptypenoext() BinaryenHeapType
+pub fn heaptypenoext() HeapType
 
 [c:'BinaryenHeapTypeNofunc']
-pub fn heaptypenofunc() BinaryenHeapType
+pub fn heaptypenofunc() HeapType
 
 [c:'BinaryenHeapTypeIsBasic']
-pub fn heaptypeisbasic(heaptype BinaryenHeapType) bool
+pub fn heaptypeisbasic(heaptype HeapType) bool
 
 [c:'BinaryenHeapTypeIsSignature']
-pub fn heaptypeissignature(heaptype BinaryenHeapType) bool
+pub fn heaptypeissignature(heaptype HeapType) bool
 
 [c:'BinaryenHeapTypeIsStruct']
-pub fn heaptypeisstruct(heaptype BinaryenHeapType) bool
+pub fn heaptypeisstruct(heaptype HeapType) bool
 
 [c:'BinaryenHeapTypeIsArray']
-pub fn heaptypeisarray(heaptype BinaryenHeapType) bool
+pub fn heaptypeisarray(heaptype HeapType) bool
 
 [c:'BinaryenHeapTypeIsBottom']
-pub fn heaptypeisbottom(heaptype BinaryenHeapType) bool
+pub fn heaptypeisbottom(heaptype HeapType) bool
 
 [c:'BinaryenHeapTypeGetBottom']
-pub fn heaptypegetbottom(heaptype BinaryenHeapType) BinaryenHeapType
+pub fn heaptypegetbottom(heaptype HeapType) HeapType
 
 [c:'BinaryenHeapTypeIsSubType']
-pub fn heaptypeissubtype(left BinaryenHeapType, right BinaryenHeapType) bool
+pub fn heaptypeissubtype(left HeapType, right HeapType) bool
 
 [c:'BinaryenStructTypeGetNumFields']
-pub fn structtypegetnumfields(heaptype BinaryenHeapType) BinaryenIndex
+pub fn structtypegetnumfields(heaptype HeapType) Index
 
 [c:'BinaryenStructTypeGetFieldType']
-pub fn structtypegetfieldtype(heaptype BinaryenHeapType, index BinaryenIndex) BinaryenType
+pub fn structtypegetfieldtype(heaptype HeapType, index Index) Type
 
 [c:'BinaryenStructTypeGetFieldPackedType']
-pub fn structtypegetfieldpackedtype(heaptype BinaryenHeapType, index BinaryenIndex) BinaryenPackedType
+pub fn structtypegetfieldpackedtype(heaptype HeapType, index Index) PackedType
 
 [c:'BinaryenStructTypeIsFieldMutable']
-pub fn structtypeisfieldmutable(heaptype BinaryenHeapType, index BinaryenIndex) bool
+pub fn structtypeisfieldmutable(heaptype HeapType, index Index) bool
 
 [c:'BinaryenArrayTypeGetElementType']
-pub fn arraytypegetelementtype(heaptype BinaryenHeapType) BinaryenType
+pub fn arraytypegetelementtype(heaptype HeapType) Type
 
 [c:'BinaryenArrayTypeGetElementPackedType']
-pub fn arraytypegetelementpackedtype(heaptype BinaryenHeapType) BinaryenPackedType
+pub fn arraytypegetelementpackedtype(heaptype HeapType) PackedType
 
 [c:'BinaryenArrayTypeIsElementMutable']
-pub fn arraytypeiselementmutable(heaptype BinaryenHeapType) bool
+pub fn arraytypeiselementmutable(heaptype HeapType) bool
 
 [c:'BinaryenSignatureTypeGetParams']
-pub fn signaturetypegetparams(heaptype BinaryenHeapType) BinaryenType
+pub fn signaturetypegetparams(heaptype HeapType) Type
 
 [c:'BinaryenSignatureTypeGetResults']
-pub fn signaturetypegetresults(heaptype BinaryenHeapType) BinaryenType
+pub fn signaturetypegetresults(heaptype HeapType) Type
 
 [c:'BinaryenTypeGetHeapType']
-pub fn typegetheaptype(type_ BinaryenType) BinaryenHeapType
+pub fn typegetheaptype(type_ Type) HeapType
 
 [c:'BinaryenTypeIsNullable']
-pub fn typeisnullable(type_ BinaryenType) bool
+pub fn typeisnullable(type_ Type) bool
 
 [c:'BinaryenTypeFromHeapType']
-pub fn typefromheaptype(heaptype BinaryenHeapType, nullable bool) BinaryenType
+pub fn typefromheaptype(heaptype HeapType, nullable bool) Type
 
-type BinaryenTypeSystem = u32
+type TypeSystem = u32
 [c:'BinaryenTypeSystemEquirecursive']
-pub fn typesystemequirecursive() BinaryenTypeSystem
+pub fn typesystemequirecursive() TypeSystem
 
 [c:'BinaryenTypeSystemNominal']
-pub fn typesystemnominal() BinaryenTypeSystem
+pub fn typesystemnominal() TypeSystem
 
 [c:'BinaryenTypeSystemIsorecursive']
-pub fn typesystemisorecursive() BinaryenTypeSystem
+pub fn typesystemisorecursive() TypeSystem
 
 [c:'BinaryenGetTypeSystem']
-pub fn gettypesystem() BinaryenTypeSystem
+pub fn gettypesystem() TypeSystem
 
 [c:'BinaryenSetTypeSystem']
-pub fn settypesystem(typesystem BinaryenTypeSystem) 
+pub fn settypesystem(typesystem TypeSystem) 
 
-type BinaryenExpressionId = u32
+type ExpressionId = u32
 [c:'BinaryenInvalidId']
-pub fn invalidid() BinaryenExpressionId
+pub fn invalidid() ExpressionId
 
-type BinaryenExternalKind = u32
+type ExternalKind = u32
 [c:'BinaryenExternalFunction']
-pub fn externalfunction() BinaryenExternalKind
+pub fn externalfunction() ExternalKind
 
 [c:'BinaryenExternalTable']
-pub fn externaltable() BinaryenExternalKind
+pub fn externaltable() ExternalKind
 
 [c:'BinaryenExternalMemory']
-pub fn externalmemory() BinaryenExternalKind
+pub fn externalmemory() ExternalKind
 
 [c:'BinaryenExternalGlobal']
-pub fn externalglobal() BinaryenExternalKind
+pub fn externalglobal() ExternalKind
 
 [c:'BinaryenExternalTag']
-pub fn externaltag() BinaryenExternalKind
+pub fn externaltag() ExternalKind
 
-type BinaryenFeatures = u32
+type Features = u32
 [c:'BinaryenFeatureMVP']
-pub fn featuremvp() BinaryenFeatures
+pub fn featuremvp() Features
 
 [c:'BinaryenFeatureAtomics']
-pub fn featureatomics() BinaryenFeatures
+pub fn featureatomics() Features
 
 [c:'BinaryenFeatureBulkMemory']
-pub fn featurebulkmemory() BinaryenFeatures
+pub fn featurebulkmemory() Features
 
 [c:'BinaryenFeatureMutableGlobals']
-pub fn featuremutableglobals() BinaryenFeatures
+pub fn featuremutableglobals() Features
 
 [c:'BinaryenFeatureNontrappingFPToInt']
-pub fn featurenontrappingfptoint() BinaryenFeatures
+pub fn featurenontrappingfptoint() Features
 
 [c:'BinaryenFeatureSignExt']
-pub fn featuresignext() BinaryenFeatures
+pub fn featuresignext() Features
 
 [c:'BinaryenFeatureSIMD128']
-pub fn featuresimd128() BinaryenFeatures
+pub fn featuresimd128() Features
 
 [c:'BinaryenFeatureExceptionHandling']
-pub fn featureexceptionhandling() BinaryenFeatures
+pub fn featureexceptionhandling() Features
 
 [c:'BinaryenFeatureTailCall']
-pub fn featuretailcall() BinaryenFeatures
+pub fn featuretailcall() Features
 
 [c:'BinaryenFeatureReferenceTypes']
-pub fn featurereferencetypes() BinaryenFeatures
+pub fn featurereferencetypes() Features
 
 [c:'BinaryenFeatureMultivalue']
-pub fn featuremultivalue() BinaryenFeatures
+pub fn featuremultivalue() Features
 
 [c:'BinaryenFeatureGC']
-pub fn featuregc() BinaryenFeatures
+pub fn featuregc() Features
 
 [c:'BinaryenFeatureMemory64']
-pub fn featurememory64() BinaryenFeatures
+pub fn featurememory64() Features
 
 [c:'BinaryenFeatureRelaxedSIMD']
-pub fn featurerelaxedsimd() BinaryenFeatures
+pub fn featurerelaxedsimd() Features
 
 [c:'BinaryenFeatureExtendedConst']
-pub fn featureextendedconst() BinaryenFeatures
+pub fn featureextendedconst() Features
 
 [c:'BinaryenFeatureStrings']
-pub fn featurestrings() BinaryenFeatures
+pub fn featurestrings() Features
 
 [c:'BinaryenFeatureMultiMemories']
-pub fn featuremultimemories() BinaryenFeatures
+pub fn featuremultimemories() Features
 
 [c:'BinaryenFeatureAll']
-pub fn featureall() BinaryenFeatures
+pub fn featureall() Features
 
-type BinaryenModuleRef = voidptr
+type Module = voidptr
 [c:'BinaryenModuleCreate']
-pub fn modulecreate() BinaryenModuleRef
+pub fn modulecreate() Module
 
 [c:'BinaryenModuleDispose']
-pub fn moduledispose(module_ BinaryenModuleRef) 
+pub fn moduledispose(module_ Module) 
 
-struct BinaryenLiteral { 
+union LiteralContainer {
+	i32_ int
+	i64_ i64
+	f32_ f32
+	f64_ f64
+	v128 [16]u8
+	func &char
+}
+struct Literal { 
 	type_ &u32
+	lit LiteralContainer
 }
 [c:'BinaryenLiteralInt32']
-pub fn literalint32(x int) BinaryenLiteral
+pub fn literalint32(x int) Literal
 
 [c:'BinaryenLiteralInt64']
-pub fn literalint64(x i64) BinaryenLiteral
+pub fn literalint64(x i64) Literal
 
 [c:'BinaryenLiteralFloat32']
-pub fn literalfloat32(x f32) BinaryenLiteral
+pub fn literalfloat32(x f32) Literal
 
 [c:'BinaryenLiteralFloat64']
-pub fn literalfloat64(x f64) BinaryenLiteral
+pub fn literalfloat64(x f64) Literal
 
 [c:'BinaryenLiteralVec128']
-pub fn literalvec128(x &u8) BinaryenLiteral
+pub fn literalvec128(x &u8) Literal
 
 [c:'BinaryenLiteralFloat32Bits']
-pub fn literalfloat32bits(x int) BinaryenLiteral
+pub fn literalfloat32bits(x int) Literal
 
 [c:'BinaryenLiteralFloat64Bits']
-pub fn literalfloat64bits(x i64) BinaryenLiteral
+pub fn literalfloat64bits(x i64) Literal
 
-type BinaryenOp = int
+type Op = int
 [c:'BinaryenClzInt32']
-pub fn clzint32() BinaryenOp
+pub fn clzint32() Op
 
 [c:'BinaryenCtzInt32']
-pub fn ctzint32() BinaryenOp
+pub fn ctzint32() Op
 
 [c:'BinaryenPopcntInt32']
-pub fn popcntint32() BinaryenOp
+pub fn popcntint32() Op
 
 [c:'BinaryenNegFloat32']
-pub fn negfloat32() BinaryenOp
+pub fn negfloat32() Op
 
 [c:'BinaryenAbsFloat32']
-pub fn absfloat32() BinaryenOp
+pub fn absfloat32() Op
 
 [c:'BinaryenCeilFloat32']
-pub fn ceilfloat32() BinaryenOp
+pub fn ceilfloat32() Op
 
 [c:'BinaryenFloorFloat32']
-pub fn floorfloat32() BinaryenOp
+pub fn floorfloat32() Op
 
 [c:'BinaryenTruncFloat32']
-pub fn truncfloat32() BinaryenOp
+pub fn truncfloat32() Op
 
 [c:'BinaryenNearestFloat32']
-pub fn nearestfloat32() BinaryenOp
+pub fn nearestfloat32() Op
 
 [c:'BinaryenSqrtFloat32']
-pub fn sqrtfloat32() BinaryenOp
+pub fn sqrtfloat32() Op
 
 [c:'BinaryenEqZInt32']
-pub fn eqzint32() BinaryenOp
+pub fn eqzint32() Op
 
 [c:'BinaryenClzInt64']
-pub fn clzint64() BinaryenOp
+pub fn clzint64() Op
 
 [c:'BinaryenCtzInt64']
-pub fn ctzint64() BinaryenOp
+pub fn ctzint64() Op
 
 [c:'BinaryenPopcntInt64']
-pub fn popcntint64() BinaryenOp
+pub fn popcntint64() Op
 
 [c:'BinaryenNegFloat64']
-pub fn negfloat64() BinaryenOp
+pub fn negfloat64() Op
 
 [c:'BinaryenAbsFloat64']
-pub fn absfloat64() BinaryenOp
+pub fn absfloat64() Op
 
 [c:'BinaryenCeilFloat64']
-pub fn ceilfloat64() BinaryenOp
+pub fn ceilfloat64() Op
 
 [c:'BinaryenFloorFloat64']
-pub fn floorfloat64() BinaryenOp
+pub fn floorfloat64() Op
 
 [c:'BinaryenTruncFloat64']
-pub fn truncfloat64() BinaryenOp
+pub fn truncfloat64() Op
 
 [c:'BinaryenNearestFloat64']
-pub fn nearestfloat64() BinaryenOp
+pub fn nearestfloat64() Op
 
 [c:'BinaryenSqrtFloat64']
-pub fn sqrtfloat64() BinaryenOp
+pub fn sqrtfloat64() Op
 
 [c:'BinaryenEqZInt64']
-pub fn eqzint64() BinaryenOp
+pub fn eqzint64() Op
 
 [c:'BinaryenExtendSInt32']
-pub fn extendsint32() BinaryenOp
+pub fn extendsint32() Op
 
 [c:'BinaryenExtendUInt32']
-pub fn extenduint32() BinaryenOp
+pub fn extenduint32() Op
 
 [c:'BinaryenWrapInt64']
-pub fn wrapint64() BinaryenOp
+pub fn wrapint64() Op
 
 [c:'BinaryenTruncSFloat32ToInt32']
-pub fn truncsfloat32toint32() BinaryenOp
+pub fn truncsfloat32toint32() Op
 
 [c:'BinaryenTruncSFloat32ToInt64']
-pub fn truncsfloat32toint64() BinaryenOp
+pub fn truncsfloat32toint64() Op
 
 [c:'BinaryenTruncUFloat32ToInt32']
-pub fn truncufloat32toint32() BinaryenOp
+pub fn truncufloat32toint32() Op
 
 [c:'BinaryenTruncUFloat32ToInt64']
-pub fn truncufloat32toint64() BinaryenOp
+pub fn truncufloat32toint64() Op
 
 [c:'BinaryenTruncSFloat64ToInt32']
-pub fn truncsfloat64toint32() BinaryenOp
+pub fn truncsfloat64toint32() Op
 
 [c:'BinaryenTruncSFloat64ToInt64']
-pub fn truncsfloat64toint64() BinaryenOp
+pub fn truncsfloat64toint64() Op
 
 [c:'BinaryenTruncUFloat64ToInt32']
-pub fn truncufloat64toint32() BinaryenOp
+pub fn truncufloat64toint32() Op
 
 [c:'BinaryenTruncUFloat64ToInt64']
-pub fn truncufloat64toint64() BinaryenOp
+pub fn truncufloat64toint64() Op
 
 [c:'BinaryenReinterpretFloat32']
-pub fn reinterpretfloat32() BinaryenOp
+pub fn reinterpretfloat32() Op
 
 [c:'BinaryenReinterpretFloat64']
-pub fn reinterpretfloat64() BinaryenOp
+pub fn reinterpretfloat64() Op
 
 [c:'BinaryenConvertSInt32ToFloat32']
-pub fn convertsint32tofloat32() BinaryenOp
+pub fn convertsint32tofloat32() Op
 
 [c:'BinaryenConvertSInt32ToFloat64']
-pub fn convertsint32tofloat64() BinaryenOp
+pub fn convertsint32tofloat64() Op
 
 [c:'BinaryenConvertUInt32ToFloat32']
-pub fn convertuint32tofloat32() BinaryenOp
+pub fn convertuint32tofloat32() Op
 
 [c:'BinaryenConvertUInt32ToFloat64']
-pub fn convertuint32tofloat64() BinaryenOp
+pub fn convertuint32tofloat64() Op
 
 [c:'BinaryenConvertSInt64ToFloat32']
-pub fn convertsint64tofloat32() BinaryenOp
+pub fn convertsint64tofloat32() Op
 
 [c:'BinaryenConvertSInt64ToFloat64']
-pub fn convertsint64tofloat64() BinaryenOp
+pub fn convertsint64tofloat64() Op
 
 [c:'BinaryenConvertUInt64ToFloat32']
-pub fn convertuint64tofloat32() BinaryenOp
+pub fn convertuint64tofloat32() Op
 
 [c:'BinaryenConvertUInt64ToFloat64']
-pub fn convertuint64tofloat64() BinaryenOp
+pub fn convertuint64tofloat64() Op
 
 [c:'BinaryenPromoteFloat32']
-pub fn promotefloat32() BinaryenOp
+pub fn promotefloat32() Op
 
 [c:'BinaryenDemoteFloat64']
-pub fn demotefloat64() BinaryenOp
+pub fn demotefloat64() Op
 
 [c:'BinaryenReinterpretInt32']
-pub fn reinterpretint32() BinaryenOp
+pub fn reinterpretint32() Op
 
 [c:'BinaryenReinterpretInt64']
-pub fn reinterpretint64() BinaryenOp
+pub fn reinterpretint64() Op
 
 [c:'BinaryenExtendS8Int32']
-pub fn extends8int32() BinaryenOp
+pub fn extends8int32() Op
 
 [c:'BinaryenExtendS16Int32']
-pub fn extends16int32() BinaryenOp
+pub fn extends16int32() Op
 
 [c:'BinaryenExtendS8Int64']
-pub fn extends8int64() BinaryenOp
+pub fn extends8int64() Op
 
 [c:'BinaryenExtendS16Int64']
-pub fn extends16int64() BinaryenOp
+pub fn extends16int64() Op
 
 [c:'BinaryenExtendS32Int64']
-pub fn extends32int64() BinaryenOp
+pub fn extends32int64() Op
 
 [c:'BinaryenAddInt32']
-pub fn addint32() BinaryenOp
+pub fn addint32() Op
 
 [c:'BinaryenSubInt32']
-pub fn subint32() BinaryenOp
+pub fn subint32() Op
 
 [c:'BinaryenMulInt32']
-pub fn mulint32() BinaryenOp
+pub fn mulint32() Op
 
 [c:'BinaryenDivSInt32']
-pub fn divsint32() BinaryenOp
+pub fn divsint32() Op
 
 [c:'BinaryenDivUInt32']
-pub fn divuint32() BinaryenOp
+pub fn divuint32() Op
 
 [c:'BinaryenRemSInt32']
-pub fn remsint32() BinaryenOp
+pub fn remsint32() Op
 
 [c:'BinaryenRemUInt32']
-pub fn remuint32() BinaryenOp
+pub fn remuint32() Op
 
 [c:'BinaryenAndInt32']
-pub fn andint32() BinaryenOp
+pub fn andint32() Op
 
 [c:'BinaryenOrInt32']
-pub fn orint32() BinaryenOp
+pub fn orint32() Op
 
 [c:'BinaryenXorInt32']
-pub fn xorint32() BinaryenOp
+pub fn xorint32() Op
 
 [c:'BinaryenShlInt32']
-pub fn shlint32() BinaryenOp
+pub fn shlint32() Op
 
 [c:'BinaryenShrUInt32']
-pub fn shruint32() BinaryenOp
+pub fn shruint32() Op
 
 [c:'BinaryenShrSInt32']
-pub fn shrsint32() BinaryenOp
+pub fn shrsint32() Op
 
 [c:'BinaryenRotLInt32']
-pub fn rotlint32() BinaryenOp
+pub fn rotlint32() Op
 
 [c:'BinaryenRotRInt32']
-pub fn rotrint32() BinaryenOp
+pub fn rotrint32() Op
 
 [c:'BinaryenEqInt32']
-pub fn eqint32() BinaryenOp
+pub fn eqint32() Op
 
 [c:'BinaryenNeInt32']
-pub fn neint32() BinaryenOp
+pub fn neint32() Op
 
 [c:'BinaryenLtSInt32']
-pub fn ltsint32() BinaryenOp
+pub fn ltsint32() Op
 
 [c:'BinaryenLtUInt32']
-pub fn ltuint32() BinaryenOp
+pub fn ltuint32() Op
 
 [c:'BinaryenLeSInt32']
-pub fn lesint32() BinaryenOp
+pub fn lesint32() Op
 
 [c:'BinaryenLeUInt32']
-pub fn leuint32() BinaryenOp
+pub fn leuint32() Op
 
 [c:'BinaryenGtSInt32']
-pub fn gtsint32() BinaryenOp
+pub fn gtsint32() Op
 
 [c:'BinaryenGtUInt32']
-pub fn gtuint32() BinaryenOp
+pub fn gtuint32() Op
 
 [c:'BinaryenGeSInt32']
-pub fn gesint32() BinaryenOp
+pub fn gesint32() Op
 
 [c:'BinaryenGeUInt32']
-pub fn geuint32() BinaryenOp
+pub fn geuint32() Op
 
 [c:'BinaryenAddInt64']
-pub fn addint64() BinaryenOp
+pub fn addint64() Op
 
 [c:'BinaryenSubInt64']
-pub fn subint64() BinaryenOp
+pub fn subint64() Op
 
 [c:'BinaryenMulInt64']
-pub fn mulint64() BinaryenOp
+pub fn mulint64() Op
 
 [c:'BinaryenDivSInt64']
-pub fn divsint64() BinaryenOp
+pub fn divsint64() Op
 
 [c:'BinaryenDivUInt64']
-pub fn divuint64() BinaryenOp
+pub fn divuint64() Op
 
 [c:'BinaryenRemSInt64']
-pub fn remsint64() BinaryenOp
+pub fn remsint64() Op
 
 [c:'BinaryenRemUInt64']
-pub fn remuint64() BinaryenOp
+pub fn remuint64() Op
 
 [c:'BinaryenAndInt64']
-pub fn andint64() BinaryenOp
+pub fn andint64() Op
 
 [c:'BinaryenOrInt64']
-pub fn orint64() BinaryenOp
+pub fn orint64() Op
 
 [c:'BinaryenXorInt64']
-pub fn xorint64() BinaryenOp
+pub fn xorint64() Op
 
 [c:'BinaryenShlInt64']
-pub fn shlint64() BinaryenOp
+pub fn shlint64() Op
 
 [c:'BinaryenShrUInt64']
-pub fn shruint64() BinaryenOp
+pub fn shruint64() Op
 
 [c:'BinaryenShrSInt64']
-pub fn shrsint64() BinaryenOp
+pub fn shrsint64() Op
 
 [c:'BinaryenRotLInt64']
-pub fn rotlint64() BinaryenOp
+pub fn rotlint64() Op
 
 [c:'BinaryenRotRInt64']
-pub fn rotrint64() BinaryenOp
+pub fn rotrint64() Op
 
 [c:'BinaryenEqInt64']
-pub fn eqint64() BinaryenOp
+pub fn eqint64() Op
 
 [c:'BinaryenNeInt64']
-pub fn neint64() BinaryenOp
+pub fn neint64() Op
 
 [c:'BinaryenLtSInt64']
-pub fn ltsint64() BinaryenOp
+pub fn ltsint64() Op
 
 [c:'BinaryenLtUInt64']
-pub fn ltuint64() BinaryenOp
+pub fn ltuint64() Op
 
 [c:'BinaryenLeSInt64']
-pub fn lesint64() BinaryenOp
+pub fn lesint64() Op
 
 [c:'BinaryenLeUInt64']
-pub fn leuint64() BinaryenOp
+pub fn leuint64() Op
 
 [c:'BinaryenGtSInt64']
-pub fn gtsint64() BinaryenOp
+pub fn gtsint64() Op
 
 [c:'BinaryenGtUInt64']
-pub fn gtuint64() BinaryenOp
+pub fn gtuint64() Op
 
 [c:'BinaryenGeSInt64']
-pub fn gesint64() BinaryenOp
+pub fn gesint64() Op
 
 [c:'BinaryenGeUInt64']
-pub fn geuint64() BinaryenOp
+pub fn geuint64() Op
 
 [c:'BinaryenAddFloat32']
-pub fn addfloat32() BinaryenOp
+pub fn addfloat32() Op
 
 [c:'BinaryenSubFloat32']
-pub fn subfloat32() BinaryenOp
+pub fn subfloat32() Op
 
 [c:'BinaryenMulFloat32']
-pub fn mulfloat32() BinaryenOp
+pub fn mulfloat32() Op
 
 [c:'BinaryenDivFloat32']
-pub fn divfloat32() BinaryenOp
+pub fn divfloat32() Op
 
 [c:'BinaryenCopySignFloat32']
-pub fn copysignfloat32() BinaryenOp
+pub fn copysignfloat32() Op
 
 [c:'BinaryenMinFloat32']
-pub fn minfloat32() BinaryenOp
+pub fn minfloat32() Op
 
 [c:'BinaryenMaxFloat32']
-pub fn maxfloat32() BinaryenOp
+pub fn maxfloat32() Op
 
 [c:'BinaryenEqFloat32']
-pub fn eqfloat32() BinaryenOp
+pub fn eqfloat32() Op
 
 [c:'BinaryenNeFloat32']
-pub fn nefloat32() BinaryenOp
+pub fn nefloat32() Op
 
 [c:'BinaryenLtFloat32']
-pub fn ltfloat32() BinaryenOp
+pub fn ltfloat32() Op
 
 [c:'BinaryenLeFloat32']
-pub fn lefloat32() BinaryenOp
+pub fn lefloat32() Op
 
 [c:'BinaryenGtFloat32']
-pub fn gtfloat32() BinaryenOp
+pub fn gtfloat32() Op
 
 [c:'BinaryenGeFloat32']
-pub fn gefloat32() BinaryenOp
+pub fn gefloat32() Op
 
 [c:'BinaryenAddFloat64']
-pub fn addfloat64() BinaryenOp
+pub fn addfloat64() Op
 
 [c:'BinaryenSubFloat64']
-pub fn subfloat64() BinaryenOp
+pub fn subfloat64() Op
 
 [c:'BinaryenMulFloat64']
-pub fn mulfloat64() BinaryenOp
+pub fn mulfloat64() Op
 
 [c:'BinaryenDivFloat64']
-pub fn divfloat64() BinaryenOp
+pub fn divfloat64() Op
 
 [c:'BinaryenCopySignFloat64']
-pub fn copysignfloat64() BinaryenOp
+pub fn copysignfloat64() Op
 
 [c:'BinaryenMinFloat64']
-pub fn minfloat64() BinaryenOp
+pub fn minfloat64() Op
 
 [c:'BinaryenMaxFloat64']
-pub fn maxfloat64() BinaryenOp
+pub fn maxfloat64() Op
 
 [c:'BinaryenEqFloat64']
-pub fn eqfloat64() BinaryenOp
+pub fn eqfloat64() Op
 
 [c:'BinaryenNeFloat64']
-pub fn nefloat64() BinaryenOp
+pub fn nefloat64() Op
 
 [c:'BinaryenLtFloat64']
-pub fn ltfloat64() BinaryenOp
+pub fn ltfloat64() Op
 
 [c:'BinaryenLeFloat64']
-pub fn lefloat64() BinaryenOp
+pub fn lefloat64() Op
 
 [c:'BinaryenGtFloat64']
-pub fn gtfloat64() BinaryenOp
+pub fn gtfloat64() Op
 
 [c:'BinaryenGeFloat64']
-pub fn gefloat64() BinaryenOp
+pub fn gefloat64() Op
 
 [c:'BinaryenAtomicRMWAdd']
-pub fn atomicrmwadd() BinaryenOp
+pub fn atomicrmwadd() Op
 
 [c:'BinaryenAtomicRMWSub']
-pub fn atomicrmwsub() BinaryenOp
+pub fn atomicrmwsub() Op
 
 [c:'BinaryenAtomicRMWAnd']
-pub fn atomicrmwand() BinaryenOp
+pub fn atomicrmwand() Op
 
 [c:'BinaryenAtomicRMWOr']
-pub fn atomicrmwor() BinaryenOp
+pub fn atomicrmwor() Op
 
 [c:'BinaryenAtomicRMWXor']
-pub fn atomicrmwxor() BinaryenOp
+pub fn atomicrmwxor() Op
 
 [c:'BinaryenAtomicRMWXchg']
-pub fn atomicrmwxchg() BinaryenOp
+pub fn atomicrmwxchg() Op
 
 [c:'BinaryenTruncSatSFloat32ToInt32']
-pub fn truncsatsfloat32toint32() BinaryenOp
+pub fn truncsatsfloat32toint32() Op
 
 [c:'BinaryenTruncSatSFloat32ToInt64']
-pub fn truncsatsfloat32toint64() BinaryenOp
+pub fn truncsatsfloat32toint64() Op
 
 [c:'BinaryenTruncSatUFloat32ToInt32']
-pub fn truncsatufloat32toint32() BinaryenOp
+pub fn truncsatufloat32toint32() Op
 
 [c:'BinaryenTruncSatUFloat32ToInt64']
-pub fn truncsatufloat32toint64() BinaryenOp
+pub fn truncsatufloat32toint64() Op
 
 [c:'BinaryenTruncSatSFloat64ToInt32']
-pub fn truncsatsfloat64toint32() BinaryenOp
+pub fn truncsatsfloat64toint32() Op
 
 [c:'BinaryenTruncSatSFloat64ToInt64']
-pub fn truncsatsfloat64toint64() BinaryenOp
+pub fn truncsatsfloat64toint64() Op
 
 [c:'BinaryenTruncSatUFloat64ToInt32']
-pub fn truncsatufloat64toint32() BinaryenOp
+pub fn truncsatufloat64toint32() Op
 
 [c:'BinaryenTruncSatUFloat64ToInt64']
-pub fn truncsatufloat64toint64() BinaryenOp
+pub fn truncsatufloat64toint64() Op
 
 [c:'BinaryenSplatVecI8x16']
-pub fn splatveci8x16() BinaryenOp
+pub fn splatveci8x16() Op
 
 [c:'BinaryenExtractLaneSVecI8x16']
-pub fn extractlanesveci8x16() BinaryenOp
+pub fn extractlanesveci8x16() Op
 
 [c:'BinaryenExtractLaneUVecI8x16']
-pub fn extractlaneuveci8x16() BinaryenOp
+pub fn extractlaneuveci8x16() Op
 
 [c:'BinaryenReplaceLaneVecI8x16']
-pub fn replacelaneveci8x16() BinaryenOp
+pub fn replacelaneveci8x16() Op
 
 [c:'BinaryenSplatVecI16x8']
-pub fn splatveci16x8() BinaryenOp
+pub fn splatveci16x8() Op
 
 [c:'BinaryenExtractLaneSVecI16x8']
-pub fn extractlanesveci16x8() BinaryenOp
+pub fn extractlanesveci16x8() Op
 
 [c:'BinaryenExtractLaneUVecI16x8']
-pub fn extractlaneuveci16x8() BinaryenOp
+pub fn extractlaneuveci16x8() Op
 
 [c:'BinaryenReplaceLaneVecI16x8']
-pub fn replacelaneveci16x8() BinaryenOp
+pub fn replacelaneveci16x8() Op
 
 [c:'BinaryenSplatVecI32x4']
-pub fn splatveci32x4() BinaryenOp
+pub fn splatveci32x4() Op
 
 [c:'BinaryenExtractLaneVecI32x4']
-pub fn extractlaneveci32x4() BinaryenOp
+pub fn extractlaneveci32x4() Op
 
 [c:'BinaryenReplaceLaneVecI32x4']
-pub fn replacelaneveci32x4() BinaryenOp
+pub fn replacelaneveci32x4() Op
 
 [c:'BinaryenSplatVecI64x2']
-pub fn splatveci64x2() BinaryenOp
+pub fn splatveci64x2() Op
 
 [c:'BinaryenExtractLaneVecI64x2']
-pub fn extractlaneveci64x2() BinaryenOp
+pub fn extractlaneveci64x2() Op
 
 [c:'BinaryenReplaceLaneVecI64x2']
-pub fn replacelaneveci64x2() BinaryenOp
+pub fn replacelaneveci64x2() Op
 
 [c:'BinaryenSplatVecF32x4']
-pub fn splatvecf32x4() BinaryenOp
+pub fn splatvecf32x4() Op
 
 [c:'BinaryenExtractLaneVecF32x4']
-pub fn extractlanevecf32x4() BinaryenOp
+pub fn extractlanevecf32x4() Op
 
 [c:'BinaryenReplaceLaneVecF32x4']
-pub fn replacelanevecf32x4() BinaryenOp
+pub fn replacelanevecf32x4() Op
 
 [c:'BinaryenSplatVecF64x2']
-pub fn splatvecf64x2() BinaryenOp
+pub fn splatvecf64x2() Op
 
 [c:'BinaryenExtractLaneVecF64x2']
-pub fn extractlanevecf64x2() BinaryenOp
+pub fn extractlanevecf64x2() Op
 
 [c:'BinaryenReplaceLaneVecF64x2']
-pub fn replacelanevecf64x2() BinaryenOp
+pub fn replacelanevecf64x2() Op
 
 [c:'BinaryenEqVecI8x16']
-pub fn eqveci8x16() BinaryenOp
+pub fn eqveci8x16() Op
 
 [c:'BinaryenNeVecI8x16']
-pub fn neveci8x16() BinaryenOp
+pub fn neveci8x16() Op
 
 [c:'BinaryenLtSVecI8x16']
-pub fn ltsveci8x16() BinaryenOp
+pub fn ltsveci8x16() Op
 
 [c:'BinaryenLtUVecI8x16']
-pub fn ltuveci8x16() BinaryenOp
+pub fn ltuveci8x16() Op
 
 [c:'BinaryenGtSVecI8x16']
-pub fn gtsveci8x16() BinaryenOp
+pub fn gtsveci8x16() Op
 
 [c:'BinaryenGtUVecI8x16']
-pub fn gtuveci8x16() BinaryenOp
+pub fn gtuveci8x16() Op
 
 [c:'BinaryenLeSVecI8x16']
-pub fn lesveci8x16() BinaryenOp
+pub fn lesveci8x16() Op
 
 [c:'BinaryenLeUVecI8x16']
-pub fn leuveci8x16() BinaryenOp
+pub fn leuveci8x16() Op
 
 [c:'BinaryenGeSVecI8x16']
-pub fn gesveci8x16() BinaryenOp
+pub fn gesveci8x16() Op
 
 [c:'BinaryenGeUVecI8x16']
-pub fn geuveci8x16() BinaryenOp
+pub fn geuveci8x16() Op
 
 [c:'BinaryenEqVecI16x8']
-pub fn eqveci16x8() BinaryenOp
+pub fn eqveci16x8() Op
 
 [c:'BinaryenNeVecI16x8']
-pub fn neveci16x8() BinaryenOp
+pub fn neveci16x8() Op
 
 [c:'BinaryenLtSVecI16x8']
-pub fn ltsveci16x8() BinaryenOp
+pub fn ltsveci16x8() Op
 
 [c:'BinaryenLtUVecI16x8']
-pub fn ltuveci16x8() BinaryenOp
+pub fn ltuveci16x8() Op
 
 [c:'BinaryenGtSVecI16x8']
-pub fn gtsveci16x8() BinaryenOp
+pub fn gtsveci16x8() Op
 
 [c:'BinaryenGtUVecI16x8']
-pub fn gtuveci16x8() BinaryenOp
+pub fn gtuveci16x8() Op
 
 [c:'BinaryenLeSVecI16x8']
-pub fn lesveci16x8() BinaryenOp
+pub fn lesveci16x8() Op
 
 [c:'BinaryenLeUVecI16x8']
-pub fn leuveci16x8() BinaryenOp
+pub fn leuveci16x8() Op
 
 [c:'BinaryenGeSVecI16x8']
-pub fn gesveci16x8() BinaryenOp
+pub fn gesveci16x8() Op
 
 [c:'BinaryenGeUVecI16x8']
-pub fn geuveci16x8() BinaryenOp
+pub fn geuveci16x8() Op
 
 [c:'BinaryenEqVecI32x4']
-pub fn eqveci32x4() BinaryenOp
+pub fn eqveci32x4() Op
 
 [c:'BinaryenNeVecI32x4']
-pub fn neveci32x4() BinaryenOp
+pub fn neveci32x4() Op
 
 [c:'BinaryenLtSVecI32x4']
-pub fn ltsveci32x4() BinaryenOp
+pub fn ltsveci32x4() Op
 
 [c:'BinaryenLtUVecI32x4']
-pub fn ltuveci32x4() BinaryenOp
+pub fn ltuveci32x4() Op
 
 [c:'BinaryenGtSVecI32x4']
-pub fn gtsveci32x4() BinaryenOp
+pub fn gtsveci32x4() Op
 
 [c:'BinaryenGtUVecI32x4']
-pub fn gtuveci32x4() BinaryenOp
+pub fn gtuveci32x4() Op
 
 [c:'BinaryenLeSVecI32x4']
-pub fn lesveci32x4() BinaryenOp
+pub fn lesveci32x4() Op
 
 [c:'BinaryenLeUVecI32x4']
-pub fn leuveci32x4() BinaryenOp
+pub fn leuveci32x4() Op
 
 [c:'BinaryenGeSVecI32x4']
-pub fn gesveci32x4() BinaryenOp
+pub fn gesveci32x4() Op
 
 [c:'BinaryenGeUVecI32x4']
-pub fn geuveci32x4() BinaryenOp
+pub fn geuveci32x4() Op
 
 [c:'BinaryenEqVecI64x2']
-pub fn eqveci64x2() BinaryenOp
+pub fn eqveci64x2() Op
 
 [c:'BinaryenNeVecI64x2']
-pub fn neveci64x2() BinaryenOp
+pub fn neveci64x2() Op
 
 [c:'BinaryenLtSVecI64x2']
-pub fn ltsveci64x2() BinaryenOp
+pub fn ltsveci64x2() Op
 
 [c:'BinaryenGtSVecI64x2']
-pub fn gtsveci64x2() BinaryenOp
+pub fn gtsveci64x2() Op
 
 [c:'BinaryenLeSVecI64x2']
-pub fn lesveci64x2() BinaryenOp
+pub fn lesveci64x2() Op
 
 [c:'BinaryenGeSVecI64x2']
-pub fn gesveci64x2() BinaryenOp
+pub fn gesveci64x2() Op
 
 [c:'BinaryenEqVecF32x4']
-pub fn eqvecf32x4() BinaryenOp
+pub fn eqvecf32x4() Op
 
 [c:'BinaryenNeVecF32x4']
-pub fn nevecf32x4() BinaryenOp
+pub fn nevecf32x4() Op
 
 [c:'BinaryenLtVecF32x4']
-pub fn ltvecf32x4() BinaryenOp
+pub fn ltvecf32x4() Op
 
 [c:'BinaryenGtVecF32x4']
-pub fn gtvecf32x4() BinaryenOp
+pub fn gtvecf32x4() Op
 
 [c:'BinaryenLeVecF32x4']
-pub fn levecf32x4() BinaryenOp
+pub fn levecf32x4() Op
 
 [c:'BinaryenGeVecF32x4']
-pub fn gevecf32x4() BinaryenOp
+pub fn gevecf32x4() Op
 
 [c:'BinaryenEqVecF64x2']
-pub fn eqvecf64x2() BinaryenOp
+pub fn eqvecf64x2() Op
 
 [c:'BinaryenNeVecF64x2']
-pub fn nevecf64x2() BinaryenOp
+pub fn nevecf64x2() Op
 
 [c:'BinaryenLtVecF64x2']
-pub fn ltvecf64x2() BinaryenOp
+pub fn ltvecf64x2() Op
 
 [c:'BinaryenGtVecF64x2']
-pub fn gtvecf64x2() BinaryenOp
+pub fn gtvecf64x2() Op
 
 [c:'BinaryenLeVecF64x2']
-pub fn levecf64x2() BinaryenOp
+pub fn levecf64x2() Op
 
 [c:'BinaryenGeVecF64x2']
-pub fn gevecf64x2() BinaryenOp
+pub fn gevecf64x2() Op
 
 [c:'BinaryenNotVec128']
-pub fn notvec128() BinaryenOp
+pub fn notvec128() Op
 
 [c:'BinaryenAndVec128']
-pub fn andvec128() BinaryenOp
+pub fn andvec128() Op
 
 [c:'BinaryenOrVec128']
-pub fn orvec128() BinaryenOp
+pub fn orvec128() Op
 
 [c:'BinaryenXorVec128']
-pub fn xorvec128() BinaryenOp
+pub fn xorvec128() Op
 
 [c:'BinaryenAndNotVec128']
-pub fn andnotvec128() BinaryenOp
+pub fn andnotvec128() Op
 
 [c:'BinaryenBitselectVec128']
-pub fn bitselectvec128() BinaryenOp
+pub fn bitselectvec128() Op
 
 [c:'BinaryenAnyTrueVec128']
-pub fn anytruevec128() BinaryenOp
+pub fn anytruevec128() Op
 
 [c:'BinaryenPopcntVecI8x16']
-pub fn popcntveci8x16() BinaryenOp
+pub fn popcntveci8x16() Op
 
 [c:'BinaryenAbsVecI8x16']
-pub fn absveci8x16() BinaryenOp
+pub fn absveci8x16() Op
 
 [c:'BinaryenNegVecI8x16']
-pub fn negveci8x16() BinaryenOp
+pub fn negveci8x16() Op
 
 [c:'BinaryenAllTrueVecI8x16']
-pub fn alltrueveci8x16() BinaryenOp
+pub fn alltrueveci8x16() Op
 
 [c:'BinaryenBitmaskVecI8x16']
-pub fn bitmaskveci8x16() BinaryenOp
+pub fn bitmaskveci8x16() Op
 
 [c:'BinaryenShlVecI8x16']
-pub fn shlveci8x16() BinaryenOp
+pub fn shlveci8x16() Op
 
 [c:'BinaryenShrSVecI8x16']
-pub fn shrsveci8x16() BinaryenOp
+pub fn shrsveci8x16() Op
 
 [c:'BinaryenShrUVecI8x16']
-pub fn shruveci8x16() BinaryenOp
+pub fn shruveci8x16() Op
 
 [c:'BinaryenAddVecI8x16']
-pub fn addveci8x16() BinaryenOp
+pub fn addveci8x16() Op
 
 [c:'BinaryenAddSatSVecI8x16']
-pub fn addsatsveci8x16() BinaryenOp
+pub fn addsatsveci8x16() Op
 
 [c:'BinaryenAddSatUVecI8x16']
-pub fn addsatuveci8x16() BinaryenOp
+pub fn addsatuveci8x16() Op
 
 [c:'BinaryenSubVecI8x16']
-pub fn subveci8x16() BinaryenOp
+pub fn subveci8x16() Op
 
 [c:'BinaryenSubSatSVecI8x16']
-pub fn subsatsveci8x16() BinaryenOp
+pub fn subsatsveci8x16() Op
 
 [c:'BinaryenSubSatUVecI8x16']
-pub fn subsatuveci8x16() BinaryenOp
+pub fn subsatuveci8x16() Op
 
 [c:'BinaryenMinSVecI8x16']
-pub fn minsveci8x16() BinaryenOp
+pub fn minsveci8x16() Op
 
 [c:'BinaryenMinUVecI8x16']
-pub fn minuveci8x16() BinaryenOp
+pub fn minuveci8x16() Op
 
 [c:'BinaryenMaxSVecI8x16']
-pub fn maxsveci8x16() BinaryenOp
+pub fn maxsveci8x16() Op
 
 [c:'BinaryenMaxUVecI8x16']
-pub fn maxuveci8x16() BinaryenOp
+pub fn maxuveci8x16() Op
 
 [c:'BinaryenAvgrUVecI8x16']
-pub fn avgruveci8x16() BinaryenOp
+pub fn avgruveci8x16() Op
 
 [c:'BinaryenAbsVecI16x8']
-pub fn absveci16x8() BinaryenOp
+pub fn absveci16x8() Op
 
 [c:'BinaryenNegVecI16x8']
-pub fn negveci16x8() BinaryenOp
+pub fn negveci16x8() Op
 
 [c:'BinaryenAllTrueVecI16x8']
-pub fn alltrueveci16x8() BinaryenOp
+pub fn alltrueveci16x8() Op
 
 [c:'BinaryenBitmaskVecI16x8']
-pub fn bitmaskveci16x8() BinaryenOp
+pub fn bitmaskveci16x8() Op
 
 [c:'BinaryenShlVecI16x8']
-pub fn shlveci16x8() BinaryenOp
+pub fn shlveci16x8() Op
 
 [c:'BinaryenShrSVecI16x8']
-pub fn shrsveci16x8() BinaryenOp
+pub fn shrsveci16x8() Op
 
 [c:'BinaryenShrUVecI16x8']
-pub fn shruveci16x8() BinaryenOp
+pub fn shruveci16x8() Op
 
 [c:'BinaryenAddVecI16x8']
-pub fn addveci16x8() BinaryenOp
+pub fn addveci16x8() Op
 
 [c:'BinaryenAddSatSVecI16x8']
-pub fn addsatsveci16x8() BinaryenOp
+pub fn addsatsveci16x8() Op
 
 [c:'BinaryenAddSatUVecI16x8']
-pub fn addsatuveci16x8() BinaryenOp
+pub fn addsatuveci16x8() Op
 
 [c:'BinaryenSubVecI16x8']
-pub fn subveci16x8() BinaryenOp
+pub fn subveci16x8() Op
 
 [c:'BinaryenSubSatSVecI16x8']
-pub fn subsatsveci16x8() BinaryenOp
+pub fn subsatsveci16x8() Op
 
 [c:'BinaryenSubSatUVecI16x8']
-pub fn subsatuveci16x8() BinaryenOp
+pub fn subsatuveci16x8() Op
 
 [c:'BinaryenMulVecI16x8']
-pub fn mulveci16x8() BinaryenOp
+pub fn mulveci16x8() Op
 
 [c:'BinaryenMinSVecI16x8']
-pub fn minsveci16x8() BinaryenOp
+pub fn minsveci16x8() Op
 
 [c:'BinaryenMinUVecI16x8']
-pub fn minuveci16x8() BinaryenOp
+pub fn minuveci16x8() Op
 
 [c:'BinaryenMaxSVecI16x8']
-pub fn maxsveci16x8() BinaryenOp
+pub fn maxsveci16x8() Op
 
 [c:'BinaryenMaxUVecI16x8']
-pub fn maxuveci16x8() BinaryenOp
+pub fn maxuveci16x8() Op
 
 [c:'BinaryenAvgrUVecI16x8']
-pub fn avgruveci16x8() BinaryenOp
+pub fn avgruveci16x8() Op
 
 [c:'BinaryenQ15MulrSatSVecI16x8']
-pub fn q15mulrsatsveci16x8() BinaryenOp
+pub fn q15mulrsatsveci16x8() Op
 
 [c:'BinaryenExtMulLowSVecI16x8']
-pub fn extmullowsveci16x8() BinaryenOp
+pub fn extmullowsveci16x8() Op
 
 [c:'BinaryenExtMulHighSVecI16x8']
-pub fn extmulhighsveci16x8() BinaryenOp
+pub fn extmulhighsveci16x8() Op
 
 [c:'BinaryenExtMulLowUVecI16x8']
-pub fn extmullowuveci16x8() BinaryenOp
+pub fn extmullowuveci16x8() Op
 
 [c:'BinaryenExtMulHighUVecI16x8']
-pub fn extmulhighuveci16x8() BinaryenOp
+pub fn extmulhighuveci16x8() Op
 
 [c:'BinaryenAbsVecI32x4']
-pub fn absveci32x4() BinaryenOp
+pub fn absveci32x4() Op
 
 [c:'BinaryenNegVecI32x4']
-pub fn negveci32x4() BinaryenOp
+pub fn negveci32x4() Op
 
 [c:'BinaryenAllTrueVecI32x4']
-pub fn alltrueveci32x4() BinaryenOp
+pub fn alltrueveci32x4() Op
 
 [c:'BinaryenBitmaskVecI32x4']
-pub fn bitmaskveci32x4() BinaryenOp
+pub fn bitmaskveci32x4() Op
 
 [c:'BinaryenShlVecI32x4']
-pub fn shlveci32x4() BinaryenOp
+pub fn shlveci32x4() Op
 
 [c:'BinaryenShrSVecI32x4']
-pub fn shrsveci32x4() BinaryenOp
+pub fn shrsveci32x4() Op
 
 [c:'BinaryenShrUVecI32x4']
-pub fn shruveci32x4() BinaryenOp
+pub fn shruveci32x4() Op
 
 [c:'BinaryenAddVecI32x4']
-pub fn addveci32x4() BinaryenOp
+pub fn addveci32x4() Op
 
 [c:'BinaryenSubVecI32x4']
-pub fn subveci32x4() BinaryenOp
+pub fn subveci32x4() Op
 
 [c:'BinaryenMulVecI32x4']
-pub fn mulveci32x4() BinaryenOp
+pub fn mulveci32x4() Op
 
 [c:'BinaryenMinSVecI32x4']
-pub fn minsveci32x4() BinaryenOp
+pub fn minsveci32x4() Op
 
 [c:'BinaryenMinUVecI32x4']
-pub fn minuveci32x4() BinaryenOp
+pub fn minuveci32x4() Op
 
 [c:'BinaryenMaxSVecI32x4']
-pub fn maxsveci32x4() BinaryenOp
+pub fn maxsveci32x4() Op
 
 [c:'BinaryenMaxUVecI32x4']
-pub fn maxuveci32x4() BinaryenOp
+pub fn maxuveci32x4() Op
 
 [c:'BinaryenDotSVecI16x8ToVecI32x4']
-pub fn dotsveci16x8toveci32x4() BinaryenOp
+pub fn dotsveci16x8toveci32x4() Op
 
 [c:'BinaryenExtMulLowSVecI32x4']
-pub fn extmullowsveci32x4() BinaryenOp
+pub fn extmullowsveci32x4() Op
 
 [c:'BinaryenExtMulHighSVecI32x4']
-pub fn extmulhighsveci32x4() BinaryenOp
+pub fn extmulhighsveci32x4() Op
 
 [c:'BinaryenExtMulLowUVecI32x4']
-pub fn extmullowuveci32x4() BinaryenOp
+pub fn extmullowuveci32x4() Op
 
 [c:'BinaryenExtMulHighUVecI32x4']
-pub fn extmulhighuveci32x4() BinaryenOp
+pub fn extmulhighuveci32x4() Op
 
 [c:'BinaryenAbsVecI64x2']
-pub fn absveci64x2() BinaryenOp
+pub fn absveci64x2() Op
 
 [c:'BinaryenNegVecI64x2']
-pub fn negveci64x2() BinaryenOp
+pub fn negveci64x2() Op
 
 [c:'BinaryenAllTrueVecI64x2']
-pub fn alltrueveci64x2() BinaryenOp
+pub fn alltrueveci64x2() Op
 
 [c:'BinaryenBitmaskVecI64x2']
-pub fn bitmaskveci64x2() BinaryenOp
+pub fn bitmaskveci64x2() Op
 
 [c:'BinaryenShlVecI64x2']
-pub fn shlveci64x2() BinaryenOp
+pub fn shlveci64x2() Op
 
 [c:'BinaryenShrSVecI64x2']
-pub fn shrsveci64x2() BinaryenOp
+pub fn shrsveci64x2() Op
 
 [c:'BinaryenShrUVecI64x2']
-pub fn shruveci64x2() BinaryenOp
+pub fn shruveci64x2() Op
 
 [c:'BinaryenAddVecI64x2']
-pub fn addveci64x2() BinaryenOp
+pub fn addveci64x2() Op
 
 [c:'BinaryenSubVecI64x2']
-pub fn subveci64x2() BinaryenOp
+pub fn subveci64x2() Op
 
 [c:'BinaryenMulVecI64x2']
-pub fn mulveci64x2() BinaryenOp
+pub fn mulveci64x2() Op
 
 [c:'BinaryenExtMulLowSVecI64x2']
-pub fn extmullowsveci64x2() BinaryenOp
+pub fn extmullowsveci64x2() Op
 
 [c:'BinaryenExtMulHighSVecI64x2']
-pub fn extmulhighsveci64x2() BinaryenOp
+pub fn extmulhighsveci64x2() Op
 
 [c:'BinaryenExtMulLowUVecI64x2']
-pub fn extmullowuveci64x2() BinaryenOp
+pub fn extmullowuveci64x2() Op
 
 [c:'BinaryenExtMulHighUVecI64x2']
-pub fn extmulhighuveci64x2() BinaryenOp
+pub fn extmulhighuveci64x2() Op
 
 [c:'BinaryenAbsVecF32x4']
-pub fn absvecf32x4() BinaryenOp
+pub fn absvecf32x4() Op
 
 [c:'BinaryenNegVecF32x4']
-pub fn negvecf32x4() BinaryenOp
+pub fn negvecf32x4() Op
 
 [c:'BinaryenSqrtVecF32x4']
-pub fn sqrtvecf32x4() BinaryenOp
+pub fn sqrtvecf32x4() Op
 
 [c:'BinaryenAddVecF32x4']
-pub fn addvecf32x4() BinaryenOp
+pub fn addvecf32x4() Op
 
 [c:'BinaryenSubVecF32x4']
-pub fn subvecf32x4() BinaryenOp
+pub fn subvecf32x4() Op
 
 [c:'BinaryenMulVecF32x4']
-pub fn mulvecf32x4() BinaryenOp
+pub fn mulvecf32x4() Op
 
 [c:'BinaryenDivVecF32x4']
-pub fn divvecf32x4() BinaryenOp
+pub fn divvecf32x4() Op
 
 [c:'BinaryenMinVecF32x4']
-pub fn minvecf32x4() BinaryenOp
+pub fn minvecf32x4() Op
 
 [c:'BinaryenMaxVecF32x4']
-pub fn maxvecf32x4() BinaryenOp
+pub fn maxvecf32x4() Op
 
 [c:'BinaryenPMinVecF32x4']
-pub fn pminvecf32x4() BinaryenOp
+pub fn pminvecf32x4() Op
 
 [c:'BinaryenPMaxVecF32x4']
-pub fn pmaxvecf32x4() BinaryenOp
+pub fn pmaxvecf32x4() Op
 
 [c:'BinaryenCeilVecF32x4']
-pub fn ceilvecf32x4() BinaryenOp
+pub fn ceilvecf32x4() Op
 
 [c:'BinaryenFloorVecF32x4']
-pub fn floorvecf32x4() BinaryenOp
+pub fn floorvecf32x4() Op
 
 [c:'BinaryenTruncVecF32x4']
-pub fn truncvecf32x4() BinaryenOp
+pub fn truncvecf32x4() Op
 
 [c:'BinaryenNearestVecF32x4']
-pub fn nearestvecf32x4() BinaryenOp
+pub fn nearestvecf32x4() Op
 
 [c:'BinaryenAbsVecF64x2']
-pub fn absvecf64x2() BinaryenOp
+pub fn absvecf64x2() Op
 
 [c:'BinaryenNegVecF64x2']
-pub fn negvecf64x2() BinaryenOp
+pub fn negvecf64x2() Op
 
 [c:'BinaryenSqrtVecF64x2']
-pub fn sqrtvecf64x2() BinaryenOp
+pub fn sqrtvecf64x2() Op
 
 [c:'BinaryenAddVecF64x2']
-pub fn addvecf64x2() BinaryenOp
+pub fn addvecf64x2() Op
 
 [c:'BinaryenSubVecF64x2']
-pub fn subvecf64x2() BinaryenOp
+pub fn subvecf64x2() Op
 
 [c:'BinaryenMulVecF64x2']
-pub fn mulvecf64x2() BinaryenOp
+pub fn mulvecf64x2() Op
 
 [c:'BinaryenDivVecF64x2']
-pub fn divvecf64x2() BinaryenOp
+pub fn divvecf64x2() Op
 
 [c:'BinaryenMinVecF64x2']
-pub fn minvecf64x2() BinaryenOp
+pub fn minvecf64x2() Op
 
 [c:'BinaryenMaxVecF64x2']
-pub fn maxvecf64x2() BinaryenOp
+pub fn maxvecf64x2() Op
 
 [c:'BinaryenPMinVecF64x2']
-pub fn pminvecf64x2() BinaryenOp
+pub fn pminvecf64x2() Op
 
 [c:'BinaryenPMaxVecF64x2']
-pub fn pmaxvecf64x2() BinaryenOp
+pub fn pmaxvecf64x2() Op
 
 [c:'BinaryenCeilVecF64x2']
-pub fn ceilvecf64x2() BinaryenOp
+pub fn ceilvecf64x2() Op
 
 [c:'BinaryenFloorVecF64x2']
-pub fn floorvecf64x2() BinaryenOp
+pub fn floorvecf64x2() Op
 
 [c:'BinaryenTruncVecF64x2']
-pub fn truncvecf64x2() BinaryenOp
+pub fn truncvecf64x2() Op
 
 [c:'BinaryenNearestVecF64x2']
-pub fn nearestvecf64x2() BinaryenOp
+pub fn nearestvecf64x2() Op
 
 [c:'BinaryenExtAddPairwiseSVecI8x16ToI16x8']
-pub fn extaddpairwisesveci8x16toi16x8() BinaryenOp
+pub fn extaddpairwisesveci8x16toi16x8() Op
 
 [c:'BinaryenExtAddPairwiseUVecI8x16ToI16x8']
-pub fn extaddpairwiseuveci8x16toi16x8() BinaryenOp
+pub fn extaddpairwiseuveci8x16toi16x8() Op
 
 [c:'BinaryenExtAddPairwiseSVecI16x8ToI32x4']
-pub fn extaddpairwisesveci16x8toi32x4() BinaryenOp
+pub fn extaddpairwisesveci16x8toi32x4() Op
 
 [c:'BinaryenExtAddPairwiseUVecI16x8ToI32x4']
-pub fn extaddpairwiseuveci16x8toi32x4() BinaryenOp
+pub fn extaddpairwiseuveci16x8toi32x4() Op
 
 [c:'BinaryenTruncSatSVecF32x4ToVecI32x4']
-pub fn truncsatsvecf32x4toveci32x4() BinaryenOp
+pub fn truncsatsvecf32x4toveci32x4() Op
 
 [c:'BinaryenTruncSatUVecF32x4ToVecI32x4']
-pub fn truncsatuvecf32x4toveci32x4() BinaryenOp
+pub fn truncsatuvecf32x4toveci32x4() Op
 
 [c:'BinaryenConvertSVecI32x4ToVecF32x4']
-pub fn convertsveci32x4tovecf32x4() BinaryenOp
+pub fn convertsveci32x4tovecf32x4() Op
 
 [c:'BinaryenConvertUVecI32x4ToVecF32x4']
-pub fn convertuveci32x4tovecf32x4() BinaryenOp
+pub fn convertuveci32x4tovecf32x4() Op
 
 [c:'BinaryenLoad8SplatVec128']
-pub fn load8splatvec128() BinaryenOp
+pub fn load8splatvec128() Op
 
 [c:'BinaryenLoad16SplatVec128']
-pub fn load16splatvec128() BinaryenOp
+pub fn load16splatvec128() Op
 
 [c:'BinaryenLoad32SplatVec128']
-pub fn load32splatvec128() BinaryenOp
+pub fn load32splatvec128() Op
 
 [c:'BinaryenLoad64SplatVec128']
-pub fn load64splatvec128() BinaryenOp
+pub fn load64splatvec128() Op
 
 [c:'BinaryenLoad8x8SVec128']
-pub fn load8x8svec128() BinaryenOp
+pub fn load8x8svec128() Op
 
 [c:'BinaryenLoad8x8UVec128']
-pub fn load8x8uvec128() BinaryenOp
+pub fn load8x8uvec128() Op
 
 [c:'BinaryenLoad16x4SVec128']
-pub fn load16x4svec128() BinaryenOp
+pub fn load16x4svec128() Op
 
 [c:'BinaryenLoad16x4UVec128']
-pub fn load16x4uvec128() BinaryenOp
+pub fn load16x4uvec128() Op
 
 [c:'BinaryenLoad32x2SVec128']
-pub fn load32x2svec128() BinaryenOp
+pub fn load32x2svec128() Op
 
 [c:'BinaryenLoad32x2UVec128']
-pub fn load32x2uvec128() BinaryenOp
+pub fn load32x2uvec128() Op
 
 [c:'BinaryenLoad32ZeroVec128']
-pub fn load32zerovec128() BinaryenOp
+pub fn load32zerovec128() Op
 
 [c:'BinaryenLoad64ZeroVec128']
-pub fn load64zerovec128() BinaryenOp
+pub fn load64zerovec128() Op
 
 [c:'BinaryenLoad8LaneVec128']
-pub fn load8lanevec128() BinaryenOp
+pub fn load8lanevec128() Op
 
 [c:'BinaryenLoad16LaneVec128']
-pub fn load16lanevec128() BinaryenOp
+pub fn load16lanevec128() Op
 
 [c:'BinaryenLoad32LaneVec128']
-pub fn load32lanevec128() BinaryenOp
+pub fn load32lanevec128() Op
 
 [c:'BinaryenLoad64LaneVec128']
-pub fn load64lanevec128() BinaryenOp
+pub fn load64lanevec128() Op
 
 [c:'BinaryenStore8LaneVec128']
-pub fn store8lanevec128() BinaryenOp
+pub fn store8lanevec128() Op
 
 [c:'BinaryenStore16LaneVec128']
-pub fn store16lanevec128() BinaryenOp
+pub fn store16lanevec128() Op
 
 [c:'BinaryenStore32LaneVec128']
-pub fn store32lanevec128() BinaryenOp
+pub fn store32lanevec128() Op
 
 [c:'BinaryenStore64LaneVec128']
-pub fn store64lanevec128() BinaryenOp
+pub fn store64lanevec128() Op
 
 [c:'BinaryenNarrowSVecI16x8ToVecI8x16']
-pub fn narrowsveci16x8toveci8x16() BinaryenOp
+pub fn narrowsveci16x8toveci8x16() Op
 
 [c:'BinaryenNarrowUVecI16x8ToVecI8x16']
-pub fn narrowuveci16x8toveci8x16() BinaryenOp
+pub fn narrowuveci16x8toveci8x16() Op
 
 [c:'BinaryenNarrowSVecI32x4ToVecI16x8']
-pub fn narrowsveci32x4toveci16x8() BinaryenOp
+pub fn narrowsveci32x4toveci16x8() Op
 
 [c:'BinaryenNarrowUVecI32x4ToVecI16x8']
-pub fn narrowuveci32x4toveci16x8() BinaryenOp
+pub fn narrowuveci32x4toveci16x8() Op
 
 [c:'BinaryenExtendLowSVecI8x16ToVecI16x8']
-pub fn extendlowsveci8x16toveci16x8() BinaryenOp
+pub fn extendlowsveci8x16toveci16x8() Op
 
 [c:'BinaryenExtendHighSVecI8x16ToVecI16x8']
-pub fn extendhighsveci8x16toveci16x8() BinaryenOp
+pub fn extendhighsveci8x16toveci16x8() Op
 
 [c:'BinaryenExtendLowUVecI8x16ToVecI16x8']
-pub fn extendlowuveci8x16toveci16x8() BinaryenOp
+pub fn extendlowuveci8x16toveci16x8() Op
 
 [c:'BinaryenExtendHighUVecI8x16ToVecI16x8']
-pub fn extendhighuveci8x16toveci16x8() BinaryenOp
+pub fn extendhighuveci8x16toveci16x8() Op
 
 [c:'BinaryenExtendLowSVecI16x8ToVecI32x4']
-pub fn extendlowsveci16x8toveci32x4() BinaryenOp
+pub fn extendlowsveci16x8toveci32x4() Op
 
 [c:'BinaryenExtendHighSVecI16x8ToVecI32x4']
-pub fn extendhighsveci16x8toveci32x4() BinaryenOp
+pub fn extendhighsveci16x8toveci32x4() Op
 
 [c:'BinaryenExtendLowUVecI16x8ToVecI32x4']
-pub fn extendlowuveci16x8toveci32x4() BinaryenOp
+pub fn extendlowuveci16x8toveci32x4() Op
 
 [c:'BinaryenExtendHighUVecI16x8ToVecI32x4']
-pub fn extendhighuveci16x8toveci32x4() BinaryenOp
+pub fn extendhighuveci16x8toveci32x4() Op
 
 [c:'BinaryenExtendLowSVecI32x4ToVecI64x2']
-pub fn extendlowsveci32x4toveci64x2() BinaryenOp
+pub fn extendlowsveci32x4toveci64x2() Op
 
 [c:'BinaryenExtendHighSVecI32x4ToVecI64x2']
-pub fn extendhighsveci32x4toveci64x2() BinaryenOp
+pub fn extendhighsveci32x4toveci64x2() Op
 
 [c:'BinaryenExtendLowUVecI32x4ToVecI64x2']
-pub fn extendlowuveci32x4toveci64x2() BinaryenOp
+pub fn extendlowuveci32x4toveci64x2() Op
 
 [c:'BinaryenExtendHighUVecI32x4ToVecI64x2']
-pub fn extendhighuveci32x4toveci64x2() BinaryenOp
+pub fn extendhighuveci32x4toveci64x2() Op
 
 [c:'BinaryenConvertLowSVecI32x4ToVecF64x2']
-pub fn convertlowsveci32x4tovecf64x2() BinaryenOp
+pub fn convertlowsveci32x4tovecf64x2() Op
 
 [c:'BinaryenConvertLowUVecI32x4ToVecF64x2']
-pub fn convertlowuveci32x4tovecf64x2() BinaryenOp
+pub fn convertlowuveci32x4tovecf64x2() Op
 
 [c:'BinaryenTruncSatZeroSVecF64x2ToVecI32x4']
-pub fn truncsatzerosvecf64x2toveci32x4() BinaryenOp
+pub fn truncsatzerosvecf64x2toveci32x4() Op
 
 [c:'BinaryenTruncSatZeroUVecF64x2ToVecI32x4']
-pub fn truncsatzerouvecf64x2toveci32x4() BinaryenOp
+pub fn truncsatzerouvecf64x2toveci32x4() Op
 
 [c:'BinaryenDemoteZeroVecF64x2ToVecF32x4']
-pub fn demotezerovecf64x2tovecf32x4() BinaryenOp
+pub fn demotezerovecf64x2tovecf32x4() Op
 
 [c:'BinaryenPromoteLowVecF32x4ToVecF64x2']
-pub fn promotelowvecf32x4tovecf64x2() BinaryenOp
+pub fn promotelowvecf32x4tovecf64x2() Op
 
 [c:'BinaryenSwizzleVecI8x16']
-pub fn swizzleveci8x16() BinaryenOp
+pub fn swizzleveci8x16() Op
 
 [c:'BinaryenRefIsNull']
-pub fn refisnull() BinaryenOp
+pub fn refisnull() Op
 
 [c:'BinaryenRefIsFunc']
-pub fn refisfunc() BinaryenOp
+pub fn refisfunc() Op
 
 [c:'BinaryenRefIsData']
-pub fn refisdata() BinaryenOp
+pub fn refisdata() Op
 
 [c:'BinaryenRefIsI31']
-pub fn refisi31() BinaryenOp
+pub fn refisi31() Op
 
 [c:'BinaryenRefAsNonNull']
-pub fn refasnonnull() BinaryenOp
+pub fn refasnonnull() Op
 
 [c:'BinaryenRefAsFunc']
-pub fn refasfunc() BinaryenOp
+pub fn refasfunc() Op
 
 [c:'BinaryenRefAsData']
-pub fn refasdata() BinaryenOp
+pub fn refasdata() Op
 
 [c:'BinaryenRefAsI31']
-pub fn refasi31() BinaryenOp
+pub fn refasi31() Op
 
 [c:'BinaryenRefAsExternInternalize']
-pub fn refasexterninternalize() BinaryenOp
+pub fn refasexterninternalize() Op
 
 [c:'BinaryenRefAsExternExternalize']
-pub fn refasexternexternalize() BinaryenOp
+pub fn refasexternexternalize() Op
 
 [c:'BinaryenBrOnNull']
-pub fn bronnull() BinaryenOp
+pub fn bronnull() Op
 
 [c:'BinaryenBrOnNonNull']
-pub fn bronnonnull() BinaryenOp
+pub fn bronnonnull() Op
 
 [c:'BinaryenBrOnCast']
-pub fn broncast() BinaryenOp
+pub fn broncast() Op
 
 [c:'BinaryenBrOnCastFail']
-pub fn broncastfail() BinaryenOp
+pub fn broncastfail() Op
 
 [c:'BinaryenBrOnFunc']
-pub fn bronfunc() BinaryenOp
+pub fn bronfunc() Op
 
 [c:'BinaryenBrOnNonFunc']
-pub fn bronnonfunc() BinaryenOp
+pub fn bronnonfunc() Op
 
 [c:'BinaryenBrOnData']
-pub fn brondata() BinaryenOp
+pub fn brondata() Op
 
 [c:'BinaryenBrOnNonData']
-pub fn bronnondata() BinaryenOp
+pub fn bronnondata() Op
 
 [c:'BinaryenBrOnI31']
-pub fn broni31() BinaryenOp
+pub fn broni31() Op
 
 [c:'BinaryenBrOnNonI31']
-pub fn bronnoni31() BinaryenOp
+pub fn bronnoni31() Op
 
 [c:'BinaryenStringNewUTF8']
-pub fn stringnewutf8() BinaryenOp
+pub fn stringnewutf8() Op
 
 [c:'BinaryenStringNewWTF8']
-pub fn stringnewwtf8() BinaryenOp
+pub fn stringnewwtf8() Op
 
 [c:'BinaryenStringNewReplace']
-pub fn stringnewreplace() BinaryenOp
+pub fn stringnewreplace() Op
 
 [c:'BinaryenStringNewWTF16']
-pub fn stringnewwtf16() BinaryenOp
+pub fn stringnewwtf16() Op
 
 [c:'BinaryenStringNewUTF8Array']
-pub fn stringnewutf8array() BinaryenOp
+pub fn stringnewutf8array() Op
 
 [c:'BinaryenStringNewWTF8Array']
-pub fn stringnewwtf8array() BinaryenOp
+pub fn stringnewwtf8array() Op
 
 [c:'BinaryenStringNewReplaceArray']
-pub fn stringnewreplacearray() BinaryenOp
+pub fn stringnewreplacearray() Op
 
 [c:'BinaryenStringNewWTF16Array']
-pub fn stringnewwtf16array() BinaryenOp
+pub fn stringnewwtf16array() Op
 
 [c:'BinaryenStringMeasureUTF8']
-pub fn stringmeasureutf8() BinaryenOp
+pub fn stringmeasureutf8() Op
 
 [c:'BinaryenStringMeasureWTF8']
-pub fn stringmeasurewtf8() BinaryenOp
+pub fn stringmeasurewtf8() Op
 
 [c:'BinaryenStringMeasureWTF16']
-pub fn stringmeasurewtf16() BinaryenOp
+pub fn stringmeasurewtf16() Op
 
 [c:'BinaryenStringMeasureIsUSV']
-pub fn stringmeasureisusv() BinaryenOp
+pub fn stringmeasureisusv() Op
 
 [c:'BinaryenStringMeasureWTF16View']
-pub fn stringmeasurewtf16view() BinaryenOp
+pub fn stringmeasurewtf16view() Op
 
 [c:'BinaryenStringEncodeUTF8']
-pub fn stringencodeutf8() BinaryenOp
+pub fn stringencodeutf8() Op
 
 [c:'BinaryenStringEncodeWTF8']
-pub fn stringencodewtf8() BinaryenOp
+pub fn stringencodewtf8() Op
 
 [c:'BinaryenStringEncodeWTF16']
-pub fn stringencodewtf16() BinaryenOp
+pub fn stringencodewtf16() Op
 
 [c:'BinaryenStringEncodeUTF8Array']
-pub fn stringencodeutf8array() BinaryenOp
+pub fn stringencodeutf8array() Op
 
 [c:'BinaryenStringEncodeWTF8Array']
-pub fn stringencodewtf8array() BinaryenOp
+pub fn stringencodewtf8array() Op
 
 [c:'BinaryenStringEncodeWTF16Array']
-pub fn stringencodewtf16array() BinaryenOp
+pub fn stringencodewtf16array() Op
 
 [c:'BinaryenStringAsWTF8']
-pub fn stringaswtf8() BinaryenOp
+pub fn stringaswtf8() Op
 
 [c:'BinaryenStringAsWTF16']
-pub fn stringaswtf16() BinaryenOp
+pub fn stringaswtf16() Op
 
 [c:'BinaryenStringAsIter']
-pub fn stringasiter() BinaryenOp
+pub fn stringasiter() Op
 
 [c:'BinaryenStringIterMoveAdvance']
-pub fn stringitermoveadvance() BinaryenOp
+pub fn stringitermoveadvance() Op
 
 [c:'BinaryenStringIterMoveRewind']
-pub fn stringitermoverewind() BinaryenOp
+pub fn stringitermoverewind() Op
 
 [c:'BinaryenStringSliceWTF8']
-pub fn stringslicewtf8() BinaryenOp
+pub fn stringslicewtf8() Op
 
 [c:'BinaryenStringSliceWTF16']
-pub fn stringslicewtf16() BinaryenOp
+pub fn stringslicewtf16() Op
 
-type BinaryenExpressionRef = voidptr
+type Expression = voidptr
 [c:'BinaryenBlock']
-pub fn block(module_ BinaryenModuleRef, name &i8, children &BinaryenExpressionRef, numchildren BinaryenIndex, type_ BinaryenType) BinaryenExpressionRef
+pub fn block(module_ Module, name &i8, children &Expression, numchildren Index, type_ Type) Expression
 
 [c:'BinaryenIf']
-pub fn bif(module_ BinaryenModuleRef, condition BinaryenExpressionRef, iftrue BinaryenExpressionRef, iffalse BinaryenExpressionRef) BinaryenExpressionRef
+pub fn bif(module_ Module, condition Expression, iftrue Expression, iffalse Expression) Expression
 
 [c:'BinaryenLoop']
-pub fn loop(module_ BinaryenModuleRef, in_ &i8, body BinaryenExpressionRef) BinaryenExpressionRef
+pub fn loop(module_ Module, in_ &i8, body Expression) Expression
 
 [c:'BinaryenBreak']
-pub fn bbreak(module_ BinaryenModuleRef, name &i8, condition BinaryenExpressionRef, value BinaryenExpressionRef) BinaryenExpressionRef
+pub fn br(module_ Module, name &i8, condition Expression, value Expression) Expression
 
 [c:'BinaryenSwitch']
-pub fn switch(module_ BinaryenModuleRef, names &&u8, numnames BinaryenIndex, defaultname &i8, condition BinaryenExpressionRef, value BinaryenExpressionRef) BinaryenExpressionRef
+pub fn switch(module_ Module, names &&u8, numnames Index, defaultname &i8, condition Expression, value Expression) Expression
 
 [c:'BinaryenCall']
-pub fn call(module_ BinaryenModuleRef, target &i8, operands &BinaryenExpressionRef, numoperands BinaryenIndex, returntype BinaryenType) BinaryenExpressionRef
+pub fn call(module_ Module, target &i8, operands &Expression, numoperands Index, returntype Type) Expression
 
 [c:'BinaryenCallIndirect']
-pub fn callindirect(module_ BinaryenModuleRef, table &i8, target BinaryenExpressionRef, operands &BinaryenExpressionRef, numoperands BinaryenIndex, params BinaryenType, results BinaryenType) BinaryenExpressionRef
+pub fn callindirect(module_ Module, table &i8, target Expression, operands &Expression, numoperands Index, params Type, results Type) Expression
 
 [c:'BinaryenReturnCall']
-pub fn returncall(module_ BinaryenModuleRef, target &i8, operands &BinaryenExpressionRef, numoperands BinaryenIndex, returntype BinaryenType) BinaryenExpressionRef
+pub fn returncall(module_ Module, target &i8, operands &Expression, numoperands Index, returntype Type) Expression
 
 [c:'BinaryenReturnCallIndirect']
-pub fn returncallindirect(module_ BinaryenModuleRef, table &i8, target BinaryenExpressionRef, operands &BinaryenExpressionRef, numoperands BinaryenIndex, params BinaryenType, results BinaryenType) BinaryenExpressionRef
+pub fn returncallindirect(module_ Module, table &i8, target Expression, operands &Expression, numoperands Index, params Type, results Type) Expression
 
 [c:'BinaryenLocalGet']
-pub fn localget(module_ BinaryenModuleRef, index BinaryenIndex, type_ BinaryenType) BinaryenExpressionRef
+pub fn localget(module_ Module, index Index, type_ Type) Expression
 
 [c:'BinaryenLocalSet']
-pub fn localset(module_ BinaryenModuleRef, index BinaryenIndex, value BinaryenExpressionRef) BinaryenExpressionRef
+pub fn localset(module_ Module, index Index, value Expression) Expression
 
 [c:'BinaryenLocalTee']
-pub fn localtee(module_ BinaryenModuleRef, index BinaryenIndex, value BinaryenExpressionRef, type_ BinaryenType) BinaryenExpressionRef
+pub fn localtee(module_ Module, index Index, value Expression, type_ Type) Expression
 
 [c:'BinaryenGlobalGet']
-pub fn globalget(module_ BinaryenModuleRef, name &i8, type_ BinaryenType) BinaryenExpressionRef
+pub fn globalget(module_ Module, name &i8, type_ Type) Expression
 
 [c:'BinaryenGlobalSet']
-pub fn globalset(module_ BinaryenModuleRef, name &i8, value BinaryenExpressionRef) BinaryenExpressionRef
+pub fn globalset(module_ Module, name &i8, value Expression) Expression
 
 [c:'BinaryenLoad']
-pub fn load(module_ BinaryenModuleRef, bytes u32, signed_ bool, offset u32, align u32, type_ BinaryenType, ptr BinaryenExpressionRef, memoryname &i8) BinaryenExpressionRef
+pub fn load(module_ Module, bytes u32, signed_ bool, offset u32, align u32, type_ Type, ptr Expression, memoryname &i8) Expression
 
 [c:'BinaryenStore']
-pub fn store(module_ BinaryenModuleRef, bytes u32, offset u32, align u32, ptr BinaryenExpressionRef, value BinaryenExpressionRef, type_ BinaryenType, memoryname &i8) BinaryenExpressionRef
+pub fn store(module_ Module, bytes u32, offset u32, align u32, ptr Expression, value Expression, type_ Type, memoryname &i8) Expression
 
 [c:'BinaryenConst']
-pub fn bconst(module_ BinaryenModuleRef, value BinaryenLiteral) BinaryenExpressionRef
+pub fn constant(module_ Module, value Literal) Expression
 
 [c:'BinaryenUnary']
-pub fn unary(module_ BinaryenModuleRef, op BinaryenOp, value BinaryenExpressionRef) BinaryenExpressionRef
+pub fn unary(module_ Module, op Op, value Expression) Expression
 
 [c:'BinaryenBinary']
-pub fn binary(module_ BinaryenModuleRef, op BinaryenOp, left BinaryenExpressionRef, right BinaryenExpressionRef) BinaryenExpressionRef
+pub fn binary(module_ Module, op Op, left Expression, right Expression) Expression
 
 [c:'BinaryenSelect']
-pub fn bselect(module_ BinaryenModuleRef, condition BinaryenExpressionRef, iftrue BinaryenExpressionRef, iffalse BinaryenExpressionRef, type_ BinaryenType) BinaryenExpressionRef
+pub fn bselect(module_ Module, condition Expression, iftrue Expression, iffalse Expression, type_ Type) Expression
 
 [c:'BinaryenDrop']
-pub fn drop(module_ BinaryenModuleRef, value BinaryenExpressionRef) BinaryenExpressionRef
+pub fn drop(module_ Module, value Expression) Expression
 
 [c:'BinaryenReturn']
-pub fn breturn(module_ BinaryenModuleRef, value BinaryenExpressionRef) BinaryenExpressionRef
+pub fn ret(module_ Module, value Expression) Expression
 
 [c:'BinaryenMemorySize']
-pub fn memorysize(module_ BinaryenModuleRef, memoryname &i8, memoryis64 bool) BinaryenExpressionRef
+pub fn memorysize(module_ Module, memoryname &i8, memoryis64 bool) Expression
 
 [c:'BinaryenMemoryGrow']
-pub fn memorygrow(module_ BinaryenModuleRef, delta BinaryenExpressionRef, memoryname &i8, memoryis64 bool) BinaryenExpressionRef
+pub fn memorygrow(module_ Module, delta Expression, memoryname &i8, memoryis64 bool) Expression
 
 [c:'BinaryenNop']
-pub fn nop(module_ BinaryenModuleRef) BinaryenExpressionRef
+pub fn nop(module_ Module) Expression
 
 [c:'BinaryenUnreachable']
-pub fn unreachable(module_ BinaryenModuleRef) BinaryenExpressionRef
+pub fn unreachable(module_ Module) Expression
 
 [c:'BinaryenAtomicLoad']
-pub fn atomicload(module_ BinaryenModuleRef, bytes u32, offset u32, type_ BinaryenType, ptr BinaryenExpressionRef, memoryname &i8) BinaryenExpressionRef
+pub fn atomicload(module_ Module, bytes u32, offset u32, type_ Type, ptr Expression, memoryname &i8) Expression
 
 [c:'BinaryenAtomicStore']
-pub fn atomicstore(module_ BinaryenModuleRef, bytes u32, offset u32, ptr BinaryenExpressionRef, value BinaryenExpressionRef, type_ BinaryenType, memoryname &i8) BinaryenExpressionRef
+pub fn atomicstore(module_ Module, bytes u32, offset u32, ptr Expression, value Expression, type_ Type, memoryname &i8) Expression
 
 [c:'BinaryenAtomicRMW']
-pub fn atomicrmw(module_ BinaryenModuleRef, op BinaryenOp, bytes BinaryenIndex, offset BinaryenIndex, ptr BinaryenExpressionRef, value BinaryenExpressionRef, type_ BinaryenType, memoryname &i8) BinaryenExpressionRef
+pub fn atomicrmw(module_ Module, op Op, bytes Index, offset Index, ptr Expression, value Expression, type_ Type, memoryname &i8) Expression
 
 [c:'BinaryenAtomicCmpxchg']
-pub fn atomiccmpxchg(module_ BinaryenModuleRef, bytes BinaryenIndex, offset BinaryenIndex, ptr BinaryenExpressionRef, expected BinaryenExpressionRef, replacement BinaryenExpressionRef, type_ BinaryenType, memoryname &i8) BinaryenExpressionRef
+pub fn atomiccmpxchg(module_ Module, bytes Index, offset Index, ptr Expression, expected Expression, replacement Expression, type_ Type, memoryname &i8) Expression
 
 [c:'BinaryenAtomicWait']
-pub fn atomicwait(module_ BinaryenModuleRef, ptr BinaryenExpressionRef, expected BinaryenExpressionRef, timeout BinaryenExpressionRef, type_ BinaryenType, memoryname &i8) BinaryenExpressionRef
+pub fn atomicwait(module_ Module, ptr Expression, expected Expression, timeout Expression, type_ Type, memoryname &i8) Expression
 
 [c:'BinaryenAtomicNotify']
-pub fn atomicnotify(module_ BinaryenModuleRef, ptr BinaryenExpressionRef, notifycount BinaryenExpressionRef, memoryname &i8) BinaryenExpressionRef
+pub fn atomicnotify(module_ Module, ptr Expression, notifycount Expression, memoryname &i8) Expression
 
 [c:'BinaryenAtomicFence']
-pub fn atomicfence(module_ BinaryenModuleRef) BinaryenExpressionRef
+pub fn atomicfence(module_ Module) Expression
 
 [c:'BinaryenSIMDExtract']
-pub fn simdextract(module_ BinaryenModuleRef, op BinaryenOp, vec BinaryenExpressionRef, index u8) BinaryenExpressionRef
+pub fn simdextract(module_ Module, op Op, vec Expression, index u8) Expression
 
 [c:'BinaryenSIMDReplace']
-pub fn simdreplace(module_ BinaryenModuleRef, op BinaryenOp, vec BinaryenExpressionRef, index u8, value BinaryenExpressionRef) BinaryenExpressionRef
+pub fn simdreplace(module_ Module, op Op, vec Expression, index u8, value Expression) Expression
 
 [c:'BinaryenSIMDShuffle']
-pub fn simdshuffle(module_ BinaryenModuleRef, left BinaryenExpressionRef, right BinaryenExpressionRef, mask &u8) BinaryenExpressionRef
+pub fn simdshuffle(module_ Module, left Expression, right Expression, mask &u8) Expression
 
 [c:'BinaryenSIMDTernary']
-pub fn simdternary(module_ BinaryenModuleRef, op BinaryenOp, a BinaryenExpressionRef, b BinaryenExpressionRef, c BinaryenExpressionRef) BinaryenExpressionRef
+pub fn simdternary(module_ Module, op Op, a Expression, b Expression, c Expression) Expression
 
 [c:'BinaryenSIMDShift']
-pub fn simdshift(module_ BinaryenModuleRef, op BinaryenOp, vec BinaryenExpressionRef, shift BinaryenExpressionRef) BinaryenExpressionRef
+pub fn simdshift(module_ Module, op Op, vec Expression, shift Expression) Expression
 
 [c:'BinaryenSIMDLoad']
-pub fn simdload(module_ BinaryenModuleRef, op BinaryenOp, offset u32, align u32, ptr BinaryenExpressionRef, name &i8) BinaryenExpressionRef
+pub fn simdload(module_ Module, op Op, offset u32, align u32, ptr Expression, name &i8) Expression
 
 [c:'BinaryenSIMDLoadStoreLane']
-pub fn simdloadstorelane(module_ BinaryenModuleRef, op BinaryenOp, offset u32, align u32, index u8, ptr BinaryenExpressionRef, vec BinaryenExpressionRef, memoryname &i8) BinaryenExpressionRef
+pub fn simdloadstorelane(module_ Module, op Op, offset u32, align u32, index u8, ptr Expression, vec Expression, memoryname &i8) Expression
 
 [c:'BinaryenMemoryInit']
-pub fn memoryinit(module_ BinaryenModuleRef, segment u32, dest BinaryenExpressionRef, offset BinaryenExpressionRef, size BinaryenExpressionRef, memoryname &i8) BinaryenExpressionRef
+pub fn memoryinit(module_ Module, segment u32, dest Expression, offset Expression, size Expression, memoryname &i8) Expression
 
 [c:'BinaryenDataDrop']
-pub fn datadrop(module_ BinaryenModuleRef, segment u32) BinaryenExpressionRef
+pub fn datadrop(module_ Module, segment u32) Expression
 
 [c:'BinaryenMemoryCopy']
-pub fn memorycopy(module_ BinaryenModuleRef, dest BinaryenExpressionRef, source BinaryenExpressionRef, size BinaryenExpressionRef, destmemory &i8, sourcememory &i8) BinaryenExpressionRef
+pub fn memorycopy(module_ Module, dest Expression, source Expression, size Expression, destmemory &i8, sourcememory &i8) Expression
 
 [c:'BinaryenMemoryFill']
-pub fn memoryfill(module_ BinaryenModuleRef, dest BinaryenExpressionRef, value BinaryenExpressionRef, size BinaryenExpressionRef, memoryname &i8) BinaryenExpressionRef
+pub fn memoryfill(module_ Module, dest Expression, value Expression, size Expression, memoryname &i8) Expression
 
 [c:'BinaryenRefNull']
-pub fn refnull(module_ BinaryenModuleRef, type_ BinaryenType) BinaryenExpressionRef
+pub fn refnull(module_ Module, type_ Type) Expression
 
 [c:'BinaryenRefIs']
-pub fn refis(module_ BinaryenModuleRef, op BinaryenOp, value BinaryenExpressionRef) BinaryenExpressionRef
+pub fn refis(module_ Module, op Op, value Expression) Expression
 
 [c:'BinaryenRefAs']
-pub fn refas(module_ BinaryenModuleRef, op BinaryenOp, value BinaryenExpressionRef) BinaryenExpressionRef
+pub fn refas(module_ Module, op Op, value Expression) Expression
 
 [c:'BinaryenRefFunc']
-pub fn reffunc(module_ BinaryenModuleRef, func &i8, type_ BinaryenType) BinaryenExpressionRef
+pub fn reffunc(module_ Module, func &i8, type_ Type) Expression
 
 [c:'BinaryenRefEq']
-pub fn refeq(module_ BinaryenModuleRef, left BinaryenExpressionRef, right BinaryenExpressionRef) BinaryenExpressionRef
+pub fn refeq(module_ Module, left Expression, right Expression) Expression
 
 [c:'BinaryenTableGet']
-pub fn tableget(module_ BinaryenModuleRef, name &i8, index BinaryenExpressionRef, type_ BinaryenType) BinaryenExpressionRef
+pub fn tableget(module_ Module, name &i8, index Expression, type_ Type) Expression
 
 [c:'BinaryenTableSet']
-pub fn tableset(module_ BinaryenModuleRef, name &i8, index BinaryenExpressionRef, value BinaryenExpressionRef) BinaryenExpressionRef
+pub fn tableset(module_ Module, name &i8, index Expression, value Expression) Expression
 
 [c:'BinaryenTableSize']
-pub fn tablesize(module_ BinaryenModuleRef, name &i8) BinaryenExpressionRef
+pub fn tablesize(module_ Module, name &i8) Expression
 
 [c:'BinaryenTableGrow']
-pub fn tablegrow(module_ BinaryenModuleRef, name &i8, value BinaryenExpressionRef, delta BinaryenExpressionRef) BinaryenExpressionRef
+pub fn tablegrow(module_ Module, name &i8, value Expression, delta Expression) Expression
 
 [c:'BinaryenTry']
-pub fn try(module_ BinaryenModuleRef, name &i8, body BinaryenExpressionRef, catchtags &&u8, numcatchtags BinaryenIndex, catchbodies &BinaryenExpressionRef, numcatchbodies BinaryenIndex, delegatetarget &i8) BinaryenExpressionRef
+pub fn try(module_ Module, name &i8, body Expression, catchtags &&u8, numcatchtags Index, catchbodies &Expression, numcatchbodies Index, delegatetarget &i8) Expression
 
 [c:'BinaryenThrow']
-pub fn throw(module_ BinaryenModuleRef, tag &i8, operands &BinaryenExpressionRef, numoperands BinaryenIndex) BinaryenExpressionRef
+pub fn throw(module_ Module, tag &i8, operands &Expression, numoperands Index) Expression
 
 [c:'BinaryenRethrow']
-pub fn rethrow(module_ BinaryenModuleRef, target &i8) BinaryenExpressionRef
+pub fn rethrow(module_ Module, target &i8) Expression
 
 [c:'BinaryenTupleMake']
-pub fn tuplemake(module_ BinaryenModuleRef, operands &BinaryenExpressionRef, numoperands BinaryenIndex) BinaryenExpressionRef
+pub fn tuplemake(module_ Module, operands &Expression, numoperands Index) Expression
 
 [c:'BinaryenTupleExtract']
-pub fn tupleextract(module_ BinaryenModuleRef, tuple BinaryenExpressionRef, index BinaryenIndex) BinaryenExpressionRef
+pub fn tupleextract(module_ Module, tuple Expression, index Index) Expression
 
 [c:'BinaryenPop']
-pub fn pop(module_ BinaryenModuleRef, type_ BinaryenType) BinaryenExpressionRef
+pub fn pop(module_ Module, type_ Type) Expression
 
 [c:'BinaryenI31New']
-pub fn i31new(module_ BinaryenModuleRef, value BinaryenExpressionRef) BinaryenExpressionRef
+pub fn i31new(module_ Module, value Expression) Expression
 
 [c:'BinaryenI31Get']
-pub fn i31get(module_ BinaryenModuleRef, i31 BinaryenExpressionRef, signed_ bool) BinaryenExpressionRef
+pub fn i31get(module_ Module, i31 Expression, signed_ bool) Expression
 
 [c:'BinaryenCallRef']
-pub fn callref(module_ BinaryenModuleRef, target BinaryenExpressionRef, operands &BinaryenExpressionRef, numoperands BinaryenIndex, type_ BinaryenType, isreturn bool) BinaryenExpressionRef
+pub fn callref(module_ Module, target Expression, operands &Expression, numoperands Index, type_ Type, isreturn bool) Expression
 
 [c:'BinaryenRefTest']
-pub fn reftest(module_ BinaryenModuleRef, ref BinaryenExpressionRef, intendedtype BinaryenHeapType) BinaryenExpressionRef
+pub fn reftest(module_ Module, ref Expression, intendedtype HeapType) Expression
 
 [c:'BinaryenRefCast']
-pub fn refcast(module_ BinaryenModuleRef, ref BinaryenExpressionRef, intendedtype BinaryenHeapType) BinaryenExpressionRef
+pub fn refcast(module_ Module, ref Expression, intendedtype HeapType) Expression
 
 [c:'BinaryenBrOn']
-pub fn bron(module_ BinaryenModuleRef, op BinaryenOp, name &i8, ref BinaryenExpressionRef, intendedtype BinaryenHeapType) BinaryenExpressionRef
+pub fn bron(module_ Module, op Op, name &i8, ref Expression, intendedtype HeapType) Expression
 
 [c:'BinaryenStructNew']
-pub fn structnew(module_ BinaryenModuleRef, operands &BinaryenExpressionRef, numoperands BinaryenIndex, type_ BinaryenHeapType) BinaryenExpressionRef
+pub fn structnew(module_ Module, operands &Expression, numoperands Index, type_ HeapType) Expression
 
 [c:'BinaryenStructGet']
-pub fn structget(module_ BinaryenModuleRef, index BinaryenIndex, ref BinaryenExpressionRef, type_ BinaryenType, signed_ bool) BinaryenExpressionRef
+pub fn structget(module_ Module, index Index, ref Expression, type_ Type, signed_ bool) Expression
 
 [c:'BinaryenStructSet']
-pub fn structset(module_ BinaryenModuleRef, index BinaryenIndex, ref BinaryenExpressionRef, value BinaryenExpressionRef) BinaryenExpressionRef
+pub fn structset(module_ Module, index Index, ref Expression, value Expression) Expression
 
 [c:'BinaryenArrayNew']
-pub fn arraynew(module_ BinaryenModuleRef, type_ BinaryenHeapType, size BinaryenExpressionRef, init BinaryenExpressionRef) BinaryenExpressionRef
+pub fn arraynew(module_ Module, type_ HeapType, size Expression, init Expression) Expression
 
 [c:'BinaryenArrayInit']
-pub fn arrayinit(module_ BinaryenModuleRef, type_ BinaryenHeapType, values &BinaryenExpressionRef, numvalues BinaryenIndex) BinaryenExpressionRef
+pub fn arrayinit(module_ Module, type_ HeapType, values &Expression, numvalues Index) Expression
 
 [c:'BinaryenArrayGet']
-pub fn arrayget(module_ BinaryenModuleRef, ref BinaryenExpressionRef, index BinaryenExpressionRef, type_ BinaryenType, signed_ bool) BinaryenExpressionRef
+pub fn arrayget(module_ Module, ref Expression, index Expression, type_ Type, signed_ bool) Expression
 
 [c:'BinaryenArraySet']
-pub fn arrayset(module_ BinaryenModuleRef, ref BinaryenExpressionRef, index BinaryenExpressionRef, value BinaryenExpressionRef) BinaryenExpressionRef
+pub fn arrayset(module_ Module, ref Expression, index Expression, value Expression) Expression
 
 [c:'BinaryenArrayLen']
-pub fn arraylen(module_ BinaryenModuleRef, ref BinaryenExpressionRef) BinaryenExpressionRef
+pub fn arraylen(module_ Module, ref Expression) Expression
 
 [c:'BinaryenArrayCopy']
-pub fn arraycopy(module_ BinaryenModuleRef, destref BinaryenExpressionRef, destindex BinaryenExpressionRef, srcref BinaryenExpressionRef, srcindex BinaryenExpressionRef, length BinaryenExpressionRef) BinaryenExpressionRef
+pub fn arraycopy(module_ Module, destref Expression, destindex Expression, srcref Expression, srcindex Expression, length Expression) Expression
 
 [c:'BinaryenStringNew']
-pub fn stringnew(module_ BinaryenModuleRef, op BinaryenOp, ptr BinaryenExpressionRef, length BinaryenExpressionRef, start BinaryenExpressionRef, end BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringnew(module_ Module, op Op, ptr Expression, length Expression, start Expression, end Expression) Expression
 
 [c:'BinaryenStringConst']
-pub fn stringconst(module_ BinaryenModuleRef, name &i8) BinaryenExpressionRef
+pub fn stringconst(module_ Module, name &i8) Expression
 
 [c:'BinaryenStringMeasure']
-pub fn stringmeasure(module_ BinaryenModuleRef, op BinaryenOp, ref BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringmeasure(module_ Module, op Op, ref Expression) Expression
 
 [c:'BinaryenStringEncode']
-pub fn stringencode(module_ BinaryenModuleRef, op BinaryenOp, ref BinaryenExpressionRef, ptr BinaryenExpressionRef, start BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringencode(module_ Module, op Op, ref Expression, ptr Expression, start Expression) Expression
 
 [c:'BinaryenStringConcat']
-pub fn stringconcat(module_ BinaryenModuleRef, left BinaryenExpressionRef, right BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringconcat(module_ Module, left Expression, right Expression) Expression
 
 [c:'BinaryenStringEq']
-pub fn stringeq(module_ BinaryenModuleRef, left BinaryenExpressionRef, right BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringeq(module_ Module, left Expression, right Expression) Expression
 
 [c:'BinaryenStringAs']
-pub fn stringas(module_ BinaryenModuleRef, op BinaryenOp, ref BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringas(module_ Module, op Op, ref Expression) Expression
 
 [c:'BinaryenStringWTF8Advance']
-pub fn stringwtf8advance(module_ BinaryenModuleRef, ref BinaryenExpressionRef, pos BinaryenExpressionRef, bytes BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringwtf8advance(module_ Module, ref Expression, pos Expression, bytes Expression) Expression
 
 [c:'BinaryenStringWTF16Get']
-pub fn stringwtf16get(module_ BinaryenModuleRef, ref BinaryenExpressionRef, pos BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringwtf16get(module_ Module, ref Expression, pos Expression) Expression
 
 [c:'BinaryenStringIterNext']
-pub fn stringiternext(module_ BinaryenModuleRef, ref BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringiternext(module_ Module, ref Expression) Expression
 
 [c:'BinaryenStringIterMove']
-pub fn stringitermove(module_ BinaryenModuleRef, op BinaryenOp, ref BinaryenExpressionRef, num BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringitermove(module_ Module, op Op, ref Expression, num Expression) Expression
 
 [c:'BinaryenStringSliceWTF']
-pub fn stringslicewtf(module_ BinaryenModuleRef, op BinaryenOp, ref BinaryenExpressionRef, start BinaryenExpressionRef, end BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringslicewtf(module_ Module, op Op, ref Expression, start Expression, end Expression) Expression
 
 [c:'BinaryenStringSliceIter']
-pub fn stringsliceiter(module_ BinaryenModuleRef, ref BinaryenExpressionRef, num BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringsliceiter(module_ Module, ref Expression, num Expression) Expression
 
 [c:'BinaryenExpressionGetId']
-pub fn expressiongetid(expr BinaryenExpressionRef) BinaryenExpressionId
+pub fn expressiongetid(expr Expression) ExpressionId
 
 [c:'BinaryenExpressionGetType']
-pub fn expressiongettype(expr BinaryenExpressionRef) BinaryenType
+pub fn expressiongettype(expr Expression) Type
 
 [c:'BinaryenExpressionSetType']
-pub fn expressionsettype(expr BinaryenExpressionRef, type_ BinaryenType) 
+pub fn expressionsettype(expr Expression, type_ Type) 
 
 [c:'BinaryenExpressionPrint']
-pub fn expressionprint(expr BinaryenExpressionRef) 
+pub fn expressionprint(expr Expression) 
 
 [c:'BinaryenExpressionFinalize']
-pub fn expressionfinalize(expr BinaryenExpressionRef) 
+pub fn expressionfinalize(expr Expression) 
 
 [c:'BinaryenExpressionCopy']
-pub fn expressioncopy(expr BinaryenExpressionRef, module_ BinaryenModuleRef) BinaryenExpressionRef
+pub fn expressioncopy(expr Expression, module_ Module) Expression
 
 [c:'BinaryenBlockGetName']
-pub fn blockgetname(expr BinaryenExpressionRef) &i8
+pub fn blockgetname(expr Expression) &i8
 
 [c:'BinaryenBlockSetName']
-pub fn blocksetname(expr BinaryenExpressionRef, name &i8) 
+pub fn blocksetname(expr Expression, name &i8) 
 
 [c:'BinaryenBlockGetNumChildren']
-pub fn blockgetnumchildren(expr BinaryenExpressionRef) BinaryenIndex
+pub fn blockgetnumchildren(expr Expression) Index
 
 [c:'BinaryenBlockGetChildAt']
-pub fn blockgetchildat(expr BinaryenExpressionRef, index BinaryenIndex) BinaryenExpressionRef
+pub fn blockgetchildat(expr Expression, index Index) Expression
 
 [c:'BinaryenBlockSetChildAt']
-pub fn blocksetchildat(expr BinaryenExpressionRef, index BinaryenIndex, childexpr BinaryenExpressionRef) 
+pub fn blocksetchildat(expr Expression, index Index, childexpr Expression) 
 
 [c:'BinaryenBlockAppendChild']
-pub fn blockappendchild(expr BinaryenExpressionRef, childexpr BinaryenExpressionRef) BinaryenIndex
+pub fn blockappendchild(expr Expression, childexpr Expression) Index
 
 [c:'BinaryenBlockInsertChildAt']
-pub fn blockinsertchildat(expr BinaryenExpressionRef, index BinaryenIndex, childexpr BinaryenExpressionRef) 
+pub fn blockinsertchildat(expr Expression, index Index, childexpr Expression) 
 
 [c:'BinaryenBlockRemoveChildAt']
-pub fn blockremovechildat(expr BinaryenExpressionRef, index BinaryenIndex) BinaryenExpressionRef
+pub fn blockremovechildat(expr Expression, index Index) Expression
 
 [c:'BinaryenIfGetCondition']
-pub fn ifgetcondition(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn ifgetcondition(expr Expression) Expression
 
 [c:'BinaryenIfSetCondition']
-pub fn ifsetcondition(expr BinaryenExpressionRef, condexpr BinaryenExpressionRef) 
+pub fn ifsetcondition(expr Expression, condexpr Expression) 
 
 [c:'BinaryenIfGetIfTrue']
-pub fn ifgetiftrue(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn ifgetiftrue(expr Expression) Expression
 
 [c:'BinaryenIfSetIfTrue']
-pub fn ifsetiftrue(expr BinaryenExpressionRef, iftrueexpr BinaryenExpressionRef) 
+pub fn ifsetiftrue(expr Expression, iftrueexpr Expression) 
 
 [c:'BinaryenIfGetIfFalse']
-pub fn ifgetiffalse(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn ifgetiffalse(expr Expression) Expression
 
 [c:'BinaryenIfSetIfFalse']
-pub fn ifsetiffalse(expr BinaryenExpressionRef, iffalseexpr BinaryenExpressionRef) 
+pub fn ifsetiffalse(expr Expression, iffalseexpr Expression) 
 
 [c:'BinaryenLoopGetName']
-pub fn loopgetname(expr BinaryenExpressionRef) &i8
+pub fn loopgetname(expr Expression) &i8
 
 [c:'BinaryenLoopSetName']
-pub fn loopsetname(expr BinaryenExpressionRef, name &i8) 
+pub fn loopsetname(expr Expression, name &i8) 
 
 [c:'BinaryenLoopGetBody']
-pub fn loopgetbody(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn loopgetbody(expr Expression) Expression
 
 [c:'BinaryenLoopSetBody']
-pub fn loopsetbody(expr BinaryenExpressionRef, bodyexpr BinaryenExpressionRef) 
+pub fn loopsetbody(expr Expression, bodyexpr Expression) 
 
 [c:'BinaryenBreakGetName']
-pub fn breakgetname(expr BinaryenExpressionRef) &i8
+pub fn breakgetname(expr Expression) &i8
 
 [c:'BinaryenBreakSetName']
-pub fn breaksetname(expr BinaryenExpressionRef, name &i8) 
+pub fn breaksetname(expr Expression, name &i8) 
 
 [c:'BinaryenBreakGetCondition']
-pub fn breakgetcondition(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn breakgetcondition(expr Expression) Expression
 
 [c:'BinaryenBreakSetCondition']
-pub fn breaksetcondition(expr BinaryenExpressionRef, condexpr BinaryenExpressionRef) 
+pub fn breaksetcondition(expr Expression, condexpr Expression) 
 
 [c:'BinaryenBreakGetValue']
-pub fn breakgetvalue(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn breakgetvalue(expr Expression) Expression
 
 [c:'BinaryenBreakSetValue']
-pub fn breaksetvalue(expr BinaryenExpressionRef, valueexpr BinaryenExpressionRef) 
+pub fn breaksetvalue(expr Expression, valueexpr Expression) 
 
 [c:'BinaryenSwitchGetNumNames']
-pub fn switchgetnumnames(expr BinaryenExpressionRef) BinaryenIndex
+pub fn switchgetnumnames(expr Expression) Index
 
 [c:'BinaryenSwitchGetNameAt']
-pub fn switchgetnameat(expr BinaryenExpressionRef, index BinaryenIndex) &i8
+pub fn switchgetnameat(expr Expression, index Index) &i8
 
 [c:'BinaryenSwitchSetNameAt']
-pub fn switchsetnameat(expr BinaryenExpressionRef, index BinaryenIndex, name &i8) 
+pub fn switchsetnameat(expr Expression, index Index, name &i8) 
 
 [c:'BinaryenSwitchAppendName']
-pub fn switchappendname(expr BinaryenExpressionRef, name &i8) BinaryenIndex
+pub fn switchappendname(expr Expression, name &i8) Index
 
 [c:'BinaryenSwitchInsertNameAt']
-pub fn switchinsertnameat(expr BinaryenExpressionRef, index BinaryenIndex, name &i8) 
+pub fn switchinsertnameat(expr Expression, index Index, name &i8) 
 
 [c:'BinaryenSwitchRemoveNameAt']
-pub fn switchremovenameat(expr BinaryenExpressionRef, index BinaryenIndex) &i8
+pub fn switchremovenameat(expr Expression, index Index) &i8
 
 [c:'BinaryenSwitchGetDefaultName']
-pub fn switchgetdefaultname(expr BinaryenExpressionRef) &i8
+pub fn switchgetdefaultname(expr Expression) &i8
 
 [c:'BinaryenSwitchSetDefaultName']
-pub fn switchsetdefaultname(expr BinaryenExpressionRef, name &i8) 
+pub fn switchsetdefaultname(expr Expression, name &i8) 
 
 [c:'BinaryenSwitchGetCondition']
-pub fn switchgetcondition(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn switchgetcondition(expr Expression) Expression
 
 [c:'BinaryenSwitchSetCondition']
-pub fn switchsetcondition(expr BinaryenExpressionRef, condexpr BinaryenExpressionRef) 
+pub fn switchsetcondition(expr Expression, condexpr Expression) 
 
 [c:'BinaryenSwitchGetValue']
-pub fn switchgetvalue(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn switchgetvalue(expr Expression) Expression
 
 [c:'BinaryenSwitchSetValue']
-pub fn switchsetvalue(expr BinaryenExpressionRef, valueexpr BinaryenExpressionRef) 
+pub fn switchsetvalue(expr Expression, valueexpr Expression) 
 
 [c:'BinaryenCallGetTarget']
-pub fn callgettarget(expr BinaryenExpressionRef) &i8
+pub fn callgettarget(expr Expression) &i8
 
 [c:'BinaryenCallSetTarget']
-pub fn callsettarget(expr BinaryenExpressionRef, target &i8) 
+pub fn callsettarget(expr Expression, target &i8) 
 
 [c:'BinaryenCallGetNumOperands']
-pub fn callgetnumoperands(expr BinaryenExpressionRef) BinaryenIndex
+pub fn callgetnumoperands(expr Expression) Index
 
 [c:'BinaryenCallGetOperandAt']
-pub fn callgetoperandat(expr BinaryenExpressionRef, index BinaryenIndex) BinaryenExpressionRef
+pub fn callgetoperandat(expr Expression, index Index) Expression
 
 [c:'BinaryenCallSetOperandAt']
-pub fn callsetoperandat(expr BinaryenExpressionRef, index BinaryenIndex, operandexpr BinaryenExpressionRef) 
+pub fn callsetoperandat(expr Expression, index Index, operandexpr Expression) 
 
 [c:'BinaryenCallAppendOperand']
-pub fn callappendoperand(expr BinaryenExpressionRef, operandexpr BinaryenExpressionRef) BinaryenIndex
+pub fn callappendoperand(expr Expression, operandexpr Expression) Index
 
 [c:'BinaryenCallInsertOperandAt']
-pub fn callinsertoperandat(expr BinaryenExpressionRef, index BinaryenIndex, operandexpr BinaryenExpressionRef) 
+pub fn callinsertoperandat(expr Expression, index Index, operandexpr Expression) 
 
 [c:'BinaryenCallRemoveOperandAt']
-pub fn callremoveoperandat(expr BinaryenExpressionRef, index BinaryenIndex) BinaryenExpressionRef
+pub fn callremoveoperandat(expr Expression, index Index) Expression
 
 [c:'BinaryenCallIsReturn']
-pub fn callisreturn(expr BinaryenExpressionRef) bool
+pub fn callisreturn(expr Expression) bool
 
 [c:'BinaryenCallSetReturn']
-pub fn callsetreturn(expr BinaryenExpressionRef, isreturn bool) 
+pub fn callsetreturn(expr Expression, isreturn bool) 
 
 [c:'BinaryenCallIndirectGetTarget']
-pub fn callindirectgettarget(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn callindirectgettarget(expr Expression) Expression
 
 [c:'BinaryenCallIndirectSetTarget']
-pub fn callindirectsettarget(expr BinaryenExpressionRef, targetexpr BinaryenExpressionRef) 
+pub fn callindirectsettarget(expr Expression, targetexpr Expression) 
 
 [c:'BinaryenCallIndirectGetTable']
-pub fn callindirectgettable(expr BinaryenExpressionRef) &i8
+pub fn callindirectgettable(expr Expression) &i8
 
 [c:'BinaryenCallIndirectSetTable']
-pub fn callindirectsettable(expr BinaryenExpressionRef, table &i8) 
+pub fn callindirectsettable(expr Expression, table &i8) 
 
 [c:'BinaryenCallIndirectGetNumOperands']
-pub fn callindirectgetnumoperands(expr BinaryenExpressionRef) BinaryenIndex
+pub fn callindirectgetnumoperands(expr Expression) Index
 
 [c:'BinaryenCallIndirectGetOperandAt']
-pub fn callindirectgetoperandat(expr BinaryenExpressionRef, index BinaryenIndex) BinaryenExpressionRef
+pub fn callindirectgetoperandat(expr Expression, index Index) Expression
 
 [c:'BinaryenCallIndirectSetOperandAt']
-pub fn callindirectsetoperandat(expr BinaryenExpressionRef, index BinaryenIndex, operandexpr BinaryenExpressionRef) 
+pub fn callindirectsetoperandat(expr Expression, index Index, operandexpr Expression) 
 
 [c:'BinaryenCallIndirectAppendOperand']
-pub fn callindirectappendoperand(expr BinaryenExpressionRef, operandexpr BinaryenExpressionRef) BinaryenIndex
+pub fn callindirectappendoperand(expr Expression, operandexpr Expression) Index
 
 [c:'BinaryenCallIndirectInsertOperandAt']
-pub fn callindirectinsertoperandat(expr BinaryenExpressionRef, index BinaryenIndex, operandexpr BinaryenExpressionRef) 
+pub fn callindirectinsertoperandat(expr Expression, index Index, operandexpr Expression) 
 
 [c:'BinaryenCallIndirectRemoveOperandAt']
-pub fn callindirectremoveoperandat(expr BinaryenExpressionRef, index BinaryenIndex) BinaryenExpressionRef
+pub fn callindirectremoveoperandat(expr Expression, index Index) Expression
 
 [c:'BinaryenCallIndirectIsReturn']
-pub fn callindirectisreturn(expr BinaryenExpressionRef) bool
+pub fn callindirectisreturn(expr Expression) bool
 
 [c:'BinaryenCallIndirectSetReturn']
-pub fn callindirectsetreturn(expr BinaryenExpressionRef, isreturn bool) 
+pub fn callindirectsetreturn(expr Expression, isreturn bool) 
 
 [c:'BinaryenCallIndirectGetParams']
-pub fn callindirectgetparams(expr BinaryenExpressionRef) BinaryenType
+pub fn callindirectgetparams(expr Expression) Type
 
 [c:'BinaryenCallIndirectSetParams']
-pub fn callindirectsetparams(expr BinaryenExpressionRef, params BinaryenType) 
+pub fn callindirectsetparams(expr Expression, params Type) 
 
 [c:'BinaryenCallIndirectGetResults']
-pub fn callindirectgetresults(expr BinaryenExpressionRef) BinaryenType
+pub fn callindirectgetresults(expr Expression) Type
 
 [c:'BinaryenCallIndirectSetResults']
-pub fn callindirectsetresults(expr BinaryenExpressionRef, params BinaryenType) 
+pub fn callindirectsetresults(expr Expression, params Type) 
 
 [c:'BinaryenLocalGetGetIndex']
-pub fn localgetgetindex(expr BinaryenExpressionRef) BinaryenIndex
+pub fn localgetgetindex(expr Expression) Index
 
 [c:'BinaryenLocalGetSetIndex']
-pub fn localgetsetindex(expr BinaryenExpressionRef, index BinaryenIndex) 
+pub fn localgetsetindex(expr Expression, index Index) 
 
 [c:'BinaryenLocalSetIsTee']
-pub fn localsetistee(expr BinaryenExpressionRef) bool
+pub fn localsetistee(expr Expression) bool
 
 [c:'BinaryenLocalSetGetIndex']
-pub fn localsetgetindex(expr BinaryenExpressionRef) BinaryenIndex
+pub fn localsetgetindex(expr Expression) Index
 
 [c:'BinaryenLocalSetSetIndex']
-pub fn localsetsetindex(expr BinaryenExpressionRef, index BinaryenIndex) 
+pub fn localsetsetindex(expr Expression, index Index) 
 
 [c:'BinaryenLocalSetGetValue']
-pub fn localsetgetvalue(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn localsetgetvalue(expr Expression) Expression
 
 [c:'BinaryenLocalSetSetValue']
-pub fn localsetsetvalue(expr BinaryenExpressionRef, valueexpr BinaryenExpressionRef) 
+pub fn localsetsetvalue(expr Expression, valueexpr Expression) 
 
 [c:'BinaryenGlobalGetGetName']
-pub fn globalgetgetname(expr BinaryenExpressionRef) &i8
+pub fn globalgetgetname(expr Expression) &i8
 
 [c:'BinaryenGlobalGetSetName']
-pub fn globalgetsetname(expr BinaryenExpressionRef, name &i8) 
+pub fn globalgetsetname(expr Expression, name &i8) 
 
 [c:'BinaryenGlobalSetGetName']
-pub fn globalsetgetname(expr BinaryenExpressionRef) &i8
+pub fn globalsetgetname(expr Expression) &i8
 
 [c:'BinaryenGlobalSetSetName']
-pub fn globalsetsetname(expr BinaryenExpressionRef, name &i8) 
+pub fn globalsetsetname(expr Expression, name &i8) 
 
 [c:'BinaryenGlobalSetGetValue']
-pub fn globalsetgetvalue(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn globalsetgetvalue(expr Expression) Expression
 
 [c:'BinaryenGlobalSetSetValue']
-pub fn globalsetsetvalue(expr BinaryenExpressionRef, valueexpr BinaryenExpressionRef) 
+pub fn globalsetsetvalue(expr Expression, valueexpr Expression) 
 
 [c:'BinaryenTableGetGetTable']
-pub fn tablegetgettable(expr BinaryenExpressionRef) &i8
+pub fn tablegetgettable(expr Expression) &i8
 
 [c:'BinaryenTableGetSetTable']
-pub fn tablegetsettable(expr BinaryenExpressionRef, table &i8) 
+pub fn tablegetsettable(expr Expression, table &i8) 
 
 [c:'BinaryenTableGetGetIndex']
-pub fn tablegetgetindex(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn tablegetgetindex(expr Expression) Expression
 
 [c:'BinaryenTableGetSetIndex']
-pub fn tablegetsetindex(expr BinaryenExpressionRef, indexexpr BinaryenExpressionRef) 
+pub fn tablegetsetindex(expr Expression, indexexpr Expression) 
 
 [c:'BinaryenTableSetGetTable']
-pub fn tablesetgettable(expr BinaryenExpressionRef) &i8
+pub fn tablesetgettable(expr Expression) &i8
 
 [c:'BinaryenTableSetSetTable']
-pub fn tablesetsettable(expr BinaryenExpressionRef, table &i8) 
+pub fn tablesetsettable(expr Expression, table &i8) 
 
 [c:'BinaryenTableSetGetIndex']
-pub fn tablesetgetindex(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn tablesetgetindex(expr Expression) Expression
 
 [c:'BinaryenTableSetSetIndex']
-pub fn tablesetsetindex(expr BinaryenExpressionRef, indexexpr BinaryenExpressionRef) 
+pub fn tablesetsetindex(expr Expression, indexexpr Expression) 
 
 [c:'BinaryenTableSetGetValue']
-pub fn tablesetgetvalue(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn tablesetgetvalue(expr Expression) Expression
 
 [c:'BinaryenTableSetSetValue']
-pub fn tablesetsetvalue(expr BinaryenExpressionRef, valueexpr BinaryenExpressionRef) 
+pub fn tablesetsetvalue(expr Expression, valueexpr Expression) 
 
 [c:'BinaryenTableSizeGetTable']
-pub fn tablesizegettable(expr BinaryenExpressionRef) &i8
+pub fn tablesizegettable(expr Expression) &i8
 
 [c:'BinaryenTableSizeSetTable']
-pub fn tablesizesettable(expr BinaryenExpressionRef, table &i8) 
+pub fn tablesizesettable(expr Expression, table &i8) 
 
 [c:'BinaryenTableGrowGetTable']
-pub fn tablegrowgettable(expr BinaryenExpressionRef) &i8
+pub fn tablegrowgettable(expr Expression) &i8
 
 [c:'BinaryenTableGrowSetTable']
-pub fn tablegrowsettable(expr BinaryenExpressionRef, table &i8) 
+pub fn tablegrowsettable(expr Expression, table &i8) 
 
 [c:'BinaryenTableGrowGetValue']
-pub fn tablegrowgetvalue(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn tablegrowgetvalue(expr Expression) Expression
 
 [c:'BinaryenTableGrowSetValue']
-pub fn tablegrowsetvalue(expr BinaryenExpressionRef, valueexpr BinaryenExpressionRef) 
+pub fn tablegrowsetvalue(expr Expression, valueexpr Expression) 
 
 [c:'BinaryenTableGrowGetDelta']
-pub fn tablegrowgetdelta(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn tablegrowgetdelta(expr Expression) Expression
 
 [c:'BinaryenTableGrowSetDelta']
-pub fn tablegrowsetdelta(expr BinaryenExpressionRef, deltaexpr BinaryenExpressionRef) 
+pub fn tablegrowsetdelta(expr Expression, deltaexpr Expression) 
 
 [c:'BinaryenMemoryGrowGetDelta']
-pub fn memorygrowgetdelta(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn memorygrowgetdelta(expr Expression) Expression
 
 [c:'BinaryenMemoryGrowSetDelta']
-pub fn memorygrowsetdelta(expr BinaryenExpressionRef, deltaexpr BinaryenExpressionRef) 
+pub fn memorygrowsetdelta(expr Expression, deltaexpr Expression) 
 
 [c:'BinaryenLoadIsAtomic']
-pub fn loadisatomic(expr BinaryenExpressionRef) bool
+pub fn loadisatomic(expr Expression) bool
 
 [c:'BinaryenLoadSetAtomic']
-pub fn loadsetatomic(expr BinaryenExpressionRef, isatomic bool) 
+pub fn loadsetatomic(expr Expression, isatomic bool) 
 
 [c:'BinaryenLoadIsSigned']
-pub fn loadissigned(expr BinaryenExpressionRef) bool
+pub fn loadissigned(expr Expression) bool
 
 [c:'BinaryenLoadSetSigned']
-pub fn loadsetsigned(expr BinaryenExpressionRef, issigned bool) 
+pub fn loadsetsigned(expr Expression, issigned bool) 
 
 [c:'BinaryenLoadGetOffset']
-pub fn loadgetoffset(expr BinaryenExpressionRef) u32
+pub fn loadgetoffset(expr Expression) u32
 
 [c:'BinaryenLoadSetOffset']
-pub fn loadsetoffset(expr BinaryenExpressionRef, offset u32) 
+pub fn loadsetoffset(expr Expression, offset u32) 
 
 [c:'BinaryenLoadGetBytes']
-pub fn loadgetbytes(expr BinaryenExpressionRef) u32
+pub fn loadgetbytes(expr Expression) u32
 
 [c:'BinaryenLoadSetBytes']
-pub fn loadsetbytes(expr BinaryenExpressionRef, bytes u32) 
+pub fn loadsetbytes(expr Expression, bytes u32) 
 
 [c:'BinaryenLoadGetAlign']
-pub fn loadgetalign(expr BinaryenExpressionRef) u32
+pub fn loadgetalign(expr Expression) u32
 
 [c:'BinaryenLoadSetAlign']
-pub fn loadsetalign(expr BinaryenExpressionRef, align u32) 
+pub fn loadsetalign(expr Expression, align u32) 
 
 [c:'BinaryenLoadGetPtr']
-pub fn loadgetptr(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn loadgetptr(expr Expression) Expression
 
 [c:'BinaryenLoadSetPtr']
-pub fn loadsetptr(expr BinaryenExpressionRef, ptrexpr BinaryenExpressionRef) 
+pub fn loadsetptr(expr Expression, ptrexpr Expression) 
 
 [c:'BinaryenStoreIsAtomic']
-pub fn storeisatomic(expr BinaryenExpressionRef) bool
+pub fn storeisatomic(expr Expression) bool
 
 [c:'BinaryenStoreSetAtomic']
-pub fn storesetatomic(expr BinaryenExpressionRef, isatomic bool) 
+pub fn storesetatomic(expr Expression, isatomic bool) 
 
 [c:'BinaryenStoreGetBytes']
-pub fn storegetbytes(expr BinaryenExpressionRef) u32
+pub fn storegetbytes(expr Expression) u32
 
 [c:'BinaryenStoreSetBytes']
-pub fn storesetbytes(expr BinaryenExpressionRef, bytes u32) 
+pub fn storesetbytes(expr Expression, bytes u32) 
 
 [c:'BinaryenStoreGetOffset']
-pub fn storegetoffset(expr BinaryenExpressionRef) u32
+pub fn storegetoffset(expr Expression) u32
 
 [c:'BinaryenStoreSetOffset']
-pub fn storesetoffset(expr BinaryenExpressionRef, offset u32) 
+pub fn storesetoffset(expr Expression, offset u32) 
 
 [c:'BinaryenStoreGetAlign']
-pub fn storegetalign(expr BinaryenExpressionRef) u32
+pub fn storegetalign(expr Expression) u32
 
 [c:'BinaryenStoreSetAlign']
-pub fn storesetalign(expr BinaryenExpressionRef, align u32) 
+pub fn storesetalign(expr Expression, align u32) 
 
 [c:'BinaryenStoreGetPtr']
-pub fn storegetptr(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn storegetptr(expr Expression) Expression
 
 [c:'BinaryenStoreSetPtr']
-pub fn storesetptr(expr BinaryenExpressionRef, ptrexpr BinaryenExpressionRef) 
+pub fn storesetptr(expr Expression, ptrexpr Expression) 
 
 [c:'BinaryenStoreGetValue']
-pub fn storegetvalue(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn storegetvalue(expr Expression) Expression
 
 [c:'BinaryenStoreSetValue']
-pub fn storesetvalue(expr BinaryenExpressionRef, valueexpr BinaryenExpressionRef) 
+pub fn storesetvalue(expr Expression, valueexpr Expression) 
 
 [c:'BinaryenStoreGetValueType']
-pub fn storegetvaluetype(expr BinaryenExpressionRef) BinaryenType
+pub fn storegetvaluetype(expr Expression) Type
 
 [c:'BinaryenStoreSetValueType']
-pub fn storesetvaluetype(expr BinaryenExpressionRef, valuetype BinaryenType) 
+pub fn storesetvaluetype(expr Expression, valuetype Type) 
 
 [c:'BinaryenConstGetValueI32']
-pub fn constgetvaluei32(expr BinaryenExpressionRef) int
+pub fn constgetvaluei32(expr Expression) int
 
 [c:'BinaryenConstSetValueI32']
-pub fn constsetvaluei32(expr BinaryenExpressionRef, value int) 
+pub fn constsetvaluei32(expr Expression, value int) 
 
 [c:'BinaryenConstGetValueI64']
-pub fn constgetvaluei64(expr BinaryenExpressionRef) i64
+pub fn constgetvaluei64(expr Expression) i64
 
 [c:'BinaryenConstSetValueI64']
-pub fn constsetvaluei64(expr BinaryenExpressionRef, value i64) 
+pub fn constsetvaluei64(expr Expression, value i64) 
 
 [c:'BinaryenConstGetValueI64Low']
-pub fn constgetvaluei64low(expr BinaryenExpressionRef) int
+pub fn constgetvaluei64low(expr Expression) int
 
 [c:'BinaryenConstSetValueI64Low']
-pub fn constsetvaluei64low(expr BinaryenExpressionRef, valuelow int) 
+pub fn constsetvaluei64low(expr Expression, valuelow int) 
 
 [c:'BinaryenConstGetValueI64High']
-pub fn constgetvaluei64high(expr BinaryenExpressionRef) int
+pub fn constgetvaluei64high(expr Expression) int
 
 [c:'BinaryenConstSetValueI64High']
-pub fn constsetvaluei64high(expr BinaryenExpressionRef, valuehigh int) 
+pub fn constsetvaluei64high(expr Expression, valuehigh int) 
 
 [c:'BinaryenConstGetValueF32']
-pub fn constgetvaluef32(expr BinaryenExpressionRef) f32
+pub fn constgetvaluef32(expr Expression) f32
 
 [c:'BinaryenConstSetValueF32']
-pub fn constsetvaluef32(expr BinaryenExpressionRef, value f32) 
+pub fn constsetvaluef32(expr Expression, value f32) 
 
 [c:'BinaryenConstGetValueF64']
-pub fn constgetvaluef64(expr BinaryenExpressionRef) f64
+pub fn constgetvaluef64(expr Expression) f64
 
 [c:'BinaryenConstSetValueF64']
-pub fn constsetvaluef64(expr BinaryenExpressionRef, value f64) 
+pub fn constsetvaluef64(expr Expression, value f64) 
 
 [c:'BinaryenConstGetValueV128']
-pub fn constgetvaluev128(expr BinaryenExpressionRef, out &u8) 
+pub fn constgetvaluev128(expr Expression, out &u8) 
 
 [c:'BinaryenConstSetValueV128']
-pub fn constsetvaluev128(expr BinaryenExpressionRef, value &u8) 
+pub fn constsetvaluev128(expr Expression, value &u8) 
 
 [c:'BinaryenUnaryGetOp']
-pub fn unarygetop(expr BinaryenExpressionRef) BinaryenOp
+pub fn unarygetop(expr Expression) Op
 
 [c:'BinaryenUnarySetOp']
-pub fn unarysetop(expr BinaryenExpressionRef, op BinaryenOp) 
+pub fn unarysetop(expr Expression, op Op) 
 
 [c:'BinaryenUnaryGetValue']
-pub fn unarygetvalue(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn unarygetvalue(expr Expression) Expression
 
 [c:'BinaryenUnarySetValue']
-pub fn unarysetvalue(expr BinaryenExpressionRef, valueexpr BinaryenExpressionRef) 
+pub fn unarysetvalue(expr Expression, valueexpr Expression) 
 
 [c:'BinaryenBinaryGetOp']
-pub fn binarygetop(expr BinaryenExpressionRef) BinaryenOp
+pub fn binarygetop(expr Expression) Op
 
 [c:'BinaryenBinarySetOp']
-pub fn binarysetop(expr BinaryenExpressionRef, op BinaryenOp) 
+pub fn binarysetop(expr Expression, op Op) 
 
 [c:'BinaryenBinaryGetLeft']
-pub fn binarygetleft(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn binarygetleft(expr Expression) Expression
 
 [c:'BinaryenBinarySetLeft']
-pub fn binarysetleft(expr BinaryenExpressionRef, leftexpr BinaryenExpressionRef) 
+pub fn binarysetleft(expr Expression, leftexpr Expression) 
 
 [c:'BinaryenBinaryGetRight']
-pub fn binarygetright(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn binarygetright(expr Expression) Expression
 
 [c:'BinaryenBinarySetRight']
-pub fn binarysetright(expr BinaryenExpressionRef, rightexpr BinaryenExpressionRef) 
+pub fn binarysetright(expr Expression, rightexpr Expression) 
 
 [c:'BinaryenSelectGetIfTrue']
-pub fn selectgetiftrue(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn selectgetiftrue(expr Expression) Expression
 
 [c:'BinaryenSelectSetIfTrue']
-pub fn selectsetiftrue(expr BinaryenExpressionRef, iftrueexpr BinaryenExpressionRef) 
+pub fn selectsetiftrue(expr Expression, iftrueexpr Expression) 
 
 [c:'BinaryenSelectGetIfFalse']
-pub fn selectgetiffalse(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn selectgetiffalse(expr Expression) Expression
 
 [c:'BinaryenSelectSetIfFalse']
-pub fn selectsetiffalse(expr BinaryenExpressionRef, iffalseexpr BinaryenExpressionRef) 
+pub fn selectsetiffalse(expr Expression, iffalseexpr Expression) 
 
 [c:'BinaryenSelectGetCondition']
-pub fn selectgetcondition(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn selectgetcondition(expr Expression) Expression
 
 [c:'BinaryenSelectSetCondition']
-pub fn selectsetcondition(expr BinaryenExpressionRef, condexpr BinaryenExpressionRef) 
+pub fn selectsetcondition(expr Expression, condexpr Expression) 
 
 [c:'BinaryenDropGetValue']
-pub fn dropgetvalue(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn dropgetvalue(expr Expression) Expression
 
 [c:'BinaryenDropSetValue']
-pub fn dropsetvalue(expr BinaryenExpressionRef, valueexpr BinaryenExpressionRef) 
+pub fn dropsetvalue(expr Expression, valueexpr Expression) 
 
 [c:'BinaryenReturnGetValue']
-pub fn returngetvalue(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn returngetvalue(expr Expression) Expression
 
 [c:'BinaryenReturnSetValue']
-pub fn returnsetvalue(expr BinaryenExpressionRef, valueexpr BinaryenExpressionRef) 
+pub fn returnsetvalue(expr Expression, valueexpr Expression) 
 
 [c:'BinaryenAtomicRMWGetOp']
-pub fn atomicrmwgetop(expr BinaryenExpressionRef) BinaryenOp
+pub fn atomicrmwgetop(expr Expression) Op
 
 [c:'BinaryenAtomicRMWSetOp']
-pub fn atomicrmwsetop(expr BinaryenExpressionRef, op BinaryenOp) 
+pub fn atomicrmwsetop(expr Expression, op Op) 
 
 [c:'BinaryenAtomicRMWGetBytes']
-pub fn atomicrmwgetbytes(expr BinaryenExpressionRef) u32
+pub fn atomicrmwgetbytes(expr Expression) u32
 
 [c:'BinaryenAtomicRMWSetBytes']
-pub fn atomicrmwsetbytes(expr BinaryenExpressionRef, bytes u32) 
+pub fn atomicrmwsetbytes(expr Expression, bytes u32) 
 
 [c:'BinaryenAtomicRMWGetOffset']
-pub fn atomicrmwgetoffset(expr BinaryenExpressionRef) u32
+pub fn atomicrmwgetoffset(expr Expression) u32
 
 [c:'BinaryenAtomicRMWSetOffset']
-pub fn atomicrmwsetoffset(expr BinaryenExpressionRef, offset u32) 
+pub fn atomicrmwsetoffset(expr Expression, offset u32) 
 
 [c:'BinaryenAtomicRMWGetPtr']
-pub fn atomicrmwgetptr(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn atomicrmwgetptr(expr Expression) Expression
 
 [c:'BinaryenAtomicRMWSetPtr']
-pub fn atomicrmwsetptr(expr BinaryenExpressionRef, ptrexpr BinaryenExpressionRef) 
+pub fn atomicrmwsetptr(expr Expression, ptrexpr Expression) 
 
 [c:'BinaryenAtomicRMWGetValue']
-pub fn atomicrmwgetvalue(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn atomicrmwgetvalue(expr Expression) Expression
 
 [c:'BinaryenAtomicRMWSetValue']
-pub fn atomicrmwsetvalue(expr BinaryenExpressionRef, valueexpr BinaryenExpressionRef) 
+pub fn atomicrmwsetvalue(expr Expression, valueexpr Expression) 
 
 [c:'BinaryenAtomicCmpxchgGetBytes']
-pub fn atomiccmpxchggetbytes(expr BinaryenExpressionRef) u32
+pub fn atomiccmpxchggetbytes(expr Expression) u32
 
 [c:'BinaryenAtomicCmpxchgSetBytes']
-pub fn atomiccmpxchgsetbytes(expr BinaryenExpressionRef, bytes u32) 
+pub fn atomiccmpxchgsetbytes(expr Expression, bytes u32) 
 
 [c:'BinaryenAtomicCmpxchgGetOffset']
-pub fn atomiccmpxchggetoffset(expr BinaryenExpressionRef) u32
+pub fn atomiccmpxchggetoffset(expr Expression) u32
 
 [c:'BinaryenAtomicCmpxchgSetOffset']
-pub fn atomiccmpxchgsetoffset(expr BinaryenExpressionRef, offset u32) 
+pub fn atomiccmpxchgsetoffset(expr Expression, offset u32) 
 
 [c:'BinaryenAtomicCmpxchgGetPtr']
-pub fn atomiccmpxchggetptr(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn atomiccmpxchggetptr(expr Expression) Expression
 
 [c:'BinaryenAtomicCmpxchgSetPtr']
-pub fn atomiccmpxchgsetptr(expr BinaryenExpressionRef, ptrexpr BinaryenExpressionRef) 
+pub fn atomiccmpxchgsetptr(expr Expression, ptrexpr Expression) 
 
 [c:'BinaryenAtomicCmpxchgGetExpected']
-pub fn atomiccmpxchggetexpected(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn atomiccmpxchggetexpected(expr Expression) Expression
 
 [c:'BinaryenAtomicCmpxchgSetExpected']
-pub fn atomiccmpxchgsetexpected(expr BinaryenExpressionRef, expectedexpr BinaryenExpressionRef) 
+pub fn atomiccmpxchgsetexpected(expr Expression, expectedexpr Expression) 
 
 [c:'BinaryenAtomicCmpxchgGetReplacement']
-pub fn atomiccmpxchggetreplacement(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn atomiccmpxchggetreplacement(expr Expression) Expression
 
 [c:'BinaryenAtomicCmpxchgSetReplacement']
-pub fn atomiccmpxchgsetreplacement(expr BinaryenExpressionRef, replacementexpr BinaryenExpressionRef) 
+pub fn atomiccmpxchgsetreplacement(expr Expression, replacementexpr Expression) 
 
 [c:'BinaryenAtomicWaitGetPtr']
-pub fn atomicwaitgetptr(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn atomicwaitgetptr(expr Expression) Expression
 
 [c:'BinaryenAtomicWaitSetPtr']
-pub fn atomicwaitsetptr(expr BinaryenExpressionRef, ptrexpr BinaryenExpressionRef) 
+pub fn atomicwaitsetptr(expr Expression, ptrexpr Expression) 
 
 [c:'BinaryenAtomicWaitGetExpected']
-pub fn atomicwaitgetexpected(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn atomicwaitgetexpected(expr Expression) Expression
 
 [c:'BinaryenAtomicWaitSetExpected']
-pub fn atomicwaitsetexpected(expr BinaryenExpressionRef, expectedexpr BinaryenExpressionRef) 
+pub fn atomicwaitsetexpected(expr Expression, expectedexpr Expression) 
 
 [c:'BinaryenAtomicWaitGetTimeout']
-pub fn atomicwaitgettimeout(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn atomicwaitgettimeout(expr Expression) Expression
 
 [c:'BinaryenAtomicWaitSetTimeout']
-pub fn atomicwaitsettimeout(expr BinaryenExpressionRef, timeoutexpr BinaryenExpressionRef) 
+pub fn atomicwaitsettimeout(expr Expression, timeoutexpr Expression) 
 
 [c:'BinaryenAtomicWaitGetExpectedType']
-pub fn atomicwaitgetexpectedtype(expr BinaryenExpressionRef) BinaryenType
+pub fn atomicwaitgetexpectedtype(expr Expression) Type
 
 [c:'BinaryenAtomicWaitSetExpectedType']
-pub fn atomicwaitsetexpectedtype(expr BinaryenExpressionRef, expectedtype BinaryenType) 
+pub fn atomicwaitsetexpectedtype(expr Expression, expectedtype Type) 
 
 [c:'BinaryenAtomicNotifyGetPtr']
-pub fn atomicnotifygetptr(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn atomicnotifygetptr(expr Expression) Expression
 
 [c:'BinaryenAtomicNotifySetPtr']
-pub fn atomicnotifysetptr(expr BinaryenExpressionRef, ptrexpr BinaryenExpressionRef) 
+pub fn atomicnotifysetptr(expr Expression, ptrexpr Expression) 
 
 [c:'BinaryenAtomicNotifyGetNotifyCount']
-pub fn atomicnotifygetnotifycount(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn atomicnotifygetnotifycount(expr Expression) Expression
 
 [c:'BinaryenAtomicNotifySetNotifyCount']
-pub fn atomicnotifysetnotifycount(expr BinaryenExpressionRef, notifycountexpr BinaryenExpressionRef) 
+pub fn atomicnotifysetnotifycount(expr Expression, notifycountexpr Expression) 
 
 [c:'BinaryenAtomicFenceGetOrder']
-pub fn atomicfencegetorder(expr BinaryenExpressionRef) u8
+pub fn atomicfencegetorder(expr Expression) u8
 
 [c:'BinaryenAtomicFenceSetOrder']
-pub fn atomicfencesetorder(expr BinaryenExpressionRef, order u8) 
+pub fn atomicfencesetorder(expr Expression, order u8) 
 
 [c:'BinaryenSIMDExtractGetOp']
-pub fn simdextractgetop(expr BinaryenExpressionRef) BinaryenOp
+pub fn simdextractgetop(expr Expression) Op
 
 [c:'BinaryenSIMDExtractSetOp']
-pub fn simdextractsetop(expr BinaryenExpressionRef, op BinaryenOp) 
+pub fn simdextractsetop(expr Expression, op Op) 
 
 [c:'BinaryenSIMDExtractGetVec']
-pub fn simdextractgetvec(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn simdextractgetvec(expr Expression) Expression
 
 [c:'BinaryenSIMDExtractSetVec']
-pub fn simdextractsetvec(expr BinaryenExpressionRef, vecexpr BinaryenExpressionRef) 
+pub fn simdextractsetvec(expr Expression, vecexpr Expression) 
 
 [c:'BinaryenSIMDExtractGetIndex']
-pub fn simdextractgetindex(expr BinaryenExpressionRef) u8
+pub fn simdextractgetindex(expr Expression) u8
 
 [c:'BinaryenSIMDExtractSetIndex']
-pub fn simdextractsetindex(expr BinaryenExpressionRef, index u8) 
+pub fn simdextractsetindex(expr Expression, index u8) 
 
 [c:'BinaryenSIMDReplaceGetOp']
-pub fn simdreplacegetop(expr BinaryenExpressionRef) BinaryenOp
+pub fn simdreplacegetop(expr Expression) Op
 
 [c:'BinaryenSIMDReplaceSetOp']
-pub fn simdreplacesetop(expr BinaryenExpressionRef, op BinaryenOp) 
+pub fn simdreplacesetop(expr Expression, op Op) 
 
 [c:'BinaryenSIMDReplaceGetVec']
-pub fn simdreplacegetvec(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn simdreplacegetvec(expr Expression) Expression
 
 [c:'BinaryenSIMDReplaceSetVec']
-pub fn simdreplacesetvec(expr BinaryenExpressionRef, vecexpr BinaryenExpressionRef) 
+pub fn simdreplacesetvec(expr Expression, vecexpr Expression) 
 
 [c:'BinaryenSIMDReplaceGetIndex']
-pub fn simdreplacegetindex(expr BinaryenExpressionRef) u8
+pub fn simdreplacegetindex(expr Expression) u8
 
 [c:'BinaryenSIMDReplaceSetIndex']
-pub fn simdreplacesetindex(expr BinaryenExpressionRef, index u8) 
+pub fn simdreplacesetindex(expr Expression, index u8) 
 
 [c:'BinaryenSIMDReplaceGetValue']
-pub fn simdreplacegetvalue(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn simdreplacegetvalue(expr Expression) Expression
 
 [c:'BinaryenSIMDReplaceSetValue']
-pub fn simdreplacesetvalue(expr BinaryenExpressionRef, valueexpr BinaryenExpressionRef) 
+pub fn simdreplacesetvalue(expr Expression, valueexpr Expression) 
 
 [c:'BinaryenSIMDShuffleGetLeft']
-pub fn simdshufflegetleft(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn simdshufflegetleft(expr Expression) Expression
 
 [c:'BinaryenSIMDShuffleSetLeft']
-pub fn simdshufflesetleft(expr BinaryenExpressionRef, leftexpr BinaryenExpressionRef) 
+pub fn simdshufflesetleft(expr Expression, leftexpr Expression) 
 
 [c:'BinaryenSIMDShuffleGetRight']
-pub fn simdshufflegetright(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn simdshufflegetright(expr Expression) Expression
 
 [c:'BinaryenSIMDShuffleSetRight']
-pub fn simdshufflesetright(expr BinaryenExpressionRef, rightexpr BinaryenExpressionRef) 
+pub fn simdshufflesetright(expr Expression, rightexpr Expression) 
 
 [c:'BinaryenSIMDShuffleGetMask']
-pub fn simdshufflegetmask(expr BinaryenExpressionRef, mask &u8) 
+pub fn simdshufflegetmask(expr Expression, mask &u8) 
 
 [c:'BinaryenSIMDShuffleSetMask']
-pub fn simdshufflesetmask(expr BinaryenExpressionRef, mask &u8) 
+pub fn simdshufflesetmask(expr Expression, mask &u8) 
 
 [c:'BinaryenSIMDTernaryGetOp']
-pub fn simdternarygetop(expr BinaryenExpressionRef) BinaryenOp
+pub fn simdternarygetop(expr Expression) Op
 
 [c:'BinaryenSIMDTernarySetOp']
-pub fn simdternarysetop(expr BinaryenExpressionRef, op BinaryenOp) 
+pub fn simdternarysetop(expr Expression, op Op) 
 
 [c:'BinaryenSIMDTernaryGetA']
-pub fn simdternarygeta(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn simdternarygeta(expr Expression) Expression
 
 [c:'BinaryenSIMDTernarySetA']
-pub fn simdternaryseta(expr BinaryenExpressionRef, aexpr BinaryenExpressionRef) 
+pub fn simdternaryseta(expr Expression, aexpr Expression) 
 
 [c:'BinaryenSIMDTernaryGetB']
-pub fn simdternarygetb(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn simdternarygetb(expr Expression) Expression
 
 [c:'BinaryenSIMDTernarySetB']
-pub fn simdternarysetb(expr BinaryenExpressionRef, bexpr BinaryenExpressionRef) 
+pub fn simdternarysetb(expr Expression, bexpr Expression) 
 
 [c:'BinaryenSIMDTernaryGetC']
-pub fn simdternarygetc(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn simdternarygetc(expr Expression) Expression
 
 [c:'BinaryenSIMDTernarySetC']
-pub fn simdternarysetc(expr BinaryenExpressionRef, cexpr BinaryenExpressionRef) 
+pub fn simdternarysetc(expr Expression, cexpr Expression) 
 
 [c:'BinaryenSIMDShiftGetOp']
-pub fn simdshiftgetop(expr BinaryenExpressionRef) BinaryenOp
+pub fn simdshiftgetop(expr Expression) Op
 
 [c:'BinaryenSIMDShiftSetOp']
-pub fn simdshiftsetop(expr BinaryenExpressionRef, op BinaryenOp) 
+pub fn simdshiftsetop(expr Expression, op Op) 
 
 [c:'BinaryenSIMDShiftGetVec']
-pub fn simdshiftgetvec(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn simdshiftgetvec(expr Expression) Expression
 
 [c:'BinaryenSIMDShiftSetVec']
-pub fn simdshiftsetvec(expr BinaryenExpressionRef, vecexpr BinaryenExpressionRef) 
+pub fn simdshiftsetvec(expr Expression, vecexpr Expression) 
 
 [c:'BinaryenSIMDShiftGetShift']
-pub fn simdshiftgetshift(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn simdshiftgetshift(expr Expression) Expression
 
 [c:'BinaryenSIMDShiftSetShift']
-pub fn simdshiftsetshift(expr BinaryenExpressionRef, shiftexpr BinaryenExpressionRef) 
+pub fn simdshiftsetshift(expr Expression, shiftexpr Expression) 
 
 [c:'BinaryenSIMDLoadGetOp']
-pub fn simdloadgetop(expr BinaryenExpressionRef) BinaryenOp
+pub fn simdloadgetop(expr Expression) Op
 
 [c:'BinaryenSIMDLoadSetOp']
-pub fn simdloadsetop(expr BinaryenExpressionRef, op BinaryenOp) 
+pub fn simdloadsetop(expr Expression, op Op) 
 
 [c:'BinaryenSIMDLoadGetOffset']
-pub fn simdloadgetoffset(expr BinaryenExpressionRef) u32
+pub fn simdloadgetoffset(expr Expression) u32
 
 [c:'BinaryenSIMDLoadSetOffset']
-pub fn simdloadsetoffset(expr BinaryenExpressionRef, offset u32) 
+pub fn simdloadsetoffset(expr Expression, offset u32) 
 
 [c:'BinaryenSIMDLoadGetAlign']
-pub fn simdloadgetalign(expr BinaryenExpressionRef) u32
+pub fn simdloadgetalign(expr Expression) u32
 
 [c:'BinaryenSIMDLoadSetAlign']
-pub fn simdloadsetalign(expr BinaryenExpressionRef, align u32) 
+pub fn simdloadsetalign(expr Expression, align u32) 
 
 [c:'BinaryenSIMDLoadGetPtr']
-pub fn simdloadgetptr(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn simdloadgetptr(expr Expression) Expression
 
 [c:'BinaryenSIMDLoadSetPtr']
-pub fn simdloadsetptr(expr BinaryenExpressionRef, ptrexpr BinaryenExpressionRef) 
+pub fn simdloadsetptr(expr Expression, ptrexpr Expression) 
 
 [c:'BinaryenSIMDLoadStoreLaneGetOp']
-pub fn simdloadstorelanegetop(expr BinaryenExpressionRef) BinaryenOp
+pub fn simdloadstorelanegetop(expr Expression) Op
 
 [c:'BinaryenSIMDLoadStoreLaneSetOp']
-pub fn simdloadstorelanesetop(expr BinaryenExpressionRef, op BinaryenOp) 
+pub fn simdloadstorelanesetop(expr Expression, op Op) 
 
 [c:'BinaryenSIMDLoadStoreLaneGetOffset']
-pub fn simdloadstorelanegetoffset(expr BinaryenExpressionRef) u32
+pub fn simdloadstorelanegetoffset(expr Expression) u32
 
 [c:'BinaryenSIMDLoadStoreLaneSetOffset']
-pub fn simdloadstorelanesetoffset(expr BinaryenExpressionRef, offset u32) 
+pub fn simdloadstorelanesetoffset(expr Expression, offset u32) 
 
 [c:'BinaryenSIMDLoadStoreLaneGetAlign']
-pub fn simdloadstorelanegetalign(expr BinaryenExpressionRef) u32
+pub fn simdloadstorelanegetalign(expr Expression) u32
 
 [c:'BinaryenSIMDLoadStoreLaneSetAlign']
-pub fn simdloadstorelanesetalign(expr BinaryenExpressionRef, align u32) 
+pub fn simdloadstorelanesetalign(expr Expression, align u32) 
 
 [c:'BinaryenSIMDLoadStoreLaneGetIndex']
-pub fn simdloadstorelanegetindex(expr BinaryenExpressionRef) u8
+pub fn simdloadstorelanegetindex(expr Expression) u8
 
 [c:'BinaryenSIMDLoadStoreLaneSetIndex']
-pub fn simdloadstorelanesetindex(expr BinaryenExpressionRef, index u8) 
+pub fn simdloadstorelanesetindex(expr Expression, index u8) 
 
 [c:'BinaryenSIMDLoadStoreLaneGetPtr']
-pub fn simdloadstorelanegetptr(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn simdloadstorelanegetptr(expr Expression) Expression
 
 [c:'BinaryenSIMDLoadStoreLaneSetPtr']
-pub fn simdloadstorelanesetptr(expr BinaryenExpressionRef, ptrexpr BinaryenExpressionRef) 
+pub fn simdloadstorelanesetptr(expr Expression, ptrexpr Expression) 
 
 [c:'BinaryenSIMDLoadStoreLaneGetVec']
-pub fn simdloadstorelanegetvec(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn simdloadstorelanegetvec(expr Expression) Expression
 
 [c:'BinaryenSIMDLoadStoreLaneSetVec']
-pub fn simdloadstorelanesetvec(expr BinaryenExpressionRef, vecexpr BinaryenExpressionRef) 
+pub fn simdloadstorelanesetvec(expr Expression, vecexpr Expression) 
 
 [c:'BinaryenSIMDLoadStoreLaneIsStore']
-pub fn simdloadstorelaneisstore(expr BinaryenExpressionRef) bool
+pub fn simdloadstorelaneisstore(expr Expression) bool
 
 [c:'BinaryenMemoryInitGetSegment']
-pub fn memoryinitgetsegment(expr BinaryenExpressionRef) u32
+pub fn memoryinitgetsegment(expr Expression) u32
 
 [c:'BinaryenMemoryInitSetSegment']
-pub fn memoryinitsetsegment(expr BinaryenExpressionRef, segmentindex u32) 
+pub fn memoryinitsetsegment(expr Expression, segmentindex u32) 
 
 [c:'BinaryenMemoryInitGetDest']
-pub fn memoryinitgetdest(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn memoryinitgetdest(expr Expression) Expression
 
 [c:'BinaryenMemoryInitSetDest']
-pub fn memoryinitsetdest(expr BinaryenExpressionRef, destexpr BinaryenExpressionRef) 
+pub fn memoryinitsetdest(expr Expression, destexpr Expression) 
 
 [c:'BinaryenMemoryInitGetOffset']
-pub fn memoryinitgetoffset(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn memoryinitgetoffset(expr Expression) Expression
 
 [c:'BinaryenMemoryInitSetOffset']
-pub fn memoryinitsetoffset(expr BinaryenExpressionRef, offsetexpr BinaryenExpressionRef) 
+pub fn memoryinitsetoffset(expr Expression, offsetexpr Expression) 
 
 [c:'BinaryenMemoryInitGetSize']
-pub fn memoryinitgetsize(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn memoryinitgetsize(expr Expression) Expression
 
 [c:'BinaryenMemoryInitSetSize']
-pub fn memoryinitsetsize(expr BinaryenExpressionRef, sizeexpr BinaryenExpressionRef) 
+pub fn memoryinitsetsize(expr Expression, sizeexpr Expression) 
 
 [c:'BinaryenDataDropGetSegment']
-pub fn datadropgetsegment(expr BinaryenExpressionRef) u32
+pub fn datadropgetsegment(expr Expression) u32
 
 [c:'BinaryenDataDropSetSegment']
-pub fn datadropsetsegment(expr BinaryenExpressionRef, segmentindex u32) 
+pub fn datadropsetsegment(expr Expression, segmentindex u32) 
 
 [c:'BinaryenMemoryCopyGetDest']
-pub fn memorycopygetdest(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn memorycopygetdest(expr Expression) Expression
 
 [c:'BinaryenMemoryCopySetDest']
-pub fn memorycopysetdest(expr BinaryenExpressionRef, destexpr BinaryenExpressionRef) 
+pub fn memorycopysetdest(expr Expression, destexpr Expression) 
 
 [c:'BinaryenMemoryCopyGetSource']
-pub fn memorycopygetsource(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn memorycopygetsource(expr Expression) Expression
 
 [c:'BinaryenMemoryCopySetSource']
-pub fn memorycopysetsource(expr BinaryenExpressionRef, sourceexpr BinaryenExpressionRef) 
+pub fn memorycopysetsource(expr Expression, sourceexpr Expression) 
 
 [c:'BinaryenMemoryCopyGetSize']
-pub fn memorycopygetsize(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn memorycopygetsize(expr Expression) Expression
 
 [c:'BinaryenMemoryCopySetSize']
-pub fn memorycopysetsize(expr BinaryenExpressionRef, sizeexpr BinaryenExpressionRef) 
+pub fn memorycopysetsize(expr Expression, sizeexpr Expression) 
 
 [c:'BinaryenMemoryFillGetDest']
-pub fn memoryfillgetdest(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn memoryfillgetdest(expr Expression) Expression
 
 [c:'BinaryenMemoryFillSetDest']
-pub fn memoryfillsetdest(expr BinaryenExpressionRef, destexpr BinaryenExpressionRef) 
+pub fn memoryfillsetdest(expr Expression, destexpr Expression) 
 
 [c:'BinaryenMemoryFillGetValue']
-pub fn memoryfillgetvalue(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn memoryfillgetvalue(expr Expression) Expression
 
 [c:'BinaryenMemoryFillSetValue']
-pub fn memoryfillsetvalue(expr BinaryenExpressionRef, valueexpr BinaryenExpressionRef) 
+pub fn memoryfillsetvalue(expr Expression, valueexpr Expression) 
 
 [c:'BinaryenMemoryFillGetSize']
-pub fn memoryfillgetsize(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn memoryfillgetsize(expr Expression) Expression
 
 [c:'BinaryenMemoryFillSetSize']
-pub fn memoryfillsetsize(expr BinaryenExpressionRef, sizeexpr BinaryenExpressionRef) 
+pub fn memoryfillsetsize(expr Expression, sizeexpr Expression) 
 
 [c:'BinaryenRefIsGetOp']
-pub fn refisgetop(expr BinaryenExpressionRef) BinaryenOp
+pub fn refisgetop(expr Expression) Op
 
 [c:'BinaryenRefIsSetOp']
-pub fn refissetop(expr BinaryenExpressionRef, op BinaryenOp) 
+pub fn refissetop(expr Expression, op Op) 
 
 [c:'BinaryenRefIsGetValue']
-pub fn refisgetvalue(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn refisgetvalue(expr Expression) Expression
 
 [c:'BinaryenRefIsSetValue']
-pub fn refissetvalue(expr BinaryenExpressionRef, valueexpr BinaryenExpressionRef) 
+pub fn refissetvalue(expr Expression, valueexpr Expression) 
 
 [c:'BinaryenRefAsGetOp']
-pub fn refasgetop(expr BinaryenExpressionRef) BinaryenOp
+pub fn refasgetop(expr Expression) Op
 
 [c:'BinaryenRefAsSetOp']
-pub fn refassetop(expr BinaryenExpressionRef, op BinaryenOp) 
+pub fn refassetop(expr Expression, op Op) 
 
 [c:'BinaryenRefAsGetValue']
-pub fn refasgetvalue(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn refasgetvalue(expr Expression) Expression
 
 [c:'BinaryenRefAsSetValue']
-pub fn refassetvalue(expr BinaryenExpressionRef, valueexpr BinaryenExpressionRef) 
+pub fn refassetvalue(expr Expression, valueexpr Expression) 
 
 [c:'BinaryenRefFuncGetFunc']
-pub fn reffuncgetfunc(expr BinaryenExpressionRef) &i8
+pub fn reffuncgetfunc(expr Expression) &i8
 
 [c:'BinaryenRefFuncSetFunc']
-pub fn reffuncsetfunc(expr BinaryenExpressionRef, funcname &i8) 
+pub fn reffuncsetfunc(expr Expression, funcname &i8) 
 
 [c:'BinaryenRefEqGetLeft']
-pub fn refeqgetleft(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn refeqgetleft(expr Expression) Expression
 
 [c:'BinaryenRefEqSetLeft']
-pub fn refeqsetleft(expr BinaryenExpressionRef, left BinaryenExpressionRef) 
+pub fn refeqsetleft(expr Expression, left Expression) 
 
 [c:'BinaryenRefEqGetRight']
-pub fn refeqgetright(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn refeqgetright(expr Expression) Expression
 
 [c:'BinaryenRefEqSetRight']
-pub fn refeqsetright(expr BinaryenExpressionRef, right BinaryenExpressionRef) 
+pub fn refeqsetright(expr Expression, right Expression) 
 
 [c:'BinaryenTryGetName']
-pub fn trygetname(expr BinaryenExpressionRef) &i8
+pub fn trygetname(expr Expression) &i8
 
 [c:'BinaryenTrySetName']
-pub fn trysetname(expr BinaryenExpressionRef, name &i8) 
+pub fn trysetname(expr Expression, name &i8) 
 
 [c:'BinaryenTryGetBody']
-pub fn trygetbody(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn trygetbody(expr Expression) Expression
 
 [c:'BinaryenTrySetBody']
-pub fn trysetbody(expr BinaryenExpressionRef, bodyexpr BinaryenExpressionRef) 
+pub fn trysetbody(expr Expression, bodyexpr Expression) 
 
 [c:'BinaryenTryGetNumCatchTags']
-pub fn trygetnumcatchtags(expr BinaryenExpressionRef) BinaryenIndex
+pub fn trygetnumcatchtags(expr Expression) Index
 
 [c:'BinaryenTryGetNumCatchBodies']
-pub fn trygetnumcatchbodies(expr BinaryenExpressionRef) BinaryenIndex
+pub fn trygetnumcatchbodies(expr Expression) Index
 
 [c:'BinaryenTryGetCatchTagAt']
-pub fn trygetcatchtagat(expr BinaryenExpressionRef, index BinaryenIndex) &i8
+pub fn trygetcatchtagat(expr Expression, index Index) &i8
 
 [c:'BinaryenTrySetCatchTagAt']
-pub fn trysetcatchtagat(expr BinaryenExpressionRef, index BinaryenIndex, catchtag &i8) 
+pub fn trysetcatchtagat(expr Expression, index Index, catchtag &i8) 
 
 [c:'BinaryenTryAppendCatchTag']
-pub fn tryappendcatchtag(expr BinaryenExpressionRef, catchtag &i8) BinaryenIndex
+pub fn tryappendcatchtag(expr Expression, catchtag &i8) Index
 
 [c:'BinaryenTryInsertCatchTagAt']
-pub fn tryinsertcatchtagat(expr BinaryenExpressionRef, index BinaryenIndex, catchtag &i8) 
+pub fn tryinsertcatchtagat(expr Expression, index Index, catchtag &i8) 
 
 [c:'BinaryenTryRemoveCatchTagAt']
-pub fn tryremovecatchtagat(expr BinaryenExpressionRef, index BinaryenIndex) &i8
+pub fn tryremovecatchtagat(expr Expression, index Index) &i8
 
 [c:'BinaryenTryGetCatchBodyAt']
-pub fn trygetcatchbodyat(expr BinaryenExpressionRef, index BinaryenIndex) BinaryenExpressionRef
+pub fn trygetcatchbodyat(expr Expression, index Index) Expression
 
 [c:'BinaryenTrySetCatchBodyAt']
-pub fn trysetcatchbodyat(expr BinaryenExpressionRef, index BinaryenIndex, catchexpr BinaryenExpressionRef) 
+pub fn trysetcatchbodyat(expr Expression, index Index, catchexpr Expression) 
 
 [c:'BinaryenTryAppendCatchBody']
-pub fn tryappendcatchbody(expr BinaryenExpressionRef, catchexpr BinaryenExpressionRef) BinaryenIndex
+pub fn tryappendcatchbody(expr Expression, catchexpr Expression) Index
 
 [c:'BinaryenTryInsertCatchBodyAt']
-pub fn tryinsertcatchbodyat(expr BinaryenExpressionRef, index BinaryenIndex, catchexpr BinaryenExpressionRef) 
+pub fn tryinsertcatchbodyat(expr Expression, index Index, catchexpr Expression) 
 
 [c:'BinaryenTryRemoveCatchBodyAt']
-pub fn tryremovecatchbodyat(expr BinaryenExpressionRef, index BinaryenIndex) BinaryenExpressionRef
+pub fn tryremovecatchbodyat(expr Expression, index Index) Expression
 
 [c:'BinaryenTryHasCatchAll']
-pub fn tryhascatchall(expr BinaryenExpressionRef) bool
+pub fn tryhascatchall(expr Expression) bool
 
 [c:'BinaryenTryGetDelegateTarget']
-pub fn trygetdelegatetarget(expr BinaryenExpressionRef) &i8
+pub fn trygetdelegatetarget(expr Expression) &i8
 
 [c:'BinaryenTrySetDelegateTarget']
-pub fn trysetdelegatetarget(expr BinaryenExpressionRef, delegatetarget &i8) 
+pub fn trysetdelegatetarget(expr Expression, delegatetarget &i8) 
 
 [c:'BinaryenTryIsDelegate']
-pub fn tryisdelegate(expr BinaryenExpressionRef) bool
+pub fn tryisdelegate(expr Expression) bool
 
 [c:'BinaryenThrowGetTag']
-pub fn throwgettag(expr BinaryenExpressionRef) &i8
+pub fn throwgettag(expr Expression) &i8
 
 [c:'BinaryenThrowSetTag']
-pub fn throwsettag(expr BinaryenExpressionRef, tagname &i8) 
+pub fn throwsettag(expr Expression, tagname &i8) 
 
 [c:'BinaryenThrowGetNumOperands']
-pub fn throwgetnumoperands(expr BinaryenExpressionRef) BinaryenIndex
+pub fn throwgetnumoperands(expr Expression) Index
 
 [c:'BinaryenThrowGetOperandAt']
-pub fn throwgetoperandat(expr BinaryenExpressionRef, index BinaryenIndex) BinaryenExpressionRef
+pub fn throwgetoperandat(expr Expression, index Index) Expression
 
 [c:'BinaryenThrowSetOperandAt']
-pub fn throwsetoperandat(expr BinaryenExpressionRef, index BinaryenIndex, operandexpr BinaryenExpressionRef) 
+pub fn throwsetoperandat(expr Expression, index Index, operandexpr Expression) 
 
 [c:'BinaryenThrowAppendOperand']
-pub fn throwappendoperand(expr BinaryenExpressionRef, operandexpr BinaryenExpressionRef) BinaryenIndex
+pub fn throwappendoperand(expr Expression, operandexpr Expression) Index
 
 [c:'BinaryenThrowInsertOperandAt']
-pub fn throwinsertoperandat(expr BinaryenExpressionRef, index BinaryenIndex, operandexpr BinaryenExpressionRef) 
+pub fn throwinsertoperandat(expr Expression, index Index, operandexpr Expression) 
 
 [c:'BinaryenThrowRemoveOperandAt']
-pub fn throwremoveoperandat(expr BinaryenExpressionRef, index BinaryenIndex) BinaryenExpressionRef
+pub fn throwremoveoperandat(expr Expression, index Index) Expression
 
 [c:'BinaryenRethrowGetTarget']
-pub fn rethrowgettarget(expr BinaryenExpressionRef) &i8
+pub fn rethrowgettarget(expr Expression) &i8
 
 [c:'BinaryenRethrowSetTarget']
-pub fn rethrowsettarget(expr BinaryenExpressionRef, target &i8) 
+pub fn rethrowsettarget(expr Expression, target &i8) 
 
 [c:'BinaryenTupleMakeGetNumOperands']
-pub fn tuplemakegetnumoperands(expr BinaryenExpressionRef) BinaryenIndex
+pub fn tuplemakegetnumoperands(expr Expression) Index
 
 [c:'BinaryenTupleMakeGetOperandAt']
-pub fn tuplemakegetoperandat(expr BinaryenExpressionRef, index BinaryenIndex) BinaryenExpressionRef
+pub fn tuplemakegetoperandat(expr Expression, index Index) Expression
 
 [c:'BinaryenTupleMakeSetOperandAt']
-pub fn tuplemakesetoperandat(expr BinaryenExpressionRef, index BinaryenIndex, operandexpr BinaryenExpressionRef) 
+pub fn tuplemakesetoperandat(expr Expression, index Index, operandexpr Expression) 
 
 [c:'BinaryenTupleMakeAppendOperand']
-pub fn tuplemakeappendoperand(expr BinaryenExpressionRef, operandexpr BinaryenExpressionRef) BinaryenIndex
+pub fn tuplemakeappendoperand(expr Expression, operandexpr Expression) Index
 
 [c:'BinaryenTupleMakeInsertOperandAt']
-pub fn tuplemakeinsertoperandat(expr BinaryenExpressionRef, index BinaryenIndex, operandexpr BinaryenExpressionRef) 
+pub fn tuplemakeinsertoperandat(expr Expression, index Index, operandexpr Expression) 
 
 [c:'BinaryenTupleMakeRemoveOperandAt']
-pub fn tuplemakeremoveoperandat(expr BinaryenExpressionRef, index BinaryenIndex) BinaryenExpressionRef
+pub fn tuplemakeremoveoperandat(expr Expression, index Index) Expression
 
 [c:'BinaryenTupleExtractGetTuple']
-pub fn tupleextractgettuple(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn tupleextractgettuple(expr Expression) Expression
 
 [c:'BinaryenTupleExtractSetTuple']
-pub fn tupleextractsettuple(expr BinaryenExpressionRef, tupleexpr BinaryenExpressionRef) 
+pub fn tupleextractsettuple(expr Expression, tupleexpr Expression) 
 
 [c:'BinaryenTupleExtractGetIndex']
-pub fn tupleextractgetindex(expr BinaryenExpressionRef) BinaryenIndex
+pub fn tupleextractgetindex(expr Expression) Index
 
 [c:'BinaryenTupleExtractSetIndex']
-pub fn tupleextractsetindex(expr BinaryenExpressionRef, index BinaryenIndex) 
+pub fn tupleextractsetindex(expr Expression, index Index) 
 
 [c:'BinaryenI31NewGetValue']
-pub fn i31newgetvalue(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn i31newgetvalue(expr Expression) Expression
 
 [c:'BinaryenI31NewSetValue']
-pub fn i31newsetvalue(expr BinaryenExpressionRef, valueexpr BinaryenExpressionRef) 
+pub fn i31newsetvalue(expr Expression, valueexpr Expression) 
 
 [c:'BinaryenI31GetGetI31']
-pub fn i31getgeti31(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn i31getgeti31(expr Expression) Expression
 
 [c:'BinaryenI31GetSetI31']
-pub fn i31getseti31(expr BinaryenExpressionRef, i31expr BinaryenExpressionRef) 
+pub fn i31getseti31(expr Expression, i31expr Expression) 
 
 [c:'BinaryenI31GetIsSigned']
-pub fn i31getissigned(expr BinaryenExpressionRef) bool
+pub fn i31getissigned(expr Expression) bool
 
 [c:'BinaryenI31GetSetSigned']
-pub fn i31getsetsigned(expr BinaryenExpressionRef, signed_ bool) 
+pub fn i31getsetsigned(expr Expression, signed_ bool) 
 
 [c:'BinaryenCallRefGetNumOperands']
-pub fn callrefgetnumoperands(expr BinaryenExpressionRef) BinaryenIndex
+pub fn callrefgetnumoperands(expr Expression) Index
 
 [c:'BinaryenCallRefGetOperandAt']
-pub fn callrefgetoperandat(expr BinaryenExpressionRef, index BinaryenIndex) BinaryenExpressionRef
+pub fn callrefgetoperandat(expr Expression, index Index) Expression
 
 [c:'BinaryenCallRefSetOperandAt']
-pub fn callrefsetoperandat(expr BinaryenExpressionRef, index BinaryenIndex, operandexpr BinaryenExpressionRef) 
+pub fn callrefsetoperandat(expr Expression, index Index, operandexpr Expression) 
 
 [c:'BinaryenCallRefAppendOperand']
-pub fn callrefappendoperand(expr BinaryenExpressionRef, operandexpr BinaryenExpressionRef) BinaryenIndex
+pub fn callrefappendoperand(expr Expression, operandexpr Expression) Index
 
 [c:'BinaryenCallRefInsertOperandAt']
-pub fn callrefinsertoperandat(expr BinaryenExpressionRef, index BinaryenIndex, operandexpr BinaryenExpressionRef) 
+pub fn callrefinsertoperandat(expr Expression, index Index, operandexpr Expression) 
 
 [c:'BinaryenCallRefRemoveOperandAt']
-pub fn callrefremoveoperandat(expr BinaryenExpressionRef, index BinaryenIndex) BinaryenExpressionRef
+pub fn callrefremoveoperandat(expr Expression, index Index) Expression
 
 [c:'BinaryenCallRefGetTarget']
-pub fn callrefgettarget(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn callrefgettarget(expr Expression) Expression
 
 [c:'BinaryenCallRefSetTarget']
-pub fn callrefsettarget(expr BinaryenExpressionRef, targetexpr BinaryenExpressionRef) 
+pub fn callrefsettarget(expr Expression, targetexpr Expression) 
 
 [c:'BinaryenCallRefIsReturn']
-pub fn callrefisreturn(expr BinaryenExpressionRef) bool
+pub fn callrefisreturn(expr Expression) bool
 
 [c:'BinaryenCallRefSetReturn']
-pub fn callrefsetreturn(expr BinaryenExpressionRef, isreturn bool) 
+pub fn callrefsetreturn(expr Expression, isreturn bool) 
 
 [c:'BinaryenRefTestGetRef']
-pub fn reftestgetref(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn reftestgetref(expr Expression) Expression
 
 [c:'BinaryenRefTestSetRef']
-pub fn reftestsetref(expr BinaryenExpressionRef, refexpr BinaryenExpressionRef) 
+pub fn reftestsetref(expr Expression, refexpr Expression) 
 
 [c:'BinaryenRefTestGetIntendedType']
-pub fn reftestgetintendedtype(expr BinaryenExpressionRef) BinaryenHeapType
+pub fn reftestgetintendedtype(expr Expression) HeapType
 
 [c:'BinaryenRefTestSetIntendedType']
-pub fn reftestsetintendedtype(expr BinaryenExpressionRef, intendedtype BinaryenHeapType) 
+pub fn reftestsetintendedtype(expr Expression, intendedtype HeapType) 
 
 [c:'BinaryenRefCastGetRef']
-pub fn refcastgetref(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn refcastgetref(expr Expression) Expression
 
 [c:'BinaryenRefCastSetRef']
-pub fn refcastsetref(expr BinaryenExpressionRef, refexpr BinaryenExpressionRef) 
+pub fn refcastsetref(expr Expression, refexpr Expression) 
 
 [c:'BinaryenRefCastGetIntendedType']
-pub fn refcastgetintendedtype(expr BinaryenExpressionRef) BinaryenHeapType
+pub fn refcastgetintendedtype(expr Expression) HeapType
 
 [c:'BinaryenRefCastSetIntendedType']
-pub fn refcastsetintendedtype(expr BinaryenExpressionRef, intendedtype BinaryenHeapType) 
+pub fn refcastsetintendedtype(expr Expression, intendedtype HeapType) 
 
 [c:'BinaryenBrOnGetOp']
-pub fn brongetop(expr BinaryenExpressionRef) BinaryenOp
+pub fn brongetop(expr Expression) Op
 
 [c:'BinaryenBrOnSetOp']
-pub fn bronsetop(expr BinaryenExpressionRef, op BinaryenOp) 
+pub fn bronsetop(expr Expression, op Op) 
 
 [c:'BinaryenBrOnGetName']
-pub fn brongetname(expr BinaryenExpressionRef) &i8
+pub fn brongetname(expr Expression) &i8
 
 [c:'BinaryenBrOnSetName']
-pub fn bronsetname(expr BinaryenExpressionRef, namestr &i8) 
+pub fn bronsetname(expr Expression, namestr &i8) 
 
 [c:'BinaryenBrOnGetRef']
-pub fn brongetref(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn brongetref(expr Expression) Expression
 
 [c:'BinaryenBrOnSetRef']
-pub fn bronsetref(expr BinaryenExpressionRef, refexpr BinaryenExpressionRef) 
+pub fn bronsetref(expr Expression, refexpr Expression) 
 
 [c:'BinaryenBrOnGetIntendedType']
-pub fn brongetintendedtype(expr BinaryenExpressionRef) BinaryenHeapType
+pub fn brongetintendedtype(expr Expression) HeapType
 
 [c:'BinaryenBrOnSetIntendedType']
-pub fn bronsetintendedtype(expr BinaryenExpressionRef, intendedtype BinaryenHeapType) 
+pub fn bronsetintendedtype(expr Expression, intendedtype HeapType) 
 
 [c:'BinaryenStructNewGetNumOperands']
-pub fn structnewgetnumoperands(expr BinaryenExpressionRef) BinaryenIndex
+pub fn structnewgetnumoperands(expr Expression) Index
 
 [c:'BinaryenStructNewGetOperandAt']
-pub fn structnewgetoperandat(expr BinaryenExpressionRef, index BinaryenIndex) BinaryenExpressionRef
+pub fn structnewgetoperandat(expr Expression, index Index) Expression
 
 [c:'BinaryenStructNewSetOperandAt']
-pub fn structnewsetoperandat(expr BinaryenExpressionRef, index BinaryenIndex, operandexpr BinaryenExpressionRef) 
+pub fn structnewsetoperandat(expr Expression, index Index, operandexpr Expression) 
 
 [c:'BinaryenStructNewAppendOperand']
-pub fn structnewappendoperand(expr BinaryenExpressionRef, operandexpr BinaryenExpressionRef) BinaryenIndex
+pub fn structnewappendoperand(expr Expression, operandexpr Expression) Index
 
 [c:'BinaryenStructNewInsertOperandAt']
-pub fn structnewinsertoperandat(expr BinaryenExpressionRef, index BinaryenIndex, operandexpr BinaryenExpressionRef) 
+pub fn structnewinsertoperandat(expr Expression, index Index, operandexpr Expression) 
 
 [c:'BinaryenStructNewRemoveOperandAt']
-pub fn structnewremoveoperandat(expr BinaryenExpressionRef, index BinaryenIndex) BinaryenExpressionRef
+pub fn structnewremoveoperandat(expr Expression, index Index) Expression
 
 [c:'BinaryenStructGetGetIndex']
-pub fn structgetgetindex(expr BinaryenExpressionRef) BinaryenIndex
+pub fn structgetgetindex(expr Expression) Index
 
 [c:'BinaryenStructGetSetIndex']
-pub fn structgetsetindex(expr BinaryenExpressionRef, index BinaryenIndex) 
+pub fn structgetsetindex(expr Expression, index Index) 
 
 [c:'BinaryenStructGetGetRef']
-pub fn structgetgetref(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn structgetgetref(expr Expression) Expression
 
 [c:'BinaryenStructGetSetRef']
-pub fn structgetsetref(expr BinaryenExpressionRef, refexpr BinaryenExpressionRef) 
+pub fn structgetsetref(expr Expression, refexpr Expression) 
 
 [c:'BinaryenStructGetIsSigned']
-pub fn structgetissigned(expr BinaryenExpressionRef) bool
+pub fn structgetissigned(expr Expression) bool
 
 [c:'BinaryenStructGetSetSigned']
-pub fn structgetsetsigned(expr BinaryenExpressionRef, signed_ bool) 
+pub fn structgetsetsigned(expr Expression, signed_ bool) 
 
 [c:'BinaryenStructSetGetIndex']
-pub fn structsetgetindex(expr BinaryenExpressionRef) BinaryenIndex
+pub fn structsetgetindex(expr Expression) Index
 
 [c:'BinaryenStructSetSetIndex']
-pub fn structsetsetindex(expr BinaryenExpressionRef, index BinaryenIndex) 
+pub fn structsetsetindex(expr Expression, index Index) 
 
 [c:'BinaryenStructSetGetRef']
-pub fn structsetgetref(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn structsetgetref(expr Expression) Expression
 
 [c:'BinaryenStructSetSetRef']
-pub fn structsetsetref(expr BinaryenExpressionRef, refexpr BinaryenExpressionRef) 
+pub fn structsetsetref(expr Expression, refexpr Expression) 
 
 [c:'BinaryenStructSetGetValue']
-pub fn structsetgetvalue(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn structsetgetvalue(expr Expression) Expression
 
 [c:'BinaryenStructSetSetValue']
-pub fn structsetsetvalue(expr BinaryenExpressionRef, valueexpr BinaryenExpressionRef) 
+pub fn structsetsetvalue(expr Expression, valueexpr Expression) 
 
 [c:'BinaryenArrayNewGetInit']
-pub fn arraynewgetinit(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn arraynewgetinit(expr Expression) Expression
 
 [c:'BinaryenArrayNewSetInit']
-pub fn arraynewsetinit(expr BinaryenExpressionRef, initexpr BinaryenExpressionRef) 
+pub fn arraynewsetinit(expr Expression, initexpr Expression) 
 
 [c:'BinaryenArrayNewGetSize']
-pub fn arraynewgetsize(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn arraynewgetsize(expr Expression) Expression
 
 [c:'BinaryenArrayNewSetSize']
-pub fn arraynewsetsize(expr BinaryenExpressionRef, sizeexpr BinaryenExpressionRef) 
+pub fn arraynewsetsize(expr Expression, sizeexpr Expression) 
 
 [c:'BinaryenArrayInitGetNumValues']
-pub fn arrayinitgetnumvalues(expr BinaryenExpressionRef) BinaryenIndex
+pub fn arrayinitgetnumvalues(expr Expression) Index
 
 [c:'BinaryenArrayInitGetValueAt']
-pub fn arrayinitgetvalueat(expr BinaryenExpressionRef, index BinaryenIndex) BinaryenExpressionRef
+pub fn arrayinitgetvalueat(expr Expression, index Index) Expression
 
 [c:'BinaryenArrayInitSetValueAt']
-pub fn arrayinitsetvalueat(expr BinaryenExpressionRef, index BinaryenIndex, valueexpr BinaryenExpressionRef) 
+pub fn arrayinitsetvalueat(expr Expression, index Index, valueexpr Expression) 
 
 [c:'BinaryenArrayInitAppendValue']
-pub fn arrayinitappendvalue(expr BinaryenExpressionRef, valueexpr BinaryenExpressionRef) BinaryenIndex
+pub fn arrayinitappendvalue(expr Expression, valueexpr Expression) Index
 
 [c:'BinaryenArrayInitInsertValueAt']
-pub fn arrayinitinsertvalueat(expr BinaryenExpressionRef, index BinaryenIndex, valueexpr BinaryenExpressionRef) 
+pub fn arrayinitinsertvalueat(expr Expression, index Index, valueexpr Expression) 
 
 [c:'BinaryenArrayInitRemoveValueAt']
-pub fn arrayinitremovevalueat(expr BinaryenExpressionRef, index BinaryenIndex) BinaryenExpressionRef
+pub fn arrayinitremovevalueat(expr Expression, index Index) Expression
 
 [c:'BinaryenArrayGetGetRef']
-pub fn arraygetgetref(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn arraygetgetref(expr Expression) Expression
 
 [c:'BinaryenArrayGetSetRef']
-pub fn arraygetsetref(expr BinaryenExpressionRef, refexpr BinaryenExpressionRef) 
+pub fn arraygetsetref(expr Expression, refexpr Expression) 
 
 [c:'BinaryenArrayGetGetIndex']
-pub fn arraygetgetindex(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn arraygetgetindex(expr Expression) Expression
 
 [c:'BinaryenArrayGetSetIndex']
-pub fn arraygetsetindex(expr BinaryenExpressionRef, indexexpr BinaryenExpressionRef) 
+pub fn arraygetsetindex(expr Expression, indexexpr Expression) 
 
 [c:'BinaryenArrayGetIsSigned']
-pub fn arraygetissigned(expr BinaryenExpressionRef) bool
+pub fn arraygetissigned(expr Expression) bool
 
 [c:'BinaryenArrayGetSetSigned']
-pub fn arraygetsetsigned(expr BinaryenExpressionRef, signed_ bool) 
+pub fn arraygetsetsigned(expr Expression, signed_ bool) 
 
 [c:'BinaryenArraySetGetRef']
-pub fn arraysetgetref(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn arraysetgetref(expr Expression) Expression
 
 [c:'BinaryenArraySetSetRef']
-pub fn arraysetsetref(expr BinaryenExpressionRef, refexpr BinaryenExpressionRef) 
+pub fn arraysetsetref(expr Expression, refexpr Expression) 
 
 [c:'BinaryenArraySetGetIndex']
-pub fn arraysetgetindex(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn arraysetgetindex(expr Expression) Expression
 
 [c:'BinaryenArraySetSetIndex']
-pub fn arraysetsetindex(expr BinaryenExpressionRef, indexexpr BinaryenExpressionRef) 
+pub fn arraysetsetindex(expr Expression, indexexpr Expression) 
 
 [c:'BinaryenArraySetGetValue']
-pub fn arraysetgetvalue(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn arraysetgetvalue(expr Expression) Expression
 
 [c:'BinaryenArraySetSetValue']
-pub fn arraysetsetvalue(expr BinaryenExpressionRef, valueexpr BinaryenExpressionRef) 
+pub fn arraysetsetvalue(expr Expression, valueexpr Expression) 
 
 [c:'BinaryenArrayLenGetRef']
-pub fn arraylengetref(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn arraylengetref(expr Expression) Expression
 
 [c:'BinaryenArrayLenSetRef']
-pub fn arraylensetref(expr BinaryenExpressionRef, refexpr BinaryenExpressionRef) 
+pub fn arraylensetref(expr Expression, refexpr Expression) 
 
 [c:'BinaryenArrayCopyGetDestRef']
-pub fn arraycopygetdestref(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn arraycopygetdestref(expr Expression) Expression
 
 [c:'BinaryenArrayCopySetDestRef']
-pub fn arraycopysetdestref(expr BinaryenExpressionRef, destrefexpr BinaryenExpressionRef) 
+pub fn arraycopysetdestref(expr Expression, destrefexpr Expression) 
 
 [c:'BinaryenArrayCopyGetDestIndex']
-pub fn arraycopygetdestindex(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn arraycopygetdestindex(expr Expression) Expression
 
 [c:'BinaryenArrayCopySetDestIndex']
-pub fn arraycopysetdestindex(expr BinaryenExpressionRef, destindexexpr BinaryenExpressionRef) 
+pub fn arraycopysetdestindex(expr Expression, destindexexpr Expression) 
 
 [c:'BinaryenArrayCopyGetSrcRef']
-pub fn arraycopygetsrcref(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn arraycopygetsrcref(expr Expression) Expression
 
 [c:'BinaryenArrayCopySetSrcRef']
-pub fn arraycopysetsrcref(expr BinaryenExpressionRef, srcrefexpr BinaryenExpressionRef) 
+pub fn arraycopysetsrcref(expr Expression, srcrefexpr Expression) 
 
 [c:'BinaryenArrayCopyGetSrcIndex']
-pub fn arraycopygetsrcindex(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn arraycopygetsrcindex(expr Expression) Expression
 
 [c:'BinaryenArrayCopySetSrcIndex']
-pub fn arraycopysetsrcindex(expr BinaryenExpressionRef, srcindexexpr BinaryenExpressionRef) 
+pub fn arraycopysetsrcindex(expr Expression, srcindexexpr Expression) 
 
 [c:'BinaryenArrayCopyGetLength']
-pub fn arraycopygetlength(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn arraycopygetlength(expr Expression) Expression
 
 [c:'BinaryenArrayCopySetLength']
-pub fn arraycopysetlength(expr BinaryenExpressionRef, lengthexpr BinaryenExpressionRef) 
+pub fn arraycopysetlength(expr Expression, lengthexpr Expression) 
 
 [c:'BinaryenStringNewGetOp']
-pub fn stringnewgetop(expr BinaryenExpressionRef) BinaryenOp
+pub fn stringnewgetop(expr Expression) Op
 
 [c:'BinaryenStringNewSetOp']
-pub fn stringnewsetop(expr BinaryenExpressionRef, op BinaryenOp) 
+pub fn stringnewsetop(expr Expression, op Op) 
 
 [c:'BinaryenStringNewGetPtr']
-pub fn stringnewgetptr(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringnewgetptr(expr Expression) Expression
 
 [c:'BinaryenStringNewSetPtr']
-pub fn stringnewsetptr(expr BinaryenExpressionRef, ptrexpr BinaryenExpressionRef) 
+pub fn stringnewsetptr(expr Expression, ptrexpr Expression) 
 
 [c:'BinaryenStringNewGetLength']
-pub fn stringnewgetlength(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringnewgetlength(expr Expression) Expression
 
 [c:'BinaryenStringNewSetLength']
-pub fn stringnewsetlength(expr BinaryenExpressionRef, lengthexpr BinaryenExpressionRef) 
+pub fn stringnewsetlength(expr Expression, lengthexpr Expression) 
 
 [c:'BinaryenStringNewGetStart']
-pub fn stringnewgetstart(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringnewgetstart(expr Expression) Expression
 
 [c:'BinaryenStringNewSetStart']
-pub fn stringnewsetstart(expr BinaryenExpressionRef, startexpr BinaryenExpressionRef) 
+pub fn stringnewsetstart(expr Expression, startexpr Expression) 
 
 [c:'BinaryenStringNewGetEnd']
-pub fn stringnewgetend(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringnewgetend(expr Expression) Expression
 
 [c:'BinaryenStringNewSetEnd']
-pub fn stringnewsetend(expr BinaryenExpressionRef, endexpr BinaryenExpressionRef) 
+pub fn stringnewsetend(expr Expression, endexpr Expression) 
 
 [c:'BinaryenStringConstGetString']
-pub fn stringconstgetstring(expr BinaryenExpressionRef) &i8
+pub fn stringconstgetstring(expr Expression) &i8
 
 [c:'BinaryenStringConstSetString']
-pub fn stringconstsetstring(expr BinaryenExpressionRef, stringstr &i8) 
+pub fn stringconstsetstring(expr Expression, stringstr &i8) 
 
 [c:'BinaryenStringMeasureGetOp']
-pub fn stringmeasuregetop(expr BinaryenExpressionRef) BinaryenOp
+pub fn stringmeasuregetop(expr Expression) Op
 
 [c:'BinaryenStringMeasureSetOp']
-pub fn stringmeasuresetop(expr BinaryenExpressionRef, op BinaryenOp) 
+pub fn stringmeasuresetop(expr Expression, op Op) 
 
 [c:'BinaryenStringMeasureGetRef']
-pub fn stringmeasuregetref(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringmeasuregetref(expr Expression) Expression
 
 [c:'BinaryenStringMeasureSetRef']
-pub fn stringmeasuresetref(expr BinaryenExpressionRef, refexpr BinaryenExpressionRef) 
+pub fn stringmeasuresetref(expr Expression, refexpr Expression) 
 
 [c:'BinaryenStringEncodeGetOp']
-pub fn stringencodegetop(expr BinaryenExpressionRef) BinaryenOp
+pub fn stringencodegetop(expr Expression) Op
 
 [c:'BinaryenStringEncodeSetOp']
-pub fn stringencodesetop(expr BinaryenExpressionRef, op BinaryenOp) 
+pub fn stringencodesetop(expr Expression, op Op) 
 
 [c:'BinaryenStringEncodeGetRef']
-pub fn stringencodegetref(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringencodegetref(expr Expression) Expression
 
 [c:'BinaryenStringEncodeSetRef']
-pub fn stringencodesetref(expr BinaryenExpressionRef, refexpr BinaryenExpressionRef) 
+pub fn stringencodesetref(expr Expression, refexpr Expression) 
 
 [c:'BinaryenStringEncodeGetPtr']
-pub fn stringencodegetptr(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringencodegetptr(expr Expression) Expression
 
 [c:'BinaryenStringEncodeSetPtr']
-pub fn stringencodesetptr(expr BinaryenExpressionRef, ptrexpr BinaryenExpressionRef) 
+pub fn stringencodesetptr(expr Expression, ptrexpr Expression) 
 
 [c:'BinaryenStringEncodeGetStart']
-pub fn stringencodegetstart(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringencodegetstart(expr Expression) Expression
 
 [c:'BinaryenStringEncodeSetStart']
-pub fn stringencodesetstart(expr BinaryenExpressionRef, startexpr BinaryenExpressionRef) 
+pub fn stringencodesetstart(expr Expression, startexpr Expression) 
 
 [c:'BinaryenStringConcatGetLeft']
-pub fn stringconcatgetleft(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringconcatgetleft(expr Expression) Expression
 
 [c:'BinaryenStringConcatSetLeft']
-pub fn stringconcatsetleft(expr BinaryenExpressionRef, leftexpr BinaryenExpressionRef) 
+pub fn stringconcatsetleft(expr Expression, leftexpr Expression) 
 
 [c:'BinaryenStringConcatGetRight']
-pub fn stringconcatgetright(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringconcatgetright(expr Expression) Expression
 
 [c:'BinaryenStringConcatSetRight']
-pub fn stringconcatsetright(expr BinaryenExpressionRef, rightexpr BinaryenExpressionRef) 
+pub fn stringconcatsetright(expr Expression, rightexpr Expression) 
 
 [c:'BinaryenStringEqGetLeft']
-pub fn stringeqgetleft(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringeqgetleft(expr Expression) Expression
 
 [c:'BinaryenStringEqSetLeft']
-pub fn stringeqsetleft(expr BinaryenExpressionRef, leftexpr BinaryenExpressionRef) 
+pub fn stringeqsetleft(expr Expression, leftexpr Expression) 
 
 [c:'BinaryenStringEqGetRight']
-pub fn stringeqgetright(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringeqgetright(expr Expression) Expression
 
 [c:'BinaryenStringEqSetRight']
-pub fn stringeqsetright(expr BinaryenExpressionRef, rightexpr BinaryenExpressionRef) 
+pub fn stringeqsetright(expr Expression, rightexpr Expression) 
 
 [c:'BinaryenStringAsGetOp']
-pub fn stringasgetop(expr BinaryenExpressionRef) BinaryenOp
+pub fn stringasgetop(expr Expression) Op
 
 [c:'BinaryenStringAsSetOp']
-pub fn stringassetop(expr BinaryenExpressionRef, op BinaryenOp) 
+pub fn stringassetop(expr Expression, op Op) 
 
 [c:'BinaryenStringAsGetRef']
-pub fn stringasgetref(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringasgetref(expr Expression) Expression
 
 [c:'BinaryenStringAsSetRef']
-pub fn stringassetref(expr BinaryenExpressionRef, refexpr BinaryenExpressionRef) 
+pub fn stringassetref(expr Expression, refexpr Expression) 
 
 [c:'BinaryenStringWTF8AdvanceGetRef']
-pub fn stringwtf8advancegetref(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringwtf8advancegetref(expr Expression) Expression
 
 [c:'BinaryenStringWTF8AdvanceSetRef']
-pub fn stringwtf8advancesetref(expr BinaryenExpressionRef, refexpr BinaryenExpressionRef) 
+pub fn stringwtf8advancesetref(expr Expression, refexpr Expression) 
 
 [c:'BinaryenStringWTF8AdvanceGetPos']
-pub fn stringwtf8advancegetpos(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringwtf8advancegetpos(expr Expression) Expression
 
 [c:'BinaryenStringWTF8AdvanceSetPos']
-pub fn stringwtf8advancesetpos(expr BinaryenExpressionRef, posexpr BinaryenExpressionRef) 
+pub fn stringwtf8advancesetpos(expr Expression, posexpr Expression) 
 
 [c:'BinaryenStringWTF8AdvanceGetBytes']
-pub fn stringwtf8advancegetbytes(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringwtf8advancegetbytes(expr Expression) Expression
 
 [c:'BinaryenStringWTF8AdvanceSetBytes']
-pub fn stringwtf8advancesetbytes(expr BinaryenExpressionRef, bytesexpr BinaryenExpressionRef) 
+pub fn stringwtf8advancesetbytes(expr Expression, bytesexpr Expression) 
 
 [c:'BinaryenStringWTF16GetGetRef']
-pub fn stringwtf16getgetref(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringwtf16getgetref(expr Expression) Expression
 
 [c:'BinaryenStringWTF16GetSetRef']
-pub fn stringwtf16getsetref(expr BinaryenExpressionRef, refexpr BinaryenExpressionRef) 
+pub fn stringwtf16getsetref(expr Expression, refexpr Expression) 
 
 [c:'BinaryenStringWTF16GetGetPos']
-pub fn stringwtf16getgetpos(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringwtf16getgetpos(expr Expression) Expression
 
 [c:'BinaryenStringWTF16GetSetPos']
-pub fn stringwtf16getsetpos(expr BinaryenExpressionRef, posexpr BinaryenExpressionRef) 
+pub fn stringwtf16getsetpos(expr Expression, posexpr Expression) 
 
 [c:'BinaryenStringIterNextGetRef']
-pub fn stringiternextgetref(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringiternextgetref(expr Expression) Expression
 
 [c:'BinaryenStringIterNextSetRef']
-pub fn stringiternextsetref(expr BinaryenExpressionRef, refexpr BinaryenExpressionRef) 
+pub fn stringiternextsetref(expr Expression, refexpr Expression) 
 
 [c:'BinaryenStringIterMoveGetOp']
-pub fn stringitermovegetop(expr BinaryenExpressionRef) BinaryenOp
+pub fn stringitermovegetop(expr Expression) Op
 
 [c:'BinaryenStringIterMoveSetOp']
-pub fn stringitermovesetop(expr BinaryenExpressionRef, op BinaryenOp) 
+pub fn stringitermovesetop(expr Expression, op Op) 
 
 [c:'BinaryenStringIterMoveGetRef']
-pub fn stringitermovegetref(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringitermovegetref(expr Expression) Expression
 
 [c:'BinaryenStringIterMoveSetRef']
-pub fn stringitermovesetref(expr BinaryenExpressionRef, refexpr BinaryenExpressionRef) 
+pub fn stringitermovesetref(expr Expression, refexpr Expression) 
 
 [c:'BinaryenStringIterMoveGetNum']
-pub fn stringitermovegetnum(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringitermovegetnum(expr Expression) Expression
 
 [c:'BinaryenStringIterMoveSetNum']
-pub fn stringitermovesetnum(expr BinaryenExpressionRef, numexpr BinaryenExpressionRef) 
+pub fn stringitermovesetnum(expr Expression, numexpr Expression) 
 
 [c:'BinaryenStringSliceWTFGetOp']
-pub fn stringslicewtfgetop(expr BinaryenExpressionRef) BinaryenOp
+pub fn stringslicewtfgetop(expr Expression) Op
 
 [c:'BinaryenStringSliceWTFSetOp']
-pub fn stringslicewtfsetop(expr BinaryenExpressionRef, op BinaryenOp) 
+pub fn stringslicewtfsetop(expr Expression, op Op) 
 
 [c:'BinaryenStringSliceWTFGetRef']
-pub fn stringslicewtfgetref(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringslicewtfgetref(expr Expression) Expression
 
 [c:'BinaryenStringSliceWTFSetRef']
-pub fn stringslicewtfsetref(expr BinaryenExpressionRef, refexpr BinaryenExpressionRef) 
+pub fn stringslicewtfsetref(expr Expression, refexpr Expression) 
 
 [c:'BinaryenStringSliceWTFGetStart']
-pub fn stringslicewtfgetstart(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringslicewtfgetstart(expr Expression) Expression
 
 [c:'BinaryenStringSliceWTFSetStart']
-pub fn stringslicewtfsetstart(expr BinaryenExpressionRef, startexpr BinaryenExpressionRef) 
+pub fn stringslicewtfsetstart(expr Expression, startexpr Expression) 
 
 [c:'BinaryenStringSliceWTFGetEnd']
-pub fn stringslicewtfgetend(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringslicewtfgetend(expr Expression) Expression
 
 [c:'BinaryenStringSliceWTFSetEnd']
-pub fn stringslicewtfsetend(expr BinaryenExpressionRef, endexpr BinaryenExpressionRef) 
+pub fn stringslicewtfsetend(expr Expression, endexpr Expression) 
 
 [c:'BinaryenStringSliceIterGetRef']
-pub fn stringsliceitergetref(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringsliceitergetref(expr Expression) Expression
 
 [c:'BinaryenStringSliceIterSetRef']
-pub fn stringsliceitersetref(expr BinaryenExpressionRef, refexpr BinaryenExpressionRef) 
+pub fn stringsliceitersetref(expr Expression, refexpr Expression) 
 
 [c:'BinaryenStringSliceIterGetNum']
-pub fn stringsliceitergetnum(expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn stringsliceitergetnum(expr Expression) Expression
 
 [c:'BinaryenStringSliceIterSetNum']
-pub fn stringsliceitersetnum(expr BinaryenExpressionRef, numexpr BinaryenExpressionRef) 
+pub fn stringsliceitersetnum(expr Expression, numexpr Expression) 
 
-type BinaryenFunctionRef = voidptr
+type Function = voidptr
 [c:'BinaryenAddFunction']
-pub fn addfunction(module_ BinaryenModuleRef, name &i8, params BinaryenType, results BinaryenType, vartypes &BinaryenType, numvartypes BinaryenIndex, body BinaryenExpressionRef) BinaryenFunctionRef
+pub fn addfunction(module_ Module, name &i8, params Type, results Type, vartypes &Type, numvartypes Index, body Expression) Function
 
 [c:'BinaryenGetFunction']
-pub fn getfunction(module_ BinaryenModuleRef, name &i8) BinaryenFunctionRef
+pub fn getfunction(module_ Module, name &i8) Function
 
 [c:'BinaryenRemoveFunction']
-pub fn removefunction(module_ BinaryenModuleRef, name &i8) 
+pub fn removefunction(module_ Module, name &i8) 
 
 [c:'BinaryenGetNumFunctions']
-pub fn getnumfunctions(module_ BinaryenModuleRef) BinaryenIndex
+pub fn getnumfunctions(module_ Module) Index
 
 [c:'BinaryenGetFunctionByIndex']
-pub fn getfunctionbyindex(module_ BinaryenModuleRef, index BinaryenIndex) BinaryenFunctionRef
+pub fn getfunctionbyindex(module_ Module, index Index) Function
 
 [c:'BinaryenAddFunctionImport']
-pub fn addfunctionimport(module_ BinaryenModuleRef, internalname &i8, externalmodulename &i8, externalbasename &i8, params BinaryenType, results BinaryenType) 
+pub fn addfunctionimport(module_ Module, internalname &i8, externalmodulename &i8, externalbasename &i8, params Type, results Type) 
 
 [c:'BinaryenAddTableImport']
-pub fn addtableimport(module_ BinaryenModuleRef, internalname &i8, externalmodulename &i8, externalbasename &i8) 
+pub fn addtableimport(module_ Module, internalname &i8, externalmodulename &i8, externalbasename &i8) 
 
 [c:'BinaryenAddMemoryImport']
-pub fn addmemoryimport(module_ BinaryenModuleRef, internalname &i8, externalmodulename &i8, externalbasename &i8, shared_ u8) 
+pub fn addmemoryimport(module_ Module, internalname &i8, externalmodulename &i8, externalbasename &i8, shared_ u8) 
 
 [c:'BinaryenAddGlobalImport']
-pub fn addglobalimport(module_ BinaryenModuleRef, internalname &i8, externalmodulename &i8, externalbasename &i8, globaltype BinaryenType, mutable_ bool) 
+pub fn addglobalimport(module_ Module, internalname &i8, externalmodulename &i8, externalbasename &i8, globaltype Type, mutable_ bool) 
 
 [c:'BinaryenAddTagImport']
-pub fn addtagimport(module_ BinaryenModuleRef, internalname &i8, externalmodulename &i8, externalbasename &i8, params BinaryenType, results BinaryenType) 
+pub fn addtagimport(module_ Module, internalname &i8, externalmodulename &i8, externalbasename &i8, params Type, results Type) 
 
-type BinaryenMemoryRef = voidptr
-type BinaryenExportRef = voidptr
+type ExportRef = voidptr
 [c:'BinaryenAddExport']
-pub fn addexport(module_ BinaryenModuleRef, internalname &i8, externalname &i8) BinaryenExportRef
+pub fn addexport(module_ Module, internalname &i8, externalname &i8) ExportRef
 
 [c:'BinaryenAddFunctionExport']
-pub fn addfunctionexport(module_ BinaryenModuleRef, internalname &i8, externalname &i8) BinaryenExportRef
+pub fn addfunctionexport(module_ Module, internalname &i8, externalname &i8) ExportRef
 
 [c:'BinaryenAddTableExport']
-pub fn addtableexport(module_ BinaryenModuleRef, internalname &i8, externalname &i8) BinaryenExportRef
+pub fn addtableexport(module_ Module, internalname &i8, externalname &i8) ExportRef
 
 [c:'BinaryenAddMemoryExport']
-pub fn addmemoryexport(module_ BinaryenModuleRef, internalname &i8, externalname &i8) BinaryenExportRef
+pub fn addmemoryexport(module_ Module, internalname &i8, externalname &i8) ExportRef
 
 [c:'BinaryenAddGlobalExport']
-pub fn addglobalexport(module_ BinaryenModuleRef, internalname &i8, externalname &i8) BinaryenExportRef
+pub fn addglobalexport(module_ Module, internalname &i8, externalname &i8) ExportRef
 
 [c:'BinaryenAddTagExport']
-pub fn addtagexport(module_ BinaryenModuleRef, internalname &i8, externalname &i8) BinaryenExportRef
+pub fn addtagexport(module_ Module, internalname &i8, externalname &i8) ExportRef
 
 [c:'BinaryenGetExport']
-pub fn getexport(module_ BinaryenModuleRef, externalname &i8) BinaryenExportRef
+pub fn getexport(module_ Module, externalname &i8) ExportRef
 
 [c:'BinaryenRemoveExport']
-pub fn removeexport(module_ BinaryenModuleRef, externalname &i8) 
+pub fn removeexport(module_ Module, externalname &i8) 
 
 [c:'BinaryenGetNumExports']
-pub fn getnumexports(module_ BinaryenModuleRef) BinaryenIndex
+pub fn getnumexports(module_ Module) Index
 
 [c:'BinaryenGetExportByIndex']
-pub fn getexportbyindex(module_ BinaryenModuleRef, index BinaryenIndex) BinaryenExportRef
+pub fn getexportbyindex(module_ Module, index Index) ExportRef
 
-type BinaryenGlobalRef = voidptr
+type GlobalRef = voidptr
 [c:'BinaryenAddGlobal']
-pub fn addglobal(module_ BinaryenModuleRef, name &i8, type_ BinaryenType, mutable_ bool, init BinaryenExpressionRef) BinaryenGlobalRef
+pub fn addglobal(module_ Module, name &i8, type_ Type, mutable_ bool, init Expression) GlobalRef
 
 [c:'BinaryenGetGlobal']
-pub fn getglobal(module_ BinaryenModuleRef, name &i8) BinaryenGlobalRef
+pub fn getglobal(module_ Module, name &i8) GlobalRef
 
 [c:'BinaryenRemoveGlobal']
-pub fn removeglobal(module_ BinaryenModuleRef, name &i8) 
+pub fn removeglobal(module_ Module, name &i8) 
 
 [c:'BinaryenGetNumGlobals']
-pub fn getnumglobals(module_ BinaryenModuleRef) BinaryenIndex
+pub fn getnumglobals(module_ Module) Index
 
 [c:'BinaryenGetGlobalByIndex']
-pub fn getglobalbyindex(module_ BinaryenModuleRef, index BinaryenIndex) BinaryenGlobalRef
+pub fn getglobalbyindex(module_ Module, index Index) GlobalRef
 
-type BinaryenTagRef = voidptr
+type TagRef = voidptr
 [c:'BinaryenAddTag']
-pub fn addtag(module_ BinaryenModuleRef, name &i8, params BinaryenType, results BinaryenType) BinaryenTagRef
+pub fn addtag(module_ Module, name &i8, params Type, results Type) TagRef
 
 [c:'BinaryenGetTag']
-pub fn gettag(module_ BinaryenModuleRef, name &i8) BinaryenTagRef
+pub fn gettag(module_ Module, name &i8) TagRef
 
 [c:'BinaryenRemoveTag']
-pub fn removetag(module_ BinaryenModuleRef, name &i8) 
+pub fn removetag(module_ Module, name &i8) 
 
-type BinaryenTableRef = voidptr
+type TableRef = voidptr
 [c:'BinaryenAddTable']
-pub fn addtable(module_ BinaryenModuleRef, table &i8, initial BinaryenIndex, maximum BinaryenIndex, tabletype BinaryenType) BinaryenTableRef
+pub fn addtable(module_ Module, table &i8, initial Index, maximum Index, tabletype Type) TableRef
 
 [c:'BinaryenRemoveTable']
-pub fn removetable(module_ BinaryenModuleRef, table &i8) 
+pub fn removetable(module_ Module, table &i8) 
 
 [c:'BinaryenGetNumTables']
-pub fn getnumtables(module_ BinaryenModuleRef) BinaryenIndex
+pub fn getnumtables(module_ Module) Index
 
 [c:'BinaryenGetTable']
-pub fn gettable(module_ BinaryenModuleRef, name &i8) BinaryenTableRef
+pub fn gettable(module_ Module, name &i8) TableRef
 
 [c:'BinaryenGetTableByIndex']
-pub fn gettablebyindex(module_ BinaryenModuleRef, index BinaryenIndex) BinaryenTableRef
+pub fn gettablebyindex(module_ Module, index Index) TableRef
 
-type BinaryenElementSegmentRef = voidptr
+type ElementSegmentRef = voidptr
 [c:'BinaryenAddActiveElementSegment']
-pub fn addactiveelementsegment(module_ BinaryenModuleRef, table &i8, name &i8, funcnames &&u8, numfuncnames BinaryenIndex, offset BinaryenExpressionRef) BinaryenElementSegmentRef
+pub fn addactiveelementsegment(module_ Module, table &i8, name &i8, funcnames &&u8, numfuncnames Index, offset Expression) ElementSegmentRef
 
 [c:'BinaryenAddPassiveElementSegment']
-pub fn addpassiveelementsegment(module_ BinaryenModuleRef, name &i8, funcnames &&u8, numfuncnames BinaryenIndex) BinaryenElementSegmentRef
+pub fn addpassiveelementsegment(module_ Module, name &i8, funcnames &&u8, numfuncnames Index) ElementSegmentRef
 
 [c:'BinaryenRemoveElementSegment']
-pub fn removeelementsegment(module_ BinaryenModuleRef, name &i8) 
+pub fn removeelementsegment(module_ Module, name &i8) 
 
 [c:'BinaryenGetNumElementSegments']
-pub fn getnumelementsegments(module_ BinaryenModuleRef) BinaryenIndex
+pub fn getnumelementsegments(module_ Module) Index
 
 [c:'BinaryenGetElementSegment']
-pub fn getelementsegment(module_ BinaryenModuleRef, name &i8) BinaryenElementSegmentRef
+pub fn getelementsegment(module_ Module, name &i8) ElementSegmentRef
 
 [c:'BinaryenGetElementSegmentByIndex']
-pub fn getelementsegmentbyindex(module_ BinaryenModuleRef, index BinaryenIndex) BinaryenElementSegmentRef
+pub fn getelementsegmentbyindex(module_ Module, index Index) ElementSegmentRef
 
 [c:'BinaryenSetMemory']
-pub fn setmemory(module_ BinaryenModuleRef, initial BinaryenIndex, maximum BinaryenIndex, exportname &i8, segments &&u8, segmentpassive &bool, segmentoffsets &BinaryenExpressionRef, segmentsizes &BinaryenIndex, numsegments BinaryenIndex, shared_ bool, memory64 bool, name &i8) 
+pub fn setmemory(module_ Module, initial Index, maximum Index, exportname &i8, segments &&u8, segmentpassive &bool, segmentoffsets &Expression, segmentsizes &Index, numsegments Index, shared_ bool, memory64 bool, name &i8) 
 
 [c:'BinaryenHasMemory']
-pub fn hasmemory(module_ BinaryenModuleRef) bool
+pub fn hasmemory(module_ Module) bool
 
 [c:'BinaryenMemoryGetInitial']
-pub fn memorygetinitial(module_ BinaryenModuleRef, name &i8) BinaryenIndex
+pub fn memorygetinitial(module_ Module, name &i8) Index
 
 [c:'BinaryenMemoryHasMax']
-pub fn memoryhasmax(module_ BinaryenModuleRef, name &i8) bool
+pub fn memoryhasmax(module_ Module, name &i8) bool
 
 [c:'BinaryenMemoryGetMax']
-pub fn memorygetmax(module_ BinaryenModuleRef, name &i8) BinaryenIndex
+pub fn memorygetmax(module_ Module, name &i8) Index
 
 [c:'BinaryenMemoryImportGetModule']
-pub fn memoryimportgetmodule(module_ BinaryenModuleRef, name &i8) &i8
+pub fn memoryimportgetmodule(module_ Module, name &i8) &i8
 
 [c:'BinaryenMemoryImportGetBase']
-pub fn memoryimportgetbase(module_ BinaryenModuleRef, name &i8) &i8
+pub fn memoryimportgetbase(module_ Module, name &i8) &i8
 
 [c:'BinaryenMemoryIsshared_']
-pub fn memoryisshared_(module_ BinaryenModuleRef, name &i8) bool
+pub fn memoryisshared_(module_ Module, name &i8) bool
 
 [c:'BinaryenMemoryIs64']
-pub fn memoryis64(module_ BinaryenModuleRef, name &i8) bool
+pub fn memoryis64(module_ Module, name &i8) bool
 
 [c:'BinaryenGetNumMemorySegments']
-pub fn getnummemorysegments(module_ BinaryenModuleRef) u32
+pub fn getnummemorysegments(module_ Module) u32
 
 [c:'BinaryenGetMemorySegmentByteOffset']
-pub fn getmemorysegmentbyteoffset(module_ BinaryenModuleRef, id BinaryenIndex) u32
+pub fn getmemorysegmentbyteoffset(module_ Module, id Index) u32
 
 [c:'BinaryenGetMemorySegmentByteLength']
-pub fn getmemorysegmentbytelength(module_ BinaryenModuleRef, id BinaryenIndex) usize
+pub fn getmemorysegmentbytelength(module_ Module, id Index) usize
 
 [c:'BinaryenGetMemorySegmentPassive']
-pub fn getmemorysegmentpassive(module_ BinaryenModuleRef, id BinaryenIndex) bool
+pub fn getmemorysegmentpassive(module_ Module, id Index) bool
 
 [c:'BinaryenCopyMemorySegmentData']
-pub fn copymemorysegmentdata(module_ BinaryenModuleRef, id BinaryenIndex, buffer &i8) 
+pub fn copymemorysegmentdata(module_ Module, id Index, buffer &i8) 
 
 [c:'BinaryenSetStart']
-pub fn setstart(module_ BinaryenModuleRef, start BinaryenFunctionRef) 
+pub fn setstart(module_ Module, start Function) 
 
 [c:'BinaryenModuleGetFeatures']
-pub fn modulegetfeatures(module_ BinaryenModuleRef) BinaryenFeatures
+pub fn modulegetfeatures(module_ Module) Features
 
 [c:'BinaryenModuleSetFeatures']
-pub fn modulesetfeatures(module_ BinaryenModuleRef, features BinaryenFeatures) 
+pub fn modulesetfeatures(module_ Module, features Features) 
 
 [c:'BinaryenModuleParse']
-pub fn moduleparse(text &i8) BinaryenModuleRef
+pub fn moduleparse(text &i8) Module
 
 [c:'BinaryenModulePrint']
-pub fn moduleprint(module_ BinaryenModuleRef) 
+pub fn moduleprint(module_ Module) 
 
 [c:'BinaryenModulePrintStackIR']
-pub fn moduleprintstackir(module_ BinaryenModuleRef, optimize bool) 
+pub fn moduleprintstackir(module_ Module, optimize bool) 
 
 [c:'BinaryenModulePrintAsmjs']
-pub fn moduleprintasmjs(module_ BinaryenModuleRef) 
+pub fn moduleprintasmjs(module_ Module) 
 
 [c:'BinaryenModuleValidate']
-pub fn modulevalidate(module_ BinaryenModuleRef) bool
+pub fn modulevalidate(module_ Module) bool
 
 [c:'BinaryenModuleOptimize']
-pub fn moduleoptimize(module_ BinaryenModuleRef) 
+pub fn moduleoptimize(module_ Module) 
 
 [c:'BinaryenModuleUpdateMaps']
-pub fn moduleupdatemaps(module_ BinaryenModuleRef) 
+pub fn moduleupdatemaps(module_ Module) 
 
 [c:'BinaryenGetOptimizeLevel']
 pub fn getoptimizelevel() int
@@ -3523,22 +3534,22 @@ pub fn setpassargument(name &i8, value &i8)
 pub fn clearpassarguments() 
 
 [c:'BinaryenGetAlwaysInlineMaxSize']
-pub fn getalwaysinlinemaxsize() BinaryenIndex
+pub fn getalwaysinlinemaxsize() Index
 
 [c:'BinaryenSetAlwaysInlineMaxSize']
-pub fn setalwaysinlinemaxsize(size BinaryenIndex) 
+pub fn setalwaysinlinemaxsize(size Index) 
 
 [c:'BinaryenGetFlexibleInlineMaxSize']
-pub fn getflexibleinlinemaxsize() BinaryenIndex
+pub fn getflexibleinlinemaxsize() Index
 
 [c:'BinaryenSetFlexibleInlineMaxSize']
-pub fn setflexibleinlinemaxsize(size BinaryenIndex) 
+pub fn setflexibleinlinemaxsize(size Index) 
 
 [c:'BinaryenGetOneCallerInlineMaxSize']
-pub fn getonecallerinlinemaxsize() BinaryenIndex
+pub fn getonecallerinlinemaxsize() Index
 
 [c:'BinaryenSetOneCallerInlineMaxSize']
-pub fn setonecallerinlinemaxsize(size BinaryenIndex) 
+pub fn setonecallerinlinemaxsize(size Index) 
 
 [c:'BinaryenGetAllowInliningFunctionsWithLoops']
 pub fn getallowinliningfunctionswithloops() bool
@@ -3547,94 +3558,96 @@ pub fn getallowinliningfunctionswithloops() bool
 pub fn setallowinliningfunctionswithloops(enabled bool) 
 
 [c:'BinaryenModuleRunPasses']
-pub fn modulerunpasses(module_ BinaryenModuleRef, passes &&u8, numpasses BinaryenIndex) 
+pub fn modulerunpasses(module_ Module, passes &&u8, numpasses Index) 
 
 [c:'BinaryenModuleAutoDrop']
-pub fn moduleautodrop(module_ BinaryenModuleRef) 
+pub fn moduleautodrop(module_ Module) 
 
 [c:'BinaryenModuleWrite']
-pub fn modulewrite(module_ BinaryenModuleRef, output &i8, outputsize usize) usize
+pub fn modulewrite(module_ Module, output &i8, outputsize usize) usize
 
 [c:'BinaryenModuleWriteText']
-pub fn modulewritetext(module_ BinaryenModuleRef, output &i8, outputsize usize) usize
+pub fn modulewritetext(module_ Module, output &i8, outputsize usize) usize
 
 [c:'BinaryenModuleWriteStackIR']
-pub fn modulewritestackir(module_ BinaryenModuleRef, output &i8, outputsize usize, optimize bool) usize
+pub fn modulewritestackir(module_ Module, output &i8, outputsize usize, optimize bool) usize
 
-struct BinaryenBufferSizes { 
+pub struct BufferSizes { 
+pub:
 	outputBytes usize
 	sourceMapBytes usize
 }
 [c:'BinaryenModuleWriteWithSourceMap']
-pub fn modulewritewithsourcemap(module_ BinaryenModuleRef, url &i8, output &i8, outputsize usize, sourcemap &i8, sourcemapsize usize) BinaryenBufferSizes
+pub fn modulewritewithsourcemap(module_ Module, url &i8, output &i8, outputsize usize, sourcemap &i8, sourcemapsize usize) BufferSizes
 
-struct BinaryenModuleAllocateAndWriteResult { 
+pub struct ModuleAllocateAndWriteResult { 
+pub:
 	binary voidptr
 	binaryBytes usize
 	sourceMap &i8
 }
 [c:'BinaryenModuleAllocateAndWrite']
-pub fn moduleallocateandwrite(module_ BinaryenModuleRef, sourcemapurl &i8) BinaryenModuleAllocateAndWriteResult
+pub fn moduleallocateandwrite(module_ Module, sourcemapurl &i8) ModuleAllocateAndWriteResult
 
 [c:'BinaryenModuleAllocateAndWriteText']
-pub fn moduleallocateandwritetext(module_ BinaryenModuleRef) &i8
+pub fn moduleallocateandwritetext(module_ Module) &i8
 
 [c:'BinaryenModuleAllocateAndWriteStackIR']
-pub fn moduleallocateandwritestackir(module_ BinaryenModuleRef, optimize bool) &i8
+pub fn moduleallocateandwritestackir(module_ Module, optimize bool) &i8
 
 [c:'BinaryenModuleRead']
-pub fn moduleread(input &i8, inputsize usize) BinaryenModuleRef
+pub fn moduleread(input &i8, inputsize usize) Module
 
 [c:'BinaryenModuleInterpret']
-pub fn moduleinterpret(module_ BinaryenModuleRef) 
+pub fn moduleinterpret(module_ Module) 
 
 [c:'BinaryenModuleAddDebugInfoFileName']
-pub fn moduleadddebuginfofilename(module_ BinaryenModuleRef, filename &i8) BinaryenIndex
+pub fn moduleadddebuginfofilename(module_ Module, filename &i8) Index
 
 [c:'BinaryenModuleGetDebugInfoFileName']
-pub fn modulegetdebuginfofilename(module_ BinaryenModuleRef, index BinaryenIndex) &i8
+pub fn modulegetdebuginfofilename(module_ Module, index Index) &i8
 
 [c:'BinaryenFunctionGetName']
-pub fn functiongetname(func BinaryenFunctionRef) &i8
+pub fn functiongetname(func Function) &i8
 
 [c:'BinaryenFunctionGetParams']
-pub fn functiongetparams(func BinaryenFunctionRef) BinaryenType
+pub fn functiongetparams(func Function) Type
 
 [c:'BinaryenFunctionGetResults']
-pub fn functiongetresults(func BinaryenFunctionRef) BinaryenType
+pub fn functiongetresults(func Function) Type
 
 [c:'BinaryenFunctionGetNumVars']
-pub fn functiongetnumvars(func BinaryenFunctionRef) BinaryenIndex
+pub fn functiongetnumvars(func Function) Index
 
 [c:'BinaryenFunctionGetVar']
-pub fn functiongetvar(func BinaryenFunctionRef, index BinaryenIndex) BinaryenType
+pub fn functiongetvar(func Function, index Index) Type
 
 [c:'BinaryenFunctionGetNumLocals']
-pub fn functiongetnumlocals(func BinaryenFunctionRef) BinaryenIndex
+pub fn functiongetnumlocals(func Function) Index
 
 [c:'BinaryenFunctionHasLocalName']
-pub fn functionhaslocalname(func BinaryenFunctionRef, index BinaryenIndex) bool
+pub fn functionhaslocalname(func Function, index Index) bool
 
 [c:'BinaryenFunctionGetLocalName']
-pub fn functiongetlocalname(func BinaryenFunctionRef, index BinaryenIndex) &i8
+pub fn functiongetlocalname(func Function, index Index) &i8
 
 [c:'BinaryenFunctionSetLocalName']
-pub fn functionsetlocalname(func BinaryenFunctionRef, index BinaryenIndex, name &i8) 
+pub fn functionsetlocalname(func Function, index Index, name &i8) 
 
 [c:'BinaryenFunctionGetBody']
-pub fn functiongetbody(func BinaryenFunctionRef) BinaryenExpressionRef
+pub fn functiongetbody(func Function) Expression
 
 [c:'BinaryenFunctionSetBody']
-pub fn functionsetbody(func BinaryenFunctionRef, body BinaryenExpressionRef) 
+pub fn functionsetbody(func Function, body Expression) 
 
 [c:'BinaryenFunctionOptimize']
-pub fn functionoptimize(func BinaryenFunctionRef, module_ BinaryenModuleRef) 
+pub fn functionoptimize(func Function, module_ Module) 
 
 [c:'BinaryenFunctionRunPasses']
-pub fn functionrunpasses(func BinaryenFunctionRef, module_ BinaryenModuleRef, passes &&u8, numpasses BinaryenIndex) 
+pub fn functionrunpasses(func Function, module_ Module, passes &&u8, numpasses Index) 
 
 [c:'BinaryenFunctionSetDebugLocation']
-pub fn functionsetdebuglocation(func BinaryenFunctionRef, expr BinaryenExpressionRef, fileindex BinaryenIndex, linenumber BinaryenIndex, columnnumber BinaryenIndex) 
+pub fn functionsetdebuglocation(func Function, expr Expression, fileindex Index, linenumber Index, columnnumber Index) 
 
 [c:'BinaryenTableGetName']
 pub fn tablegetname(table BinaryenTableRef) &i8
@@ -3643,177 +3656,177 @@ pub fn tablegetname(table BinaryenTableRef) &i8
 pub fn tablesetname(table BinaryenTableRef, name &i8) 
 
 [c:'BinaryenTableGetInitial']
-pub fn tablegetinitial(table BinaryenTableRef) BinaryenIndex
+pub fn tablegetinitial(table BinaryenTableRef) Index
 
 [c:'BinaryenTableSetInitial']
-pub fn tablesetinitial(table BinaryenTableRef, initial BinaryenIndex) 
+pub fn tablesetinitial(table BinaryenTableRef, initial Index) 
 
 [c:'BinaryenTableHasMax']
 pub fn tablehasmax(table BinaryenTableRef) bool
 
 [c:'BinaryenTableGetMax']
-pub fn tablegetmax(table BinaryenTableRef) BinaryenIndex
+pub fn tablegetmax(table BinaryenTableRef) Index
 
 [c:'BinaryenTableSetMax']
-pub fn tablesetmax(table BinaryenTableRef, max BinaryenIndex) 
+pub fn tablesetmax(table BinaryenTableRef, max Index) 
 
 [c:'BinaryenElementSegmentGetName']
-pub fn elementsegmentgetname(elem BinaryenElementSegmentRef) &i8
+pub fn elementsegmentgetname(elem ElementSegmentRef) &i8
 
 [c:'BinaryenElementSegmentSetName']
-pub fn elementsegmentsetname(elem BinaryenElementSegmentRef, name &i8) 
+pub fn elementsegmentsetname(elem ElementSegmentRef, name &i8) 
 
 [c:'BinaryenElementSegmentGetTable']
-pub fn elementsegmentgettable(elem BinaryenElementSegmentRef) &i8
+pub fn elementsegmentgettable(elem ElementSegmentRef) &i8
 
 [c:'BinaryenElementSegmentSetTable']
-pub fn elementsegmentsettable(elem BinaryenElementSegmentRef, table &i8) 
+pub fn elementsegmentsettable(elem ElementSegmentRef, table &i8) 
 
 [c:'BinaryenElementSegmentGetOffset']
-pub fn elementsegmentgetoffset(elem BinaryenElementSegmentRef) BinaryenExpressionRef
+pub fn elementsegmentgetoffset(elem ElementSegmentRef) Expression
 
 [c:'BinaryenElementSegmentGetLength']
-pub fn elementsegmentgetlength(elem BinaryenElementSegmentRef) BinaryenIndex
+pub fn elementsegmentgetlength(elem ElementSegmentRef) Index
 
 [c:'BinaryenElementSegmentGetData']
-pub fn elementsegmentgetdata(elem BinaryenElementSegmentRef, dataid BinaryenIndex) &i8
+pub fn elementsegmentgetdata(elem ElementSegmentRef, dataid Index) &i8
 
 [c:'BinaryenElementSegmentIsPassive']
-pub fn elementsegmentispassive(elem BinaryenElementSegmentRef) bool
+pub fn elementsegmentispassive(elem ElementSegmentRef) bool
 
 [c:'BinaryenGlobalGetName']
-pub fn globalgetname(global BinaryenGlobalRef) &i8
+pub fn globalgetname(global GlobalRef) &i8
 
 [c:'BinaryenGlobalGetType']
-pub fn globalgettype(global BinaryenGlobalRef) BinaryenType
+pub fn globalgettype(global GlobalRef) Type
 
 [c:'BinaryenGlobalIsMutable']
-pub fn globalismutable(global BinaryenGlobalRef) bool
+pub fn globalismutable(global GlobalRef) bool
 
 [c:'BinaryenGlobalGetInitExpr']
-pub fn globalgetinitexpr(global BinaryenGlobalRef) BinaryenExpressionRef
+pub fn globalgetinitexpr(global GlobalRef) Expression
 
 [c:'BinaryenTagGetName']
-pub fn taggetname(tag BinaryenTagRef) &i8
+pub fn taggetname(tag TagRef) &i8
 
 [c:'BinaryenTagGetParams']
-pub fn taggetparams(tag BinaryenTagRef) BinaryenType
+pub fn taggetparams(tag TagRef) Type
 
 [c:'BinaryenTagGetResults']
-pub fn taggetresults(tag BinaryenTagRef) BinaryenType
+pub fn taggetresults(tag TagRef) Type
 
 [c:'BinaryenFunctionImportGetModule']
-pub fn functionimportgetmodule(import_ BinaryenFunctionRef) &i8
+pub fn functionimportgetmodule(import_ Function) &i8
 
 [c:'BinaryenTableImportGetModule']
 pub fn tableimportgetmodule(import_ BinaryenTableRef) &i8
 
 [c:'BinaryenGlobalImportGetModule']
-pub fn globalimportgetmodule(import_ BinaryenGlobalRef) &i8
+pub fn globalimportgetmodule(import_ GlobalRef) &i8
 
 [c:'BinaryenTagImportGetModule']
-pub fn tagimportgetmodule(import_ BinaryenTagRef) &i8
+pub fn tagimportgetmodule(import_ TagRef) &i8
 
 [c:'BinaryenFunctionImportGetBase']
-pub fn functionimportgetbase(import_ BinaryenFunctionRef) &i8
+pub fn functionimportgetbase(import_ Function) &i8
 
 [c:'BinaryenTableImportGetBase']
 pub fn tableimportgetbase(import_ BinaryenTableRef) &i8
 
 [c:'BinaryenGlobalImportGetBase']
-pub fn globalimportgetbase(import_ BinaryenGlobalRef) &i8
+pub fn globalimportgetbase(import_ GlobalRef) &i8
 
 [c:'BinaryenTagImportGetBase']
-pub fn tagimportgetbase(import_ BinaryenTagRef) &i8
+pub fn tagimportgetbase(import_ TagRef) &i8
 
 [c:'BinaryenExportGetKind']
-pub fn exportgetkind(export_ BinaryenExportRef) BinaryenExternalKind
+pub fn exportgetkind(export_ ExportRef) ExternalKind
 
 [c:'BinaryenExportGetName']
-pub fn exportgetname(export_ BinaryenExportRef) &i8
+pub fn exportgetname(export_ ExportRef) &i8
 
 [c:'BinaryenExportGetValue']
-pub fn exportgetvalue(export_ BinaryenExportRef) &i8
+pub fn exportgetvalue(export_ ExportRef) &i8
 
 [c:'BinaryenAddCustomSection']
-pub fn addcustomsection(module_ BinaryenModuleRef, name &i8, contents &i8, contentssize BinaryenIndex) 
+pub fn addcustomsection(module_ Module, name &i8, contents &i8, contentssize Index) 
 
-type BinaryenSideEffects = u32
+type SideEffects = u32
 [c:'BinaryenSideEffectNone']
-pub fn sideeffectnone() BinaryenSideEffects
+pub fn sideeffectnone() SideEffects
 
 [c:'BinaryenSideEffectBranches']
-pub fn sideeffectbranches() BinaryenSideEffects
+pub fn sideeffectbranches() SideEffects
 
 [c:'BinaryenSideEffectCalls']
-pub fn sideeffectcalls() BinaryenSideEffects
+pub fn sideeffectcalls() SideEffects
 
 [c:'BinaryenSideEffectReadsLocal']
-pub fn sideeffectreadslocal() BinaryenSideEffects
+pub fn sideeffectreadslocal() SideEffects
 
 [c:'BinaryenSideEffectWritesLocal']
-pub fn sideeffectwriteslocal() BinaryenSideEffects
+pub fn sideeffectwriteslocal() SideEffects
 
 [c:'BinaryenSideEffectReadsGlobal']
-pub fn sideeffectreadsglobal() BinaryenSideEffects
+pub fn sideeffectreadsglobal() SideEffects
 
 [c:'BinaryenSideEffectWritesGlobal']
-pub fn sideeffectwritesglobal() BinaryenSideEffects
+pub fn sideeffectwritesglobal() SideEffects
 
 [c:'BinaryenSideEffectReadsMemory']
-pub fn sideeffectreadsmemory() BinaryenSideEffects
+pub fn sideeffectreadsmemory() SideEffects
 
 [c:'BinaryenSideEffectWritesMemory']
-pub fn sideeffectwritesmemory() BinaryenSideEffects
+pub fn sideeffectwritesmemory() SideEffects
 
 [c:'BinaryenSideEffectReadsTable']
-pub fn sideeffectreadstable() BinaryenSideEffects
+pub fn sideeffectreadstable() SideEffects
 
 [c:'BinaryenSideEffectWritesTable']
-pub fn sideeffectwritestable() BinaryenSideEffects
+pub fn sideeffectwritestable() SideEffects
 
 [c:'BinaryenSideEffectImplicitTrap']
-pub fn sideeffectimplicittrap() BinaryenSideEffects
+pub fn sideeffectimplicittrap() SideEffects
 
 [c:'BinaryenSideEffectTrapsNeverHappen']
-pub fn sideeffecttrapsneverhappen() BinaryenSideEffects
+pub fn sideeffecttrapsneverhappen() SideEffects
 
 [c:'BinaryenSideEffectIsAtomic']
-pub fn sideeffectisatomic() BinaryenSideEffects
+pub fn sideeffectisatomic() SideEffects
 
 [c:'BinaryenSideEffectThrows']
-pub fn sideeffectthrows() BinaryenSideEffects
+pub fn sideeffectthrows() SideEffects
 
 [c:'BinaryenSideEffectDanglingPop']
-pub fn sideeffectdanglingpop() BinaryenSideEffects
+pub fn sideeffectdanglingpop() SideEffects
 
 [c:'BinaryenSideEffectAny']
-pub fn sideeffectany() BinaryenSideEffects
+pub fn sideeffectany() SideEffects
 
 [c:'BinaryenExpressionGetSideEffects']
-pub fn expressiongetsideeffects(expr BinaryenExpressionRef, module_ BinaryenModuleRef) BinaryenSideEffects
+pub fn expressiongetsideeffects(expr Expression, module_ Module) SideEffects
 
-type RelooperRef = voidptr
-type RelooperBlockRef = voidptr
+type Relooper = voidptr
+type RelooperBlock = voidptr
 [c:'RelooperCreate']
-pub fn reloopercreate(module_ BinaryenModuleRef) RelooperRef
+pub fn reloopercreate(module_ Module) Relooper
 
 [c:'RelooperAddBlock']
-pub fn relooperaddblock(relooper RelooperRef, code BinaryenExpressionRef) RelooperBlockRef
+pub fn relooperaddblock(relooper Relooper, code Expression) RelooperBlock
 
 [c:'RelooperAddBranch']
-pub fn relooperaddbranch(from RelooperBlockRef, to RelooperBlockRef, condition BinaryenExpressionRef, code BinaryenExpressionRef) 
+pub fn relooperaddbranch(from RelooperBlock, to RelooperBlock, condition Expression, code Expression) 
 
 [c:'RelooperAddBlockWithSwitch']
-pub fn relooperaddblockwithswitch(relooper RelooperRef, code BinaryenExpressionRef, condition BinaryenExpressionRef) RelooperBlockRef
+pub fn relooperaddblockwithswitch(relooper Relooper, code Expression, condition Expression) RelooperBlock
 
 [c:'RelooperAddBranchForSwitch']
-pub fn relooperaddbranchforswitch(from RelooperBlockRef, to RelooperBlockRef, indexes &BinaryenIndex, numindexes BinaryenIndex, code BinaryenExpressionRef) 
+pub fn relooperaddbranchforswitch(from RelooperBlock, to RelooperBlock, indexes &Index, numindexes Index, code Expression) 
 
 [c:'RelooperRenderAndDispose']
-pub fn relooperrenderanddispose(relooper RelooperRef, entry RelooperBlockRef, labelhelper BinaryenIndex) BinaryenExpressionRef
+pub fn relooperrenderanddispose(relooper Relooper, entry RelooperBlock, labelhelper Index) Expression
 
-type ExpressionRunnerRef = voidptr
+type ExpressionRunner = voidptr
 type ExpressionRunnerFlags = u32
 [c:'ExpressionRunnerFlagsDefault']
 pub fn expressionrunnerflagsdefault() ExpressionRunnerFlags
@@ -3825,18 +3838,18 @@ pub fn expressionrunnerflagspreservesideeffects() ExpressionRunnerFlags
 pub fn expressionrunnerflagstraversecalls() ExpressionRunnerFlags
 
 [c:'ExpressionRunnerCreate']
-pub fn expressionrunnercreate(module_ BinaryenModuleRef, flags ExpressionRunnerFlags, maxdepth BinaryenIndex, maxloopiterations BinaryenIndex) ExpressionRunnerRef
+pub fn expressionrunnercreate(module_ Module, flags ExpressionRunnerFlags, maxdepth Index, maxloopiterations Index) ExpressionRunner
 
 [c:'ExpressionRunnerSetLocalValue']
-pub fn expressionrunnersetlocalvalue(runner ExpressionRunnerRef, index BinaryenIndex, value BinaryenExpressionRef) bool
+pub fn expressionrunnersetlocalvalue(runner ExpressionRunner, index Index, value Expression) bool
 
 [c:'ExpressionRunnerSetGlobalValue']
-pub fn expressionrunnersetglobalvalue(runner ExpressionRunnerRef, name &i8, value BinaryenExpressionRef) bool
+pub fn expressionrunnersetglobalvalue(runner ExpressionRunner, name &i8, value Expression) bool
 
 [c:'ExpressionRunnerRunAndDispose']
-pub fn expressionrunnerrunanddispose(runner ExpressionRunnerRef, expr BinaryenExpressionRef) BinaryenExpressionRef
+pub fn expressionrunnerrunanddispose(runner ExpressionRunner, expr Expression) Expression
 
-type TypeBuilderRef = voidptr
+type TypeBuilder = voidptr
 type TypeBuilderErrorReason = u32
 [c:'TypeBuilderErrorReasonSelfSupertype']
 pub fn typebuildererrorreasonselfsupertype() TypeBuilderErrorReason
@@ -3850,57 +3863,57 @@ pub fn typebuildererrorreasonforwardsupertypereference() TypeBuilderErrorReason
 [c:'TypeBuilderErrorReasonForwardChildReference']
 pub fn typebuildererrorreasonforwardchildreference() TypeBuilderErrorReason
 
-type BinaryenBasicHeapType = u32
+type BasicHeapType = u32
 [c:'TypeBuilderCreate']
-pub fn typebuildercreate(size BinaryenIndex) TypeBuilderRef
+pub fn typebuildercreate(size Index) TypeBuilder
 
 [c:'TypeBuilderGrow']
-pub fn typebuildergrow(builder TypeBuilderRef, count BinaryenIndex) 
+pub fn typebuildergrow(builder TypeBuilder, count Index) 
 
 [c:'TypeBuilderGetSize']
-pub fn typebuildergetsize(builder TypeBuilderRef) BinaryenIndex
+pub fn typebuildergetsize(builder TypeBuilder) Index
 
 [c:'TypeBuilderSetBasicHeapType']
-pub fn typebuildersetbasicheaptype(builder TypeBuilderRef, index BinaryenIndex, basicheaptype BinaryenBasicHeapType) 
+pub fn typebuildersetbasicheaptype(builder TypeBuilder, index Index, basicheaptype BasicHeapType) 
 
 [c:'TypeBuilderSetSignatureType']
-pub fn typebuildersetsignaturetype(builder TypeBuilderRef, index BinaryenIndex, paramtypes BinaryenType, resulttypes BinaryenType) 
+pub fn typebuildersetsignaturetype(builder TypeBuilder, index Index, paramtypes Type, resulttypes Type) 
 
 [c:'TypeBuilderSetStructType']
-pub fn typebuildersetstructtype(builder TypeBuilderRef, index BinaryenIndex, fieldtypes &BinaryenType, fieldpackedtypes &BinaryenPackedType, fieldmutables &bool, numfields int) 
+pub fn typebuildersetstructtype(builder TypeBuilder, index Index, fieldtypes &Type, fieldpackedtypes &Type, fieldmutables &bool, numfields int) 
 
 [c:'TypeBuilderSetArrayType']
-pub fn typebuildersetarraytype(builder TypeBuilderRef, index BinaryenIndex, elementtype BinaryenType, elementpackedtype BinaryenPackedType, elementmutable int) 
+pub fn typebuildersetarraytype(builder TypeBuilder, index Index, elementtype Type, elementpackedtype PackedType, elementmutable int) 
 
 [c:'TypeBuilderIsBasic']
-pub fn typebuilderisbasic(builder TypeBuilderRef, index BinaryenIndex) bool
+pub fn typebuilderisbasic(builder TypeBuilder, index Index) bool
 
 [c:'TypeBuilderGetBasic']
-pub fn typebuildergetbasic(builder TypeBuilderRef, index BinaryenIndex) BinaryenBasicHeapType
+pub fn typebuildergetbasic(builder TypeBuilder, index Index) BasicHeapType
 
 [c:'TypeBuilderGetTempHeapType']
-pub fn typebuildergettempheaptype(builder TypeBuilderRef, index BinaryenIndex) BinaryenHeapType
+pub fn typebuildergettempheaptype(builder TypeBuilder, index Index) HeapType
 
 [c:'TypeBuilderGetTempTupleType']
-pub fn typebuildergettemptupletype(builder TypeBuilderRef, types &BinaryenType, numtypes BinaryenIndex) BinaryenType
+pub fn typebuildergettemptupletype(builder TypeBuilder, types &Type, numtypes Index) Type
 
 [c:'TypeBuilderGetTempRefType']
-pub fn typebuildergettempreftype(builder TypeBuilderRef, heaptype BinaryenHeapType, nullable int) BinaryenType
+pub fn typebuildergettempreftype(builder TypeBuilder, heaptype HeapType, nullable int) Type
 
 [c:'TypeBuilderSetSubType']
-pub fn typebuildersetsubtype(builder TypeBuilderRef, index BinaryenIndex, supertype BinaryenHeapType) 
+pub fn typebuildersetsubtype(builder TypeBuilder, index Index, supertype HeapType) 
 
 [c:'TypeBuilderCreateRecGroup']
-pub fn typebuildercreaterecgroup(builder TypeBuilderRef, index BinaryenIndex, length BinaryenIndex) 
+pub fn typebuildercreaterecgroup(builder TypeBuilder, index Index, length Index) 
 
 [c:'TypeBuilderBuildAndDispose']
-pub fn typebuilderbuildanddispose(builder TypeBuilderRef, heaptypes &BinaryenHeapType, errorindex &BinaryenIndex, errorreason &TypeBuilderErrorReason) bool
+pub fn typebuilderbuildanddispose(builder TypeBuilder, heaptypes &HeapType, errorindex &Index, errorreason &TypeBuilderErrorReason) bool
 
-[c:'BinaryenModuleSetTypeName']
-pub fn modulesettypename(module_ BinaryenModuleRef, heaptype BinaryenHeapType, name &i8) 
+[c:'ModuleSetTypeName']
+pub fn modulesettypename(module_ Module, heaptype HeapType, name &i8) 
 
-[c:'BinaryenModuleSetFieldName']
-pub fn modulesetfieldname(module_ BinaryenModuleRef, heaptype BinaryenHeapType, index BinaryenIndex, name &i8) 
+[c:'ModuleSetFieldName']
+pub fn modulesetfieldname(module_ Module, heaptype HeapType, index Index, name &i8) 
 
 [c:'BinaryenSetColorsEnabled']
 pub fn setcolorsenabled(enabled bool) 
