@@ -3650,25 +3650,25 @@ pub fn functionrunpasses(func Function, module_ Module, passes &&u8, numpasses I
 pub fn functionsetdebuglocation(func Function, expr Expression, fileindex Index, linenumber Index, columnnumber Index) 
 
 [c:'BinaryenTableGetName']
-pub fn tablegetname(table BinaryenTableRef) &i8
+pub fn tablegetname(table TableRef) &i8
 
 [c:'BinaryenTableSetName']
-pub fn tablesetname(table BinaryenTableRef, name &i8) 
+pub fn tablesetname(table TableRef, name &i8) 
 
 [c:'BinaryenTableGetInitial']
-pub fn tablegetinitial(table BinaryenTableRef) Index
+pub fn tablegetinitial(table TableRef) Index
 
 [c:'BinaryenTableSetInitial']
-pub fn tablesetinitial(table BinaryenTableRef, initial Index) 
+pub fn tablesetinitial(table TableRef, initial Index) 
 
 [c:'BinaryenTableHasMax']
-pub fn tablehasmax(table BinaryenTableRef) bool
+pub fn tablehasmax(table TableRef) bool
 
 [c:'BinaryenTableGetMax']
-pub fn tablegetmax(table BinaryenTableRef) Index
+pub fn tablegetmax(table TableRef) Index
 
 [c:'BinaryenTableSetMax']
-pub fn tablesetmax(table BinaryenTableRef, max Index) 
+pub fn tablesetmax(table TableRef, max Index) 
 
 [c:'BinaryenElementSegmentGetName']
 pub fn elementsegmentgetname(elem ElementSegmentRef) &i8
@@ -3719,7 +3719,7 @@ pub fn taggetresults(tag TagRef) Type
 pub fn functionimportgetmodule(import_ Function) &i8
 
 [c:'BinaryenTableImportGetModule']
-pub fn tableimportgetmodule(import_ BinaryenTableRef) &i8
+pub fn tableimportgetmodule(import_ TableRef) &i8
 
 [c:'BinaryenGlobalImportGetModule']
 pub fn globalimportgetmodule(import_ GlobalRef) &i8
@@ -3731,7 +3731,7 @@ pub fn tagimportgetmodule(import_ TagRef) &i8
 pub fn functionimportgetbase(import_ Function) &i8
 
 [c:'BinaryenTableImportGetBase']
-pub fn tableimportgetbase(import_ BinaryenTableRef) &i8
+pub fn tableimportgetbase(import_ TableRef) &i8
 
 [c:'BinaryenGlobalImportGetBase']
 pub fn globalimportgetbase(import_ GlobalRef) &i8
